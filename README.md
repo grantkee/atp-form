@@ -1,4 +1,4 @@
-#DME App
+#DME App (working title)
 
 ##Goal
 The purpose of this application is to establish an efficient method for *Assistive Technology Professionals* to collect the information that insurance providers require to authorize equipment. 

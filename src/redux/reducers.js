@@ -7,4 +7,4 @@ const clients = (state = [], action ) => {
     }
 }
 
-export default comkbineReducers({clients})
+export default combineReducers({clients})
