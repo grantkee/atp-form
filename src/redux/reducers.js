@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 
-const clients = (state = [], action ) => {
-    switch(action.type) {
-        case 'ADD_CLIENT' :
-            return [...state, action.value]
-    }
-}
+//removed action in the parameter and only returning state for now
+const clients = (state = null ) => state
+// {
+//     switch(action.type) {
+//         case 'ADD_CLIENT' :
+//             return [...state, action.value]
+//     }
+// }
 
 export default combineReducers({clients})
