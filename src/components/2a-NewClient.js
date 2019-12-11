@@ -16,6 +16,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
 function Copyright() {
   return (
@@ -50,6 +51,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const genders = [
+  "male",
+  "female"
+]
+
 export default function SignUp() {
   const classes = useStyles();
 
@@ -78,6 +84,39 @@ export default function SignUp() {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="lname"
+                variant="outlined"
+                required
+                fullWidth
+                id="lastName"
+                label="Last Name"
+                name="lastName"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                autoComplete="fname"
+                name="Date of Birth"
+                variant="outlined"
+                required
+                fullWidth
+                id="firstName"
+                label="Date of Birth"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Autocomplete
+                id="gender-box"
+                options={genders}
+                style={{width: 300}}
+                renderInput={params => (
+                  <TextField {...params} label="gender box" variant="outlined" fullWidth />
+                )}
+              />
+            </Grid>
+            <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
@@ -112,9 +151,21 @@ export default function SignUp() {
               />
             </Grid>
             <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+            </Grid>
+            <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
+                label="I have verified the information above is accurate and up-to-date."
               />
             </Grid>
           </Grid>
