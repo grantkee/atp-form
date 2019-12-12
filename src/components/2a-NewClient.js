@@ -56,6 +56,18 @@ const genders = [
   "female"
 ]
 
+const relationship = [
+  'Self',
+  'Mom',
+  'Dad',
+  'Grandparent',
+  'Aunt',
+  'Uncle',
+  'Sibling',
+  'Foster Parent',
+  'Other'
+]
+
 export default function SignUp() {
   const classes = useStyles();
 
@@ -103,28 +115,84 @@ export default function SignUp() {
                 fullWidth
                 id="firstName"
                 label="Date of Birth"
-                autoFocus
               />
             </Grid>
             <Grid item xs={12}>
               <Autocomplete
                 id="gender-box"
                 options={genders}
-                style={{width: 300}}
+                style={{width: 268}}
                 renderInput={params => (
-                  <TextField {...params} label="gender box" variant="outlined" fullWidth />
+                  <TextField {...params} label="Gender" variant="outlined" fullWidth />
                 )}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                autoComplete="address"
                 variant="outlined"
                 required
                 fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
+                id="address"
+                label="address"
+                name="address"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                autoComplete="city"
+                variant="outlined"
+                required
+                fullWidth
+                id="city"
+                label="city"
+                name="city"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                autoComplete="state"
+                variant="outlined"
+                required
+                fullWidth
+                id="state"
+                label="state"
+                name="state"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                autoComplete="zip"
+                variant="outlined"
+                required
+                fullWidth
+                id="zip"
+                label="zip"
+                name="zip"
+              />
+            </Grid>
+            <Typography component="h1" variant="h5">
+          Caregiver
+            </Typography>
+            <Grid item xs={12}>
+              <TextField
+                autoComplete="rparty"
+                variant="outlined"
+                required
+                fullWidth
+                id="responsibleParty"
+                label="Responsible Party"
+                name="responsible party"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Autocomplete
+                id="relationship-box"
+                options={relationship}
+                style={{width: 268}}
+                renderInput={params => (
+                  <TextField {...params} label="Relationship" variant="outlined" fullWidth />
+                )}
               />
             </Grid>
             <Grid item xs={12}>
