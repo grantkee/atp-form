@@ -211,11 +211,11 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
+                name="phone"
+                label="Phone Number"
+                type="phone"
+                id="phone"
+                autoComplete="current-phone"
               />
             </Grid>
             <Grid item xs={12}>
@@ -223,11 +223,11 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
+                name="caregiver-name"
+                label="Caregiver Name"
+                type="caregiver-name"
+                id="caregiver-name"
+                autoComplete="current-caregiver-name"
               />
             </Grid>
             <Grid item xs={12}>
@@ -248,7 +248,7 @@ export default function SignUp() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link to="#" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
