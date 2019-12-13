@@ -233,22 +233,83 @@ export default function SignUp() {
                 autoComplete="current-caregiver-name"
               />
             </Grid>
+            <Typography component="h1" variant="h5">
+          Insurance
+            </Typography>
             <Grid item xs={12}>
+              <TextField
+                autoComplete="rparty"
+                variant="outlined"
+                required
+                fullWidth
+                id="responsibleParty"
+                label="Responsible Party"
+                name="responsible party"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Autocomplete
+                id="relationship-box"
+                options={relationship}
+                style={{width: 268}}
+                renderInput={params => (
+                  <TextField {...params} label="Relationship" variant="outlined" fullWidth />
+                )}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="phone"
+                label="Phone Number"
+                type="phone"
+                id="phone"
+                autoComplete="current-phone"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="caregiver-name"
+                label="Caregiver Name"
+                type="caregiver-name"
+                id="caregiver-name"
+                autoComplete="current-caregiver-name"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
               <FormControlLabel
+                width='50%'
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
                 label="I have verified the information above is accurate and up-to-date."
               />
             </Grid>
           </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Next
-          </Button>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              href='/equipment'
+            >
+              Next
+            </Button>
           <Grid container justify="flex-end">
             <Grid item>
               <Link to="#" variant="body2">

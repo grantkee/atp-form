@@ -38,7 +38,7 @@ export default function FullWidthGrid() {
 
             <Grid  item>
               <Link to={`/client-search`}>
-              <Paper className={classes.paper} >Existing Client</Paper>
+              <Paper className={classes.paper}>Existing Client</Paper>
               </Link>
             </Grid>
 

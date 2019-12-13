@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary,
     height: 140,
     width: 100,
-    background: green
+    // background: green
   },
 }));
 
