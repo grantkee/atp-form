@@ -4,7 +4,7 @@ import { AppBar, Toolbar, IconButton,
 import MenuIcon from '@material-ui/icons/Menu'
 import { Link } from 'react-router-dom'
 
-const Navigation = () => {
+const Navigation = () => { 
     return (
         <AppBar position="relative">
             <Toolbar>
