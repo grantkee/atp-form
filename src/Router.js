@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router';
 import Home from './containers/1-ClientType';
 import NewClient from './components/2a-NewClient';
 import Equipment from './components/3-Equipment';
+import ExistingClient from './components/2b-ExistingClient';
 
 const Router = () => {
     return (
@@ -10,6 +11,7 @@ const Router = () => {
             <Route exact path='/' component={Home} />
             <Route path='/client' component={NewClient} />
             <Route path='/equipment' component={Equipment} />
+            <Route path='/search' component={ExistingClient} />
         </Switch>
     )
 }
