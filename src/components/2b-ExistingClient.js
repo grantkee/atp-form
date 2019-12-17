@@ -2,19 +2,19 @@
 //https://www.youtube.com/watch?v=OlVkYnVXPl0
 
 import React from 'react';
-import Clients from '../data/clientDemographics';
-import ClientList from '../components/ClientList';
+// import Clients from '../data/clientDemographics';
+// import ClientList from '../components/ClientList';
+//import ExistingClients from '../containers/2b-ExistingClients';
 
-class ExistingClients extends React.Component {
-    render() {
+const ExistingClients = ( props ) => {
+
         return (
             <ul>
-                {Clients.map((contact) => {
+                {props.clients.map((contact) => {
                     return <p>{`${contact.first_name} ${contact.last_name}`}</p>
                 })}
             </ul>
         )
-    }
 }
 
 export default ExistingClients;
