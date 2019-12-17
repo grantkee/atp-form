@@ -1,19 +1,25 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 
-//removed action in the parameter and only returning state for now
-const clients = (state = [], action ) => {
+const user = (state = null) => state
+
+const clients = (state = [], action) => {
     switch(action.type) {
-        case 'ADD_USER':
-            return [...state, action.value]
+        case 'ADD_CAR':
+            return [ ...state, action.value ]
+        case 'REMOVE_CAR':
+            const clients = [ ...state ]
+            clients.splice(action.value, 1)
+            return clients
         default:
             return state
     }
 }
-// {
-//     switch(action.type) {
-//         case 'ADD_CLIENT' :
-//             return [...state, action.value]
-//     }
-// }
 
-export default combineReducers({clients})
+const makes = (state = [], action) => {
+    switch(action.type) {
+        default:
+            return state
+    }
+}
+
+export default combineReducers({ user, clients, makes })
