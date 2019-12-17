@@ -19,13 +19,13 @@ const Navigation = () => {
                         <Link to="/">Home</Link>
                     </li>
                     <li className="nav-list-item">
-                        <Link to="/client">New Client</Link>
+                        <Link to="/new-client">New Client</Link>
                     </li>
                     <li className="nav-list-item">
                         <Link to="/equipment">Equipment</Link>
                     </li>
                     <li className="nav-list-item">
-                        <Link to="/search">Search Clients</Link>
+                        <Link to="/clients">Search Clients</Link>
                     </li>
                 </ul>
             </Toolbar>

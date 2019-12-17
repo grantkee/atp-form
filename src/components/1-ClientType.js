@@ -31,13 +31,13 @@ export default function FullWidthGrid() {
         <Grid container justify="center" spacing={spacing}>
 
             <Grid  item>
-              <Link to={`/client`}>
+              <Link to={`/new-client`}>
               <Paper className={classes.paper} >New Client</Paper>
               </Link>
             </Grid>
 
             <Grid  item>
-              <Link to={`/search`}>
+              <Link to={`/clients`}>
               <Paper className={classes.paper}>Existing Client</Paper>
               </Link>
             </Grid>
