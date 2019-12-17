@@ -3,8 +3,9 @@
 
 import React from 'react';
 import Clients from '../data/clientDemographics';
+import ClientList from '../components/ClientList';
 
-class ClientList extends React.Component {
+class ExistingClients extends React.Component {
     render() {
         return (
             <ul>
@@ -16,4 +17,4 @@ class ClientList extends React.Component {
     }
 }
 
-export default ClientList;
+export default ExistingClients;

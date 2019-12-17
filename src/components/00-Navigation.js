@@ -24,6 +24,9 @@ const Navigation = () => {
                     <li className="nav-list-item">
                         <Link to="/equipment">Equipment</Link>
                     </li>
+                    <li className="nav-list-item">
+                        <Link to="/search">Search Clients</Link>
+                    </li>
                 </ul>
             </Toolbar>
         </AppBar>
