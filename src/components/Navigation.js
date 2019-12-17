@@ -12,17 +12,17 @@ const Navigation = () => {
                     <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" style={{ flexGrow: "1" }}>
-                    FakeCars.com
+                    ATP Form
                 </Typography>
                 <ul className="nav-list">
                     <li className="nav-list-item">
-                        <Link to="/">Home</Link>
+                        <Link to="/clients">Client List</Link>
                     </li>
                     <li className="nav-list-item">
                         <Link to="/about">About</Link>
                     </li>
                     <li className="nav-list-item">
-                        <Link to="/dashboard">Dasboard</Link>
+                        <Link to="/dashboard">Dashboard</Link>
                     </li>
                 </ul>
             </Toolbar>

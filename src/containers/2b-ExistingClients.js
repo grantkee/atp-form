@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ExistingClients from '../components/2b-ExistingClient';
+import ClientList from '../components/2b-ExistingClient';
 
 const mapStateToProps = ( state ) => {
     return {
@@ -7,4 +7,4 @@ const mapStateToProps = ( state ) => {
     }
 }
 
-export default connect(mapStateToProps)(ExistingClients);
+export default connect(mapStateToProps)(ClientList);

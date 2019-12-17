@@ -5,15 +5,15 @@ import { Container, Paper, Chip } from '@material-ui/core';
 const Car = (props) => {
     const id = props.match.params.id
 
-    const car = props.cars.find(c => c.id == id)
+    const client = props.clients.find(c => c.id == id)
 
     return (
         <Container maxWidth="sm" className="car-container">
             <Paper className="car-paper">
-                <h2>{car.name}</h2>
+                <h2>{client.first_name}</h2>
                 {
-                    Object.keys(car).map((key, idx) => {
-                        return <Chip label={`${key}: ${car[key]}`}></Chip>
+                    Object.keys(client).map((key, idx) => {
+                        return <Chip label={`${key}: ${client[key]}`}></Chip>
                     })
                 }
             </Paper>

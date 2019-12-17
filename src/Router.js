@@ -5,6 +5,7 @@ import About from './components/About'
 import Car from './containers/Car'
 import Dashboard from './containers/Dashboard'
 import Import from './components/Import'
+import ClientList from './containers/2b-ExistingClients';
 
 const Router = () => {
     return (
@@ -14,6 +15,7 @@ const Router = () => {
             <Route path="/car/:id" component={Car} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/import" component={Import} />
+            <Route path="/clients" component={ClientList} />
         </Switch>
     );
 };
