@@ -3,6 +3,18 @@ export default {
         username: 'test-user-1',
         email: 'test-user@example.com'
     },
+    equipment: [
+        "Car Seat",
+        "Gait Trainer",
+        "Power Wheelchair",
+        "Bath Chair",
+        "Manual Wheelchair",
+        "Stander",
+        "Entry Ramp",
+        "Threshhold Ramp",
+        "Hospital Bed",
+        "Pediatric Bed"
+      ],
    clients: [
           {
               "id":1,

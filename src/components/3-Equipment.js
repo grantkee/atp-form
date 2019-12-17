@@ -33,7 +33,7 @@ const equipmentList = [
   "Pediatric Bed"
 ]
 
-export default function FullWidthGrid() {
+const Equipment = ( props ) => {
   const classes = useStyles();
   const [spacing, setSpacing] = React.useState(2);
 
@@ -44,8 +44,8 @@ export default function FullWidthGrid() {
       <Grid container className={classes.root} spacing={2}>
       <Grid item xs={12}>
         <Grid container justify="center" spacing={spacing}>
-          {equipmentList.map(value => (
-            <Grid key={value} item>
+          {props.equipment.map((value, index) => (
+            <Grid key={index} item>
               <Link to={`/${value}`}>
               <Paper className={classes.paper}>{value}</Paper>
               </Link>
@@ -58,3 +58,4 @@ export default function FullWidthGrid() {
   )
 }
 
+export default Equipment;

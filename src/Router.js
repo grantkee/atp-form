@@ -8,6 +8,7 @@ import Import from './components/Import'
 import ClientList from './containers/2b-ExistingClients';
 import ClientType from './components/1-ClientType';
 import NewClient from './components/2a-NewClient';
+import Equipment from './containers/3-Equipment';
 
 const Router = () => {
     return (
@@ -19,6 +20,7 @@ const Router = () => {
             <Route path="/import" component={Import} />
             <Route path="/clients" component={ClientList} />
             <Route path="/new-client" component={NewClient} />
+            <Route path="/equipment" component={Equipment} />
         </Switch>
     );
 };

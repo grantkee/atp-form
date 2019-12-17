@@ -17,32 +17,34 @@ const Dashboard = (props) => {
             <h4>Welcome, {props.user.username}</h4>
             <div className="flex-container">
                 <Total />
-                <AddCar carTotal={props.cars.length} />
             </div>
             <Table>
                 <TableHead>
                     <TableRow>
                         <TableCell>Id</TableCell>
-                        <TableCell>Make/Model</TableCell>
-                        <TableCell>MPG</TableCell>
-                        <TableCell>Cylinders</TableCell>
-                        <TableCell>Horsepower</TableCell>
+                        <TableCell>Name</TableCell>
+                        <TableCell>DOB</TableCell>
+                        <TableCell>Gender</TableCell>
+                        <TableCell>MCO</TableCell>
+                        <TableCell>Policy Number</TableCell>
                         <TableCell>Delete</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                {props.cars.map((car, idx) => (
-                    <TableRow key={car.id}>
+                {props.clients.map((client, idx) => (
+                    <TableRow key={client.id}>
                         <TableCell component="th" scope="row">
-                            {car.id}
+                            {client.id}
                         </TableCell>
-                        <TableCell>{car["name"]}</TableCell>
-                        <TableCell>{car["mpg"]}</TableCell>
-                        <TableCell>{car["cylinders"]}</TableCell>
-                        <TableCell>{car["horsepower"]}</TableCell>
+                        <TableCell>{`${client["first_name"]} ${client["last_name"]}`}</TableCell>
+                        <TableCell>{client["date_of_birth"]}</TableCell>
+                        <TableCell>{client["gender"]}</TableCell>
+                        <TableCell>{client["medicaid_payor"]}</TableCell>
+                        {/* How can I add a split()/join() command here to remove '-' in the dummy medicaid number */}
+                        <TableCell>{client["medicaid_id"]}</TableCell>
                         <TableCell>
                             <DeleteIcon
-                                onClick={() => props.removeCar(idx)}
+                                onClick={() => props.removeClient(idx)}
                                 className="icon text-red" />
                         </TableCell>
                     </TableRow>
