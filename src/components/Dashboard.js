@@ -15,6 +15,8 @@ const Dashboard = (props) => {
     return (
         <Container maxWidth="lg" className="car-container">
             <h4>Welcome, {props.user.username}</h4>
+            <h4>Logged In: {props.user.login ? 'true' : 'false'}</h4>
+            <button onClick={props.user.login ? () => props.logout() : () => props.login()}>{props.user.login ? 'Logout' : 'Login'}</button>
             <div className="flex-container">
                 <Total />
             </div>

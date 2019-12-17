@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import Dashboard from '../components/Dashboard'
 // import { removeCar } action here
-import { removeClient } from '../redux/actions'
+import { removeClient, login, logout } from '../redux/actions';
 
 const mapStateToProps = (state) => {
     return {
@@ -13,7 +13,9 @@ const mapStateToProps = (state) => {
 // add mapDispatchToProps function here
 const mapDispatchToProps = (dispatch) => {
     return {
-        removeClient: (index) => dispatch(removeClient(index))
+        removeClient: (index) => dispatch(removeClient(index)),
+        login: () => dispatch(login()),
+        logout: () => dispatch(logout())
     }
 }
 

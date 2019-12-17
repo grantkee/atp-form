@@ -1,6 +1,22 @@
 import { combineReducers } from 'redux'
 
-const user = (state = null) => state
+// const user = (state = null) => state
+
+const user = (state = [], action) => {
+    //not sure I'm changing the user's login key to the action.value
+    switch(action.type) {
+        case 'LOGIN':
+            return Object.assign({}, state, {
+                login: action.value
+            })
+        case 'LOGOUT':
+            return Object.assign({}, state, {
+                login: action.value
+            })
+        default:
+            return state
+    }
+}
 
 const clients = (state = [], action) => {
     switch(action.type) {
