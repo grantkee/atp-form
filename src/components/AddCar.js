@@ -51,18 +51,18 @@ class AddCar extends Component {
         return (
             <Fragment>
                 <div style={{ textAlign: 'center' }}>
-                    <h1>Add Car:</h1>
+                    <h1>Add Client:</h1>
                     <Button
                         variant="contained"
                         className="add-car"
                         onClick={this.toggleDialog}
                     >
-                        Add Car
+                        Add Client
                     </Button>
                 </div>
                 <div>
                     <Dialog open={this.state.open} onClose={this.toggleDialog} >
-                        <DialogTitle>Add New Car</DialogTitle>
+                        <DialogTitle>Add New Client</DialogTitle>
                         <DialogContent>
                             <form 
                                 onSubmit={this.handleSubmit}

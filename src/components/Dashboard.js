@@ -19,6 +19,7 @@ const Dashboard = (props) => {
             <button onClick={props.user.login ? () => props.logout() : () => props.login()}>{props.user.login ? 'Logout' : 'Login'}</button>
             <div className="flex-container">
                 <Total />
+                <AddCar />
             </div>
             <Table>
                 <TableHead>
