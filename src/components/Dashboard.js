@@ -11,7 +11,17 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import Total from '../containers/Total'
 import AddCar from '../containers/AddCar'
  
+const componentDidMount = (props) => {
+    props.fetchClients()
+}
+
 const Dashboard = (props) => {
+    console.log(props.clients)
+    if(props.clients.lenth === 0){
+        return null
+    }
+
+    // let fetch = props.fetchClients()
     return (
         <Container maxWidth="lg" className="car-container">
             <h4>Welcome, {props.user.username}</h4>

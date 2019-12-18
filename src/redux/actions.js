@@ -1,9 +1,25 @@
-const url = "https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json"
+const url = "https://my.api.mockaroo.com/clientdemographics.json?key=a2f2a7f0"
 
 export const addCar = (car) => {
     return {
         type: 'ADD_CAR',
         value: car
+    }
+}
+
+export const fetchClients = () => {
+    return ( dispatch ) => {
+        fetch(url)
+        .then(res => res.json())
+        .then(response => {
+            debugger
+            const action = {
+                type: 'FETCH_CLIENTS',
+                value: response
+            }
+            dispatch(action)
+        })
+        .catch(error => console.log(error))
     }
 }
 
