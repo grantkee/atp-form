@@ -12,7 +12,6 @@ export const fetchClients = () => {
         fetch(url)
         .then(res => res.json())
         .then(response => {
-            debugger
             const action = {
                 type: 'FETCH_CLIENTS',
                 value: response

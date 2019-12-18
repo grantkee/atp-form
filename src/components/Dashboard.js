@@ -12,16 +12,19 @@ import Total from '../containers/Total'
 import AddCar from '../containers/AddCar'
  
 const componentDidMount = (props) => {
+    debugger;
     props.fetchClients()
 }
 
 const Dashboard = (props) => {
-    console.log(props.clients)
+    //props.fetchClients()
     // if(props.clients.length === 0){
     //     return null
     // }
 
     // let fetch = props.fetchClients()
+
+
     return (
         <Container maxWidth="lg" className="car-container">
             <h4>Welcome, {props.user.username}</h4>
