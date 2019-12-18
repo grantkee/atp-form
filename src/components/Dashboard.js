@@ -17,9 +17,9 @@ const componentDidMount = (props) => {
 
 const Dashboard = (props) => {
     console.log(props.clients)
-    if(props.clients.lenth === 0){
-        return null
-    }
+    // if(props.clients.length === 0){
+    //     return null
+    // }
 
     // let fetch = props.fetchClients()
     return (
