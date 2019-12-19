@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ClientList from '../components/2b-ExistingClient';
+import ExistingClient from '../components/2b-ExistingClient';
 import { fetchClients } from '../redux/actions';
 
 const mapStateToProps = ( state ) => {
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClientList);
+export default connect(mapStateToProps, mapDispatchToProps)(ExistingClient);

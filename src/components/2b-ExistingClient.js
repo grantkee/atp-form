@@ -3,7 +3,7 @@ import { Card, CardContent, CardActions, Divider } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
 
-const ClientList = (props) => {
+const ExistingClient = (props) => {
     return (
         <div className="card-container">
             {props.clients.map((client, idx) => (
@@ -26,4 +26,4 @@ const ClientList = (props) => {
     )
 }
 
-export default ClientList;
+export default ExistingClient;
