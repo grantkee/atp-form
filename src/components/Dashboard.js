@@ -11,21 +11,23 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import Total from '../containers/Total'
 import AddCar from '../containers/AddCar'
  
-const componentDidMount = (props) => {
-    debugger;
-    props.fetchClients()
-}
+// const componentDidMount = (props) => {
+//     debugger;
+//     props.fetchClients()
+// }
 
 const Dashboard = (props) => {
-    //props.fetchClients()
-    // if(props.clients.length === 0){
-    //     return null
+    // props.fetchClients()
+    // if(props.clients == []){
+    //     return null;
     // }
 
     // let fetch = props.fetchClients()
 
+        // console.log(props.fetchClients())
 
     return (
+    
         <Container maxWidth="lg" className="car-container">
             <h4>Welcome, {props.user.username}</h4>
             <h4>Logged In: {props.user.login ? 'true' : 'false'}</h4>
@@ -56,8 +58,7 @@ const Dashboard = (props) => {
                         <TableCell>{client["date_of_birth"]}</TableCell>
                         <TableCell>{client["gender"]}</TableCell>
                         <TableCell>{client["medicaid_payor"]}</TableCell>
-                        {/* How can I add a split()/join() command here to remove '-' in the dummy medicaid number */}
-                        <TableCell>{client["medicaid_id"]}</TableCell>
+                        <TableCell>{client["medicaid_id"].split('-').join('')}</TableCell>
                         <TableCell>
                             <DeleteIcon
                                 onClick={() => props.removeClient(idx)}
