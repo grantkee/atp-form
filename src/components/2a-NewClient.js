@@ -17,7 +17,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import Navigation from './00-Navigation';
+import Navigation from '../containers/00-Navigation';
 
 function Copyright() {
   return (
@@ -69,7 +69,7 @@ const relationship = [
   'Other'
 ]
 
-export default function SignUp() {
+export default function NewClient( props ) {
   const classes = useStyles();
 
   return (

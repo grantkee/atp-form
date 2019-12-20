@@ -7,7 +7,7 @@ import Dashboard from './containers/Dashboard'
 import Import from './components/Import'
 import ClientList from './containers/2b-ExistingClients';
 import ClientType from './components/1-ClientType';
-import NewClient from './components/2a-NewClient';
+import NewClient from './containers/2a-NewClient';
 import Equipment from './containers/3-Equipment';
 
 const Router = () => {

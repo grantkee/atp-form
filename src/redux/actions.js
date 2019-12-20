@@ -7,6 +7,13 @@ export const addCar = (car) => {
     }
 }
 
+export const addClient = ( client ) => {
+    return {
+        type: 'ADD_CLIENT',
+        value: client
+    }
+}
+
 export const fetchClients = () => {
     return ( dispatch ) => {
         fetch(url)
