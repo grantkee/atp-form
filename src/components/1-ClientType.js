@@ -41,9 +41,7 @@ export default function FullWidthGrid() {
               <Paper className={classes.paper}>Existing Client</Paper>
               </Link>
             </Grid>
-
         </Grid>
-
     </>
   )
 }

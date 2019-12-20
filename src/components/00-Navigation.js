@@ -29,9 +29,9 @@ const Navigation = ( props ) => {
                     </li>
                 </ul>
             </Toolbar>
-            <h4>{props.user.login ? `Welcome, ${props.user.username}` : 'You are logged out'}</h4>
-            <h4>Logged In: {props.user.login ? 'true' : 'false'}</h4>
-            <button onClick={props.user.login ? () => props.logout() : () => props.login()}>{props.user.login ? 'Logout' : 'Login'}</button>
+            <h4>{props.user.login ? `Welcome, ${props.user.username}` : 'You are logged out '}
+            <button onClick={props.user.login ? () => props.logout() : () => props.login()}>{props.user.login ? 'Logout ' : 'Login '}</button>
+            </h4>
         </AppBar>
     )
 }
