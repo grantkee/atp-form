@@ -58,7 +58,7 @@ const Dashboard = (props) => {
                         <TableCell>{client["date_of_birth"]}</TableCell>
                         <TableCell>{client["gender"]}</TableCell>
                         <TableCell>{client["medicaid_payor"]}</TableCell>
-                        <TableCell>{client["medicaid_id"].split('-').join('')}</TableCell>
+                        <TableCell>{client["medicaid_id"]}</TableCell>
                         <TableCell>
                             <DeleteIcon
                                 onClick={() => props.removeClient(idx)}
