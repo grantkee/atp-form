@@ -9,6 +9,7 @@ import ClientList from './containers/2b-ExistingClients';
 import ClientType from './components/1-ClientType';
 import NewClient from './containers/2a-NewClient';
 import Equipment from './containers/3-Equipment';
+import CarSeat from './components/4a-CarSeat';
 
 const Router = () => {
     return (
@@ -21,6 +22,7 @@ const Router = () => {
             <Route path="/clients" component={ClientList} />
             <Route path="/new-client" component={NewClient} />
             <Route path="/equipment" component={Equipment} />
+            <Route path="/car-seat" component={CarSeat} />
         </Switch>
     );
 };
