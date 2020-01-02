@@ -95,6 +95,7 @@ export default function NewClient( props ) {
                 fullWidth
                 id="firstName"
                 label="First Name"
+                color='secondary'
                 autoFocus
               />
             </Grid>
