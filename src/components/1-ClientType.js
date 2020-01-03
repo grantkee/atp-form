@@ -26,6 +26,10 @@ const useStyles = makeStyles(theme => ({
   container: {
     height: 'calc(60% - 130px)',
     width: '100%'
+  },
+  gridItem: {
+    direction: 'row',
+    alignItems: 'baseline'
   }
 }));
 
@@ -39,13 +43,13 @@ export default function FullWidthGrid() {
 
         <Grid container justify="space-around" spacing={spacing} className={classes.container}>
 
-            <Grid item>
+            <Grid item className={classes.gridItem}>
               <Link to={`/new-client`}>
-              <Paper className={classes.paper} >New Client</Paper>
+              <Paper className={classes.paper}>New Client</Paper>
               </Link>
             </Grid>
 
-            <Grid item>
+            <Grid item className={classes.gridItem}>
               <Link to={`/clients`}>
               <Paper className={classes.paper}>Existing Client</Paper>
               </Link>
