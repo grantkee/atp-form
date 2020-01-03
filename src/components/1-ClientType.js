@@ -9,15 +9,24 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
+  '@global': {
+    'html, body, #root': {
+      height: '100%'
+    }
+  },
   paper: {
-    padding: theme.spacing(2),
+    //padding referencing the value of spacing declared in the index.js file 
+    padding: theme.spacing.unit * 4,
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height: 250,
+    height: '100%',
     width: 250,
-    marginTop: 15
+    marginTop: '25%'
   },
-
+  container: {
+    height: 'calc(60% - 130px)',
+    width: '100%'
+  }
 }));
 
 export default function FullWidthGrid() {
@@ -28,7 +37,7 @@ export default function FullWidthGrid() {
       <>
       <Navigation />
 
-        <Grid container justify="center" spacing={spacing}>
+        <Grid container justify="space-around" spacing={spacing} className={classes.container}>
 
             <Grid item>
               <Link to={`/new-client`}>

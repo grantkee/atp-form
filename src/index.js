@@ -11,17 +11,26 @@ import { green, amber, blue, lime } from '@material-ui/core/colors';
 const theme = createMuiTheme({
     palette: {
         primary: {
+            //main primary has to be declared to use #
             main: '#4144B7'
         },
         secondary: {
+            //main color off secondary has to be declared
             main: '#981A1D',
+            //accents can be used with the .<letter>
             light: amber.A100,
+            //type dark
             dark: lime[500]
         },
+        spacing: {
+            unit: 10
+        },
+        //declaring type 'dark' turns the entire app into dark mode. not sure how to control it, but the paper imports turn charcoal
         type: 'dark'
     }
 });
 
+//shows the object that you can manipulate to create a custom theme in material-ui
 console.log(theme)
 
 ReactDOM.render(
