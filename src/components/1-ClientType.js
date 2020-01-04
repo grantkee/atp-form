@@ -35,6 +35,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function FullWidthGrid() {
   const classes = useStyles();
+  //useful if the user clicks something, component pops up, and you need to adjust spacing
   const [spacing, setSpacing] = React.useState(2);
 
   return (
@@ -54,6 +55,7 @@ export default function FullWidthGrid() {
               <Paper className={classes.paper}>Existing Client</Paper>
               </Link>
             </Grid>
+            
         </Grid>
     </>
   )
