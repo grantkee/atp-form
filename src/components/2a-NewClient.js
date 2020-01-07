@@ -17,7 +17,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import Navigation from '../containers/00-Navigation';
 
 function Copyright() {
   return (
@@ -75,7 +74,6 @@ export default function NewClient( props ) {
 
   return (
     <>
-    <Navigation />
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>

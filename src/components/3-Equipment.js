@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 //import { green } from '@material-ui/core/colors';
-import Navigation from '../containers/00-Navigation';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
@@ -39,7 +38,6 @@ const Equipment = ( props ) => {
 
   return (
       <>
-      <Navigation />
       <h2>ClientLast, ClientFirst</h2>
       <Grid container className={classes.root} spacing={2}>
       <Grid item xs={12}>
