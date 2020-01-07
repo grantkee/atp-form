@@ -36,6 +36,8 @@ const Equipment = ( props ) => {
   const classes = useStyles();
   const [spacing, setSpacing] = React.useState(2);
 
+  let url;
+
   return (
       <>
       <h2>ClientLast, ClientFirst</h2>
@@ -44,7 +46,7 @@ const Equipment = ( props ) => {
         <Grid container justify="center" spacing={spacing}>
           {props.equipment.map((value, index) => (
             <Grid key={index} item>
-              <Link to={`/${value}`}>
+              <Link to={`/${value.toLowerCase().split(' ').join('-')}`}>
               <Paper className={classes.paper}>{value}</Paper>
               </Link>
             </Grid>
