@@ -13,6 +13,12 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+//for radio buttons within form
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 
 function Copyright() {
@@ -30,7 +36,7 @@ function Copyright() {
 
 const useStyles = makeStyles(theme => ({
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(1),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -48,9 +54,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const genders = [
-  "male",
-  "female"
+const mobilityStatus = [
+  "Non-Ambulatory",
+  "Not Functionally Ambulatory",
+  "With Assistance",
+  "Short Distances Only (less than 10 feet)",
+  "Ambulatory"
 ]
 
 const relationship = [
@@ -68,6 +77,12 @@ const relationship = [
 export default function NewClient( props ) {
   const classes = useStyles();
 
+  const [value, setValue] = React.useState('ambulatoryPotential');
+
+  const handleChange = event => {
+    setValue(event.target.value);
+  };
+
   return (
     <>
     <Container component="main" maxWidth="xs">
@@ -83,15 +98,61 @@ export default function NewClient( props ) {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
-                autoComplete="fname"
-                name="firstName"
+                autoComplete="dx"
+                name="diagnosis"
+                variant="filled"
+                required
+                fullWidth
+                id="diagnosis"
+                label="Diagnosis"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="dx"
+                name="diagnosis"
+                variant="standard"
+                required
+                fullWidth
+                id="diagnosis"
+                label="Diagnosis"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="dx"
+                name="diagnosis"
                 variant="outlined"
                 required
                 fullWidth
-                id="firstName"
-                label="First Name"
+                id="diagnosis"
+                label="Diagnosis"
                 autoFocus
               />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="dx"
+                name="diagnosis"
+                variant="outlined"
+                required
+                fullWidth
+                id="diagnosis"
+                label="Diagnosis"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <FormControl>
+                <FormLabel component="legend">Ambulatory Potential</FormLabel>
+                <RadioGroup aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange}>
+                  <FormControlLabel value="not-expected" control={<Radio />} label="Not Expected" />
+                  <FormControlLabel value="within-one" control={<Radio />} label="Expected within 1 year" />
+                  <FormControlLabel value="not expected" control={<Radio />} label="Expected in future, >1 year" />
+                </RadioGroup>
+              </FormControl>
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -117,11 +178,11 @@ export default function NewClient( props ) {
             </Grid>
             <Grid item xs={12}>
               <Autocomplete
-                id="gender-box"
-                options={genders}
+                id="mobility-status"
+                options={mobilityStatus}
                 style={{width: 268}}
                 renderInput={params => (
-                  <TextField {...params} label="Gender" variant="outlined" fullWidth />
+                  <TextField {...params} label="Mobility Status" variant="outlined" fullWidth />
                 )}
               />
             </Grid>
