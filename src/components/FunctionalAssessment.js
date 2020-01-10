@@ -55,6 +55,9 @@ const useStyles = makeStyles(theme => ({
   radioGroup: {
     direction: 'row',
     justify: 'space-between'
+  },
+  label: {
+    marginTop: theme.spacing(2)
   }
 }));
 
@@ -121,7 +124,6 @@ export default function NewClient( props ) {
                 fullWidth
                 id="diagnosis"
                 label="Diagnosis"
-                autoFocus
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -129,11 +131,9 @@ export default function NewClient( props ) {
                 autoComplete="dx"
                 name="diagnosis"
                 variant="outlined"
-                // required
                 fullWidth
                 id="diagnosis"
                 label="Diagnosis"
-                autoFocus
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -141,43 +141,9 @@ export default function NewClient( props ) {
                 autoComplete="dx"
                 name="diagnosis"
                 variant="outlined"
-                // required
                 fullWidth
                 id="diagnosis"
                 label="Diagnosis"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} direction='row'>
-              <FormControl>
-                <FormLabel component="legend">Ambulatory Potential</FormLabel>
-                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange}>
-                  <FormControlLabel value="not-expected" control={<Radio />} label="Not Expected" />
-                  <FormControlLabel value="within-one" control={<Radio />} label="Expected within 1 year" />
-                  <FormControlLabel value="not expected" control={<Radio />} label="Expected in future, >1 year" />
-                </RadioGroup>
-              </FormControl>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="lname"
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="fname"
-                name="Date of Birth"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="Date of Birth"
               />
             </Grid>
             <Grid item xs={12}>
@@ -189,6 +155,50 @@ export default function NewClient( props ) {
                   <TextField {...params} label="Mobility Status" variant="outlined" fullWidth />
                 )}
               />
+            </Grid>
+            <Grid item xs={12}>
+              <FormControl>
+              <Typography component="h3" variant="h5">Ambulatory Potential</Typography>
+                {/* <FormLabel component="legend">Ambulatory Potential</FormLabel> */}
+                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange}>
+                  <FormControlLabel value="not-expected" control={<Radio />} label="Not Expected" />
+                  <FormControlLabel value="within-one" control={<Radio />} label="Expected within 1 year" />
+                  <FormControlLabel value="not expected" control={<Radio />} label="Expected in future, >1 year" />
+                </RadioGroup>
+              </FormControl>
+            </Grid>
+            <Grid item xs={12}>
+              <FormControl>
+              <Typography component="h3" variant="h5">Functional Level:</Typography>
+                <FormLabel component="legend" className={classes.label}>Head Control</FormLabel>
+                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange}>
+                  <FormControlLabel value="headGood" control={<Radio />} label="Good" />
+                  <FormControlLabel value="headFair" control={<Radio />} label="Fair" />
+                  <FormControlLabel value="headPoor" control={<Radio />} label="Poor" />
+                  <FormControlLabel value="headNone" control={<Radio />} label="None" />
+                </RadioGroup>
+                <FormLabel component="legend" className={classes.label}>Trunk Control</FormLabel>
+                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange}>
+                  <FormControlLabel value="trunkGood" control={<Radio />} label="Good" />
+                  <FormControlLabel value="trunkFair" control={<Radio />} label="Fair" />
+                  <FormControlLabel value="trunkPoor" control={<Radio />} label="Poor" />
+                  <FormControlLabel value="trunkNone" control={<Radio />} label="None" />
+                </RadioGroup>
+                <FormLabel component="legend" className={classes.label}>Upper Extremities</FormLabel>
+                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange}>
+                  <FormControlLabel value="upperGood" control={<Radio />} label="Good" />
+                  <FormControlLabel value="upperFair" control={<Radio />} label="Fair" />
+                  <FormControlLabel value="upperPoor" control={<Radio />} label="Poor" />
+                  <FormControlLabel value="upperNone" control={<Radio />} label="None" />
+                </RadioGroup>
+                <FormLabel component="legend" className={classes.label}>Upper Extremities</FormLabel>
+                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange}>
+                  <FormControlLabel value="lowerGood" control={<Radio />} label="Good" />
+                  <FormControlLabel value="lowerFair" control={<Radio />} label="Fair" />
+                  <FormControlLabel value="lowerPoor" control={<Radio />} label="Poor" />
+                  <FormControlLabel value="lowerNone" control={<Radio />} label="None" />
+                </RadioGroup>
+              </FormControl>
             </Grid>
             <Grid item xs={12}>
               <TextField

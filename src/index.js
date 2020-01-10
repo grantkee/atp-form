@@ -26,7 +26,7 @@ const theme = createMuiTheme({
             unit: 10
         },
         //declaring type 'dark' turns the entire app into dark mode. not sure how to control it, but the paper imports turn charcoal
-        type: 'dark'
+        // type: 'dark'
     }
 });
 
