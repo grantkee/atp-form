@@ -52,6 +52,10 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  radioGroup: {
+    direction: 'row',
+    justify: 'space-between'
+  }
 }));
 
 const mobilityStatus = [
@@ -113,7 +117,7 @@ export default function NewClient( props ) {
                 autoComplete="dx"
                 name="diagnosis"
                 variant="standard"
-                required
+                // required
                 fullWidth
                 id="diagnosis"
                 label="Diagnosis"
@@ -125,7 +129,7 @@ export default function NewClient( props ) {
                 autoComplete="dx"
                 name="diagnosis"
                 variant="outlined"
-                required
+                // required
                 fullWidth
                 id="diagnosis"
                 label="Diagnosis"
@@ -137,17 +141,17 @@ export default function NewClient( props ) {
                 autoComplete="dx"
                 name="diagnosis"
                 variant="outlined"
-                required
+                // required
                 fullWidth
                 id="diagnosis"
                 label="Diagnosis"
                 autoFocus
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} direction='row'>
               <FormControl>
                 <FormLabel component="legend">Ambulatory Potential</FormLabel>
-                <RadioGroup aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange}>
+                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange}>
                   <FormControlLabel value="not-expected" control={<Radio />} label="Not Expected" />
                   <FormControlLabel value="within-one" control={<Radio />} label="Expected within 1 year" />
                   <FormControlLabel value="not expected" control={<Radio />} label="Expected in future, >1 year" />
