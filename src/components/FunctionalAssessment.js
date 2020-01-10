@@ -158,7 +158,7 @@ export default function NewClient( props ) {
             </Grid>
             <Grid item xs={12}>
               <FormControl>
-              <Typography component="h3" variant="h5">Ambulatory Potential</Typography>
+              <Typography component="h3" variant="h5">Ambulatory Potential:</Typography>
                 {/* <FormLabel component="legend">Ambulatory Potential</FormLabel> */}
                 <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange}>
                   <FormControlLabel value="not-expected" control={<Radio />} label="Not Expected" />
@@ -171,32 +171,43 @@ export default function NewClient( props ) {
               <FormControl>
               <Typography component="h3" variant="h5">Functional Level:</Typography>
                 <FormLabel component="legend" className={classes.label}>Head Control</FormLabel>
-                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange}>
+                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange} row>
                   <FormControlLabel value="headGood" control={<Radio />} label="Good" />
                   <FormControlLabel value="headFair" control={<Radio />} label="Fair" />
                   <FormControlLabel value="headPoor" control={<Radio />} label="Poor" />
                   <FormControlLabel value="headNone" control={<Radio />} label="None" />
                 </RadioGroup>
                 <FormLabel component="legend" className={classes.label}>Trunk Control</FormLabel>
-                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange}>
+                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange} row>
                   <FormControlLabel value="trunkGood" control={<Radio />} label="Good" />
                   <FormControlLabel value="trunkFair" control={<Radio />} label="Fair" />
                   <FormControlLabel value="trunkPoor" control={<Radio />} label="Poor" />
                   <FormControlLabel value="trunkNone" control={<Radio />} label="None" />
                 </RadioGroup>
                 <FormLabel component="legend" className={classes.label}>Upper Extremities</FormLabel>
-                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange}>
+                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange} row>
                   <FormControlLabel value="upperGood" control={<Radio />} label="Good" />
                   <FormControlLabel value="upperFair" control={<Radio />} label="Fair" />
                   <FormControlLabel value="upperPoor" control={<Radio />} label="Poor" />
                   <FormControlLabel value="upperNone" control={<Radio />} label="None" />
                 </RadioGroup>
                 <FormLabel component="legend" className={classes.label}>Upper Extremities</FormLabel>
-                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange}>
+                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange} row>
                   <FormControlLabel value="lowerGood" control={<Radio />} label="Good" />
                   <FormControlLabel value="lowerFair" control={<Radio />} label="Fair" />
                   <FormControlLabel value="lowerPoor" control={<Radio />} label="Poor" />
                   <FormControlLabel value="lowerNone" control={<Radio />} label="None" />
+                </RadioGroup>
+              </FormControl>
+              <FormControl>
+                <Typography component="h5" variant="h5">Transfer Capability</Typography>
+                {/* <FormLabel component="legend" className={classes.label}>Transfer Capability</FormLabel> */}
+                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange} >
+                  <FormControlLabel value="transferMaximum" control={<Radio />} label="Maximum Assistance" />
+                  <FormControlLabel value="transferModerate" control={<Radio />} label="Moderate Assistance" />
+                  <FormControlLabel value="transferMinimum" control={<Radio />} label="Minimum Assistance" />
+                  <FormControlLabel value="transferIndependent" control={<Radio />} label="Independent" />
+                  <FormControlLabel value="transIndEvenOnly" control={<Radio />} label="Independent across even surfaces only" />
                 </RadioGroup>
               </FormControl>
             </Grid>
