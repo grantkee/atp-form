@@ -200,7 +200,7 @@ export default function NewClient( props ) {
                 </RadioGroup>
               </FormControl>
               <FormControl>
-                <Typography component="h5" variant="h5">Transfer Capability</Typography>
+                <Typography component="h5" variant="h5">Transfer Capability:</Typography>
                 {/* <FormLabel component="legend" className={classes.label}>Transfer Capability</FormLabel> */}
                 <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange} >
                   <FormControlLabel value="transferMaximum" control={<Radio />} label="Maximum Assistance" />
@@ -387,7 +387,7 @@ export default function NewClient( props ) {
               variant="contained"
               color="primary"
               className={classes.submit}
-              href='/equipment'
+              href='/measurements'
             >
               Next
             </Button>
