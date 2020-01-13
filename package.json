@@ -25,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "nodemon server/server.js",
-    "both": "concurrently --kill-others \"react-scripts start\" \"nodemon server/server.js\""
+    "fullstack": "concurrently --kill-others \"react-scripts start\" \"nodemon server/server.js\""
   },
   "eslintConfig": {
     "extends": "react-app"
