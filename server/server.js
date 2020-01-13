@@ -18,7 +18,7 @@ const port = process.env.PORT || 5000;
 //use json format and logger middleware
 app.use(bodyParser.json());
 // app.use(logger);
-app.use(express.static(path.join(__dirname, 'atp-form')))
+app.use(express.static(path.join(__dirname, 'atp-form/build')))
 
 //app.use(routes) here
 
