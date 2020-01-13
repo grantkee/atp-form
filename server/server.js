@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'atp-form/build')))
 //app.use(routes) here
 
 app.get('/', (req, res) => {
-    res.send(clients)
+    console.log('you good bro')
 });
 
 app.get('/clients', (req, res) => {
@@ -32,5 +32,5 @@ app.get('/clients', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Web server is listening on port ${port} :)`)
+    console.log(`Web server is listening on port ${port} :D`)
 });

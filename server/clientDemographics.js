@@ -999,4 +999,4 @@ const clients = [{"id":1,"first_name":"Krissie","last_name":"Tilford","date_of_b
 {"id":999,"first_name":"Orville","last_name":"Deluze","date_of_birth":"10/16/1961","gender":"Male","email":"odeluzerq@de.vu","address":"422 Doe Crossing Court","city":"El Paso","state":"Texas","zip":"88569","medicaid_payor":"Molina","medicaid_id":"183-55-9197"},
 {"id":1000,"first_name":"Bartholemy","last_name":"Lillee","date_of_birth":"06/26/1956","gender":"Male","email":"blilleerr@flickr.com","address":"97 Northwestern Street","city":"Fresno","state":"California","zip":"93715","medicaid_payor":"TCHP","medicaid_id":"298-61-8304"}]
 
-module.exports = { clients }
+module.exports = clients

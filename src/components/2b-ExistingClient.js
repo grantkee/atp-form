@@ -7,14 +7,16 @@ const ExistingClient = (props) => {
     return (
         <div className="card-container">
             <button onClick={() => props.fetchClients()}>Get Clients</button>
-            {props.clients.map((client, idx) => (
+            {console.log(props.clients[0])}
+            {props.clients.length > 0 && props.clients[0].map((client, idx) => (
                 <Card key={client.id} className="card">
                     <CardContent className="text-gray">
-                        <span>{client.first_name + ' ' + client.last_name}</span>
+                        <span>{client["first_name"] + ' ' + client["last_name"]}</span>
                         <ul>
-                        <li>DOB: {client["date_of_birth"]}</li>
-                        <li>Email: {client["email"]}</li>
-                        <li>Gender: {client["gender"]}</li>
+                            <li>DOB: {client["date_of_birth"]}</li>
+                            <li>Email: {client["email"]}</li>
+                            <li>Gender: {client["gender"]}</li>
+                            <li>{client["medicaid_payor"]}: {client["medicaid_id"].split('-').join('')}</li>
                         </ul>
                     </CardContent>
                     <Divider />
