@@ -16,7 +16,7 @@ export const addClient = ( client ) => {
 
 export const fetchClients = () => {
     return ( dispatch ) => {
-        fetch(url)
+        fetch('/clients')
         .then(res => res.json())
         .then(response => {
             const action = {
