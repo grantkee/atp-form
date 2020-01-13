@@ -6,7 +6,9 @@
     "@material-ui/core": "^4.3.2",
     "@material-ui/icons": "^4.2.1",
     "@material-ui/lab": "^4.0.0-alpha.36",
+    "concurrently": "^5.0.2",
     "express": "^4.17.1",
+    "nodemon": "^2.0.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-minimal-pie-chart": "^5.0.0",
@@ -21,7 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "nodemon server/server.js",
+    "both": "concurrently --kill-others \"react-scripts start\" \"nodemon server/server.js\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,5 +42,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "./"
+  "homepage": "./",
+  "proxy": "http://localhost:5000"
 }

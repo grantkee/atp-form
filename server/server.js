@@ -23,11 +23,11 @@ app.use(express.static(path.join(__dirname, 'atp-form/build')))
 //app.use(routes) here
 
 app.get('/', (req, res) => {
-    res.send('Testing route '/'')
+    res.send(clients)
 });
 
 app.get('/clients', (req, res) => {
-    res.json(clients)
+    res.send(clients)
     console.log('sent clients array')
 })
 
