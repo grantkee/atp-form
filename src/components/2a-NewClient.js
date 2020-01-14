@@ -2,7 +2,7 @@
 //signup example from https://github.com/mui-org/material-ui/blob/master/docs/src/pages/getting-started/templates/sign-up/SignUp.js
 //also checkout https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/checkout for ideas on how to integrate forms with @material-ui
 
-import React from 'react';
+import React, { Component } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -69,60 +69,93 @@ const relationship = [
   'Other'
 ]
 
-export default function NewClient( props ) {
-  const classes = useStyles();
+export default class NewClient extends Component{
+  state = {
+    firstName: '',
+    lastName: '',
+    dob: '',
+    gender: '',
+    address: '',
+    cit: '',
+    state: '',
+    zip: '',
+    caregiverRelationship: '',
+    caregiverName: '',
+    email: '',
+    phone: ''
+  }
 
+  classes = () => useStyles();
+
+  handleChange = ( e ) => {
+    const newState = {...this.state}
+    newState[e.target.id] = e.target.value
+    this.setState(newState)
+  }
+  
+  handleInputChange = ( e ) => {
+    const newState = { ...this.state }
+    newState[e.target.id] = e.target.value
+    this.setState(newState)
+}
+
+  render(){
   return (
     <>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+      <div className={this.classes.paper}>
+        <Avatar className={this.classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           New Client
         </Typography>
-        <form className={classes.form} noValidate>
+        {/* I need to learn more about validate vs noValidate on the form. It has something to do with what the server checks, and I think I want to validate form submissions */}
+        <form className={this.classes.form} noValidate>
           <Grid container spacing={2}>
+              {/* client's first name */}
             <Grid item xs={12} sm={6}>
               <TextField
+                id="firstName"
                 autoComplete="fname"
                 name="firstName"
                 variant="outlined"
                 required
                 fullWidth
-                id="firstName"
                 label="First Name"
                 color='secondary'
                 autoFocus
               />
             </Grid>
+              {/* client's last name */}          
             <Grid item xs={12} sm={6}>
               <TextField
+                id="lastName"
                 autoComplete="lname"
                 variant="outlined"
                 required
                 fullWidth
-                id="lastName"
                 label="Last Name"
                 name="lastName"
               />
             </Grid>
+              {/* client's date of birth */}
             <Grid item xs={12}>
               <TextField
+                id="dob"
                 autoComplete="fname"
                 name="Date of Birth"
                 variant="outlined"
                 required
                 fullWidth
-                id="firstName"
                 label="Date of Birth"
               />
             </Grid>
+              {/* client's gender */}
             <Grid item xs={12}>
               <Autocomplete
-                id="gender-box"
+                id="gender"
                 options={genders}
                 style={{width: 268}}
                 renderInput={params => (
@@ -130,17 +163,19 @@ export default function NewClient( props ) {
                 )}
               />
             </Grid>
+              {/* client's main address */}
             <Grid item xs={12}>
               <TextField
+                id="address"
                 autoComplete="address"
                 variant="outlined"
                 required
                 fullWidth
-                id="address"
-                label="address"
+                label="Address"
                 name="address"
               />
             </Grid>
+              {/* client's city */}
             <Grid item xs={12}>
               <TextField
                 autoComplete="city"
@@ -148,101 +183,101 @@ export default function NewClient( props ) {
                 required
                 fullWidth
                 id="city"
-                label="city"
+                label="City"
                 name="city"
               />
             </Grid>
+              {/* client's state */}
             <Grid item xs={12}>
               <TextField
+                id="state"
                 autoComplete="state"
                 variant="outlined"
                 required
                 fullWidth
-                id="state"
-                label="state"
+                label="State"
                 name="state"
               />
             </Grid>
+              {/* client's zip code */}
             <Grid item xs={12}>
               <TextField
+                id="zip"
                 autoComplete="zip"
                 variant="outlined"
                 required
                 fullWidth
-                id="zip"
-                label="zip"
+                label="Zip"
                 name="zip"
               />
             </Grid>
+              {/* next section - focused on caregiver */}
             <Typography component="h1" variant="h5">
           Caregiver
             </Typography>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="rparty"
-                variant="outlined"
-                required
-                fullWidth
-                id="responsibleParty"
-                label="Responsible Party"
-                name="responsible party"
-              />
-            </Grid>
+              {/* what is the relationship of the caregiver to the client */}
             <Grid item xs={12}>
               <Autocomplete
-                id="relationship-box"
+                id="caregiverRelationship"
                 options={relationship}
                 style={{width: 268}}
                 renderInput={params => (
-                  <TextField {...params} label="Relationship" variant="outlined" fullWidth />
-                )}
-              />
+                  <TextField {...params} label="Relationship" variant="outlined" onChange={this.handleChange} fullWidth />
+                  )}
+                value={this.state.caregiverRelationship}
+                  />
             </Grid>
+              {/* is client independent or do they have a legal guardian */}
+            {this.state.responsibleParty !== 'Self' &&
+              <Grid item xs={12}>
+                <TextField
+                  id="caregiver-name"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="caregiver-name"
+                  label="Caregiver Name"
+                  type="caregiver-name"
+                  autoComplete="current-caregiver-name"
+                />
+              </Grid>
+            }
+              {/* perferred email */}
             <Grid item xs={12}>
               <TextField
+                id="email"
                 variant="outlined"
                 required
                 fullWidth
-                id="email"
                 label="Email Address"
                 name="email"
                 autoComplete="email"
               />
             </Grid>
+              {/* preferred phone */}
             <Grid item xs={12}>
               <TextField
+                id="phone"
                 variant="outlined"
                 required
                 fullWidth
                 name="phone"
                 label="Phone Number"
                 type="phone"
-                id="phone"
                 autoComplete="current-phone"
               />
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="caregiver-name"
-                label="Caregiver Name"
-                type="caregiver-name"
-                id="caregiver-name"
-                autoComplete="current-caregiver-name"
-              />
-            </Grid>
+
             <Typography component="h1" variant="h5">
           Insurance
             </Typography>
             <Grid item xs={12}>
               <TextField
+                id="responsibleParty"
                 autoComplete="rparty"
                 variant="outlined"
                 required
                 fullWidth
-                id="responsibleParty"
                 label="Responsible Party"
                 name="responsible party"
               />
@@ -259,10 +294,10 @@ export default function NewClient( props ) {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                id="email"
                 variant="outlined"
                 required
                 fullWidth
-                id="email"
                 label="Email Address"
                 name="email"
                 autoComplete="email"
@@ -270,25 +305,25 @@ export default function NewClient( props ) {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                id="phone"
                 variant="outlined"
                 required
                 fullWidth
                 name="phone"
                 label="Phone Number"
                 type="phone"
-                id="phone"
                 autoComplete="current-phone"
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                id="caregiver-name"
                 variant="outlined"
                 required
                 fullWidth
                 name="caregiver-name"
                 label="Caregiver Name"
                 type="caregiver-name"
-                id="caregiver-name"
                 autoComplete="current-caregiver-name"
               />
             </Grid>
@@ -305,7 +340,7 @@ export default function NewClient( props ) {
               fullWidth
               variant="contained"
               color="primary"
-              className={classes.submit}
+              className={this.classes.submit}
               href='/equipment'
             >
               Next
@@ -324,5 +359,5 @@ export default function NewClient( props ) {
       </Box>
     </Container>
     </>
-  );
+  )};
 }
