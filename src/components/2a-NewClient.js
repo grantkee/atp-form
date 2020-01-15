@@ -39,8 +39,9 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
   },
   avatar: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(3),
     backgroundColor: theme.palette.secondary.main,
+    justifyContent: 'center'
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -91,6 +92,7 @@ export default class NewClient extends Component{
     const newState = {...this.state}
     newState[e.target.id] = e.target.value
     this.setState(newState)
+    debugger
   }
   
   handleInputChange = ( e ) => {
@@ -221,10 +223,10 @@ export default class NewClient extends Component{
                 id="caregiverRelationship"
                 options={relationship}
                 style={{width: 268}}
+                onChange={this.handleChange} 
                 renderInput={params => (
-                  <TextField {...params} label="Relationship" variant="outlined" onChange={this.handleChange} fullWidth />
+                  <TextField {...params} label="Relationship" variant="outlined" value={this.state.caregiverRelationship} fullWidth />
                   )}
-                value={this.state.caregiverRelationship}
                   />
             </Grid>
               {/* is client independent or do they have a legal guardian */}
@@ -267,7 +269,6 @@ export default class NewClient extends Component{
                 autoComplete="current-phone"
               />
             </Grid>
-
             <Typography component="h1" variant="h5">
           Insurance
             </Typography>
