@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 
 //importing dummydata for testing server connection
 const clients = require('./clientDemographics');
-const test = require('./clientDemographics');
 
 //require routes here
 
@@ -25,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'atp-form/build')))
 
 app.get('/', (req, res) => {
     console.log('server is connected :D')
+    console.log(test)
     res.send(test)
 });
 

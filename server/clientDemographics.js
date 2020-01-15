@@ -1,5 +1,3 @@
-const test = [1, 2, 3];
-
 const clients = [{"id":1,"first_name":"Krissie","last_name":"Tilford","date_of_birth":"01/28/1932","gender":"Female","email":"ktilford0@tiny.cc","address":"4 Homewood Road","city":"Daytona Beach","state":"Florida","zip":"32118","medicaid_payor":"CFHP","medicaid_id":"488-84-1888"},
 {"id":2,"first_name":"Leroi","last_name":"DelaField","date_of_birth":"09/20/1949","gender":"Male","email":"ldelafield1@soundcloud.com","address":"752 Oneill Junction","city":"Washington","state":"District of Columbia","zip":"20078","medicaid_payor":"BCBS","medicaid_id":"107-94-1048"},
 {"id":3,"first_name":"Sonja","last_name":"Uvedale","date_of_birth":"11/24/1937","gender":"Female","email":"suvedale2@odnoklassniki.ru","address":"7 Hoffman Hill","city":"Los Angeles","state":"California","zip":"90060","medicaid_payor":"TMHP","medicaid_id":"767-55-0032"},
@@ -1001,4 +999,4 @@ const clients = [{"id":1,"first_name":"Krissie","last_name":"Tilford","date_of_b
 {"id":999,"first_name":"Orville","last_name":"Deluze","date_of_birth":"10/16/1961","gender":"Male","email":"odeluzerq@de.vu","address":"422 Doe Crossing Court","city":"El Paso","state":"Texas","zip":"88569","medicaid_payor":"Molina","medicaid_id":"183-55-9197"},
 {"id":1000,"first_name":"Bartholemy","last_name":"Lillee","date_of_birth":"06/26/1956","gender":"Male","email":"blilleerr@flickr.com","address":"97 Northwestern Street","city":"Fresno","state":"California","zip":"93715","medicaid_payor":"TCHP","medicaid_id":"298-61-8304"}]
 
-module.exports = clients, test
+module.exports = clients;
