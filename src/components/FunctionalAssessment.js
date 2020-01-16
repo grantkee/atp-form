@@ -96,10 +96,10 @@ class FunctionalAssesment extends Component {
   }
 
   handleSelection = ( e ) => {
-    const newState = { ...this.state }
-    let targetState = e.target.offsetParent.id.split('-')
-    newState[targetState[0]] = e.target.value
+    let newState = { ...this.state }
+    newState[e.target.name] = e.target.value
     this.setState(newState)
+    debugger
   }
 
   render(){
