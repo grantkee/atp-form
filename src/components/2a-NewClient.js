@@ -90,17 +90,12 @@ export default class NewClient extends Component{
 
   handleChange = ( e ) => {
     const newState = {...this.state}
-    newState[e.target.id] = e.target.value
+    newState[e.target.id] = e.target.innerText
     this.setState(newState)
+    console.log(e.inputProps)
     debugger
   }
   
-  handleInputChange = ( e ) => {
-    const newState = { ...this.state }
-    newState[e.target.id] = e.target.value
-    this.setState(newState)
-}
-
   render(){
   return (
     <>
@@ -223,10 +218,10 @@ export default class NewClient extends Component{
                 id="caregiverRelationship"
                 options={relationship}
                 style={{width: 268}}
-                onChange={this.handleChange} 
                 renderInput={params => (
-                  <TextField {...params} label="Relationship" variant="outlined" value={this.state.caregiverRelationship} fullWidth />
+                  <TextField {...params} label="Relationship" variant="outlined" value={params.inputProps.value} fullWidth />
                   )}
+                  onChange={this.handleChange}
                   />
             </Grid>
               {/* is client independent or do they have a legal guardian */}
