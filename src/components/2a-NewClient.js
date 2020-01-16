@@ -92,7 +92,14 @@ export default class NewClient extends Component{
     const newState = {...this.state}
     newState[e.target.id] = e.target.innerText
     this.setState(newState)
-    console.log(e.inputProps)
+    debugger
+  }
+
+  handleSelectionChange = ( e ) => {
+    const newState = {...this.state}
+    let targetState = e.target.offsetParent.id.split('-')
+    newState[targetState[0]] = e.target.innerText
+    this.setState(newState)
     debugger
   }
   
@@ -221,11 +228,11 @@ export default class NewClient extends Component{
                 renderInput={params => (
                   <TextField {...params} label="Relationship" variant="outlined" value={params.inputProps.value} fullWidth />
                   )}
-                  onChange={this.handleChange}
+                  onChange={this.handleSelectionChange}
                   />
             </Grid>
               {/* is client independent or do they have a legal guardian */}
-            {this.state.responsibleParty !== 'Self' &&
+            {this.state.caregiverRelationship !== 'Self' &&
               <Grid item xs={12}>
                 <TextField
                   id="caregiver-name"
