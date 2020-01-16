@@ -14,17 +14,16 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { withStyles } from '@material-ui/core/styles';
   
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="https://grantkee.com">
+        Grant Kee
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -34,7 +33,7 @@ function Copyright() {
 
 const styles = theme => ({
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(1),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center'
@@ -42,8 +41,7 @@ const styles = theme => ({
   avatar: {
     margin: theme.spacing(3),
     backgroundColor: theme.palette.secondary.main,
-    alignItems: 'center',
-    marginTop: 10000
+    alignItems: 'center'
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -72,7 +70,7 @@ const relationship = [
   'Other'
 ]
 
-class NewClient extends Component{
+class NewClient extends Component {
   state = {
     firstName: '',
     lastName: '',
@@ -87,8 +85,6 @@ class NewClient extends Component{
     email: '',
     phone: ''
   }
-
-  // classes = () => useStyles()
 
   handleChange = ( e ) => {
     const newState = {...this.state}
@@ -333,9 +329,9 @@ class NewClient extends Component{
                 autoComplete="current-caregiver-name"
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <FormControlLabel
-                width='50%'
+                maxwidth
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
                 label="I have verified the information above is accurate and up-to-date."
               />

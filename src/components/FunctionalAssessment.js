@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -10,7 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 //for radio buttons within form
@@ -25,8 +25,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Functional Assessment
+      <Link color="inherit" href="https://grantkee.com">
+        Test Company
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -34,7 +34,7 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
   paper: {
     marginTop: theme.spacing(1),
     display: 'flex',
@@ -59,7 +59,7 @@ const useStyles = makeStyles(theme => ({
   label: {
     marginTop: theme.spacing(2)
   }
-}));
+});
 
 const mobilityStatus = [
   "Non-Ambulatory",
@@ -81,15 +81,29 @@ const relationship = [
   'Other'
 ]
 
-export default function NewClient( props ) {
-  const classes = useStyles();
+class FunctionalAssesment extends Component {
+  state = {
+    diagnosis: '',
+    diagnosis1: '',
+    diagnosis2: '',
+    diagnosis3: '',
+    mobilityStatus: '',
+    ambulatoryPotential: '',
+    headControl: '',
+    trunkControl: '',
+    upperExtremities: '',
+    lowerExtremities: ''
+  }
 
-  const [value, setValue] = React.useState('ambulatoryPotential');
+  handleSelection = ( e ) => {
+    const newState = { ...this.state }
+    let targetState = e.target.offsetParent.id.split('-')
+    newState[targetState[0]] = e.target.value
+    this.setState(newState)
+  }
 
-  const handleChange = event => {
-    setValue(event.target.value);
-  };
-
+  render(){
+    const { classes } = this.props;
   return (
     <>
     <Container component="main" maxWidth="xs">
@@ -105,31 +119,31 @@ export default function NewClient( props ) {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
+                id="diagnosis"
                 autoComplete="dx"
                 name="diagnosis"
                 variant="filled"
                 required
                 fullWidth
-                id="diagnosis"
                 label="Diagnosis"
                 autoFocus
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                id="diagnosis1"
                 autoComplete="dx"
                 name="diagnosis"
                 variant="standard"
                 // required
                 fullWidth
-                id="diagnosis"
                 label="Diagnosis"
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                name="diagnosis2"
                 autoComplete="dx"
-                name="diagnosis"
                 variant="outlined"
                 fullWidth
                 id="diagnosis"
@@ -138,17 +152,17 @@ export default function NewClient( props ) {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                id="diagnosis3"
                 autoComplete="dx"
                 name="diagnosis"
                 variant="outlined"
                 fullWidth
-                id="diagnosis"
                 label="Diagnosis"
               />
             </Grid>
             <Grid item xs={12}>
               <Autocomplete
-                id="mobility-status"
+                id="mobilityStatus"
                 options={mobilityStatus}
                 style={{width: 268}}
                 renderInput={params => (
@@ -160,7 +174,7 @@ export default function NewClient( props ) {
               <FormControl>
               <Typography component="h3" variant="h5">Ambulatory Potential:</Typography>
                 {/* <FormLabel component="legend">Ambulatory Potential</FormLabel> */}
-                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange}>
+                <RadioGroup id="ambulatoryPotential" className={classes.radioGroup} aria-label="ambulatory-potential" name="ambulatoryPotential" value={this.state.ambulatoryPotential} onChange={this.handleSelection}>
                   <FormControlLabel value="not-expected" control={<Radio />} label="Not Expected" />
                   <FormControlLabel value="within-one" control={<Radio />} label="Expected within 1 year" />
                   <FormControlLabel value="not expected" control={<Radio />} label="Expected in future, >1 year" />
@@ -171,28 +185,28 @@ export default function NewClient( props ) {
               <FormControl>
               <Typography component="h3" variant="h5">Functional Level:</Typography>
                 <FormLabel component="legend" className={classes.label}>Head Control</FormLabel>
-                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange} row>
+                <RadioGroup id="headControl" className={classes.radioGroup} aria-label="ambulatory-potential" name="headControl" value={this.state.headControl} onChange={this.handleSelection} row>
                   <FormControlLabel value="headGood" control={<Radio />} label="Good" />
                   <FormControlLabel value="headFair" control={<Radio />} label="Fair" />
                   <FormControlLabel value="headPoor" control={<Radio />} label="Poor" />
                   <FormControlLabel value="headNone" control={<Radio />} label="None" />
                 </RadioGroup>
                 <FormLabel component="legend" className={classes.label}>Trunk Control</FormLabel>
-                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange} row>
+                <RadioGroup id="trunkControl" className={classes.radioGroup} aria-label="ambulatory-potential" name="trunkControl" value={this.state.trunkControl} onChange={this.handleSelection} row>
                   <FormControlLabel value="trunkGood" control={<Radio />} label="Good" />
                   <FormControlLabel value="trunkFair" control={<Radio />} label="Fair" />
                   <FormControlLabel value="trunkPoor" control={<Radio />} label="Poor" />
                   <FormControlLabel value="trunkNone" control={<Radio />} label="None" />
                 </RadioGroup>
                 <FormLabel component="legend" className={classes.label}>Upper Extremities</FormLabel>
-                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange} row>
+                <RadioGroup id="upperExtremity" className={classes.radioGroup} aria-label="ambulatory-potential" name="upperExtremity" value={this.state.upperExtremities} onChange={this.handleSelection} row>
                   <FormControlLabel value="upperGood" control={<Radio />} label="Good" />
                   <FormControlLabel value="upperFair" control={<Radio />} label="Fair" />
                   <FormControlLabel value="upperPoor" control={<Radio />} label="Poor" />
                   <FormControlLabel value="upperNone" control={<Radio />} label="None" />
                 </RadioGroup>
-                <FormLabel component="legend" className={classes.label}>Upper Extremities</FormLabel>
-                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange} row>
+                <FormLabel component="legend" className={classes.label}>Lower Extremities</FormLabel>
+                <RadioGroup id="lowerExtremity" className={classes.radioGroup} aria-label="ambulatory-potential" name="lowerExtremity" value={this.state.lowerExtremities} onChange={this.handleSelection} row>
                   <FormControlLabel value="lowerGood" control={<Radio />} label="Good" />
                   <FormControlLabel value="lowerFair" control={<Radio />} label="Fair" />
                   <FormControlLabel value="lowerPoor" control={<Radio />} label="Poor" />
@@ -202,7 +216,7 @@ export default function NewClient( props ) {
               <FormControl>
                 <Typography component="h5" variant="h5">Transfer Capability:</Typography>
                 {/* <FormLabel component="legend" className={classes.label}>Transfer Capability</FormLabel> */}
-                <RadioGroup className={classes.radioGroup} aria-label="ambulatory-potential" name="amb-pot" value={value} onChange={handleChange} >
+                <RadioGroup id="transferCapability" className={classes.radioGroup} aria-label="ambulatory-potential" name="transferCapability" value={this.state.transferAbility} onChange={this.handleSelection} >
                   <FormControlLabel value="transferMaximum" control={<Radio />} label="Maximum Assistance" />
                   <FormControlLabel value="transferModerate" control={<Radio />} label="Moderate Assistance" />
                   <FormControlLabel value="transferMinimum" control={<Radio />} label="Minimum Assistance" />
@@ -210,175 +224,6 @@ export default function NewClient( props ) {
                   <FormControlLabel value="transIndEvenOnly" control={<Radio />} label="Independent across even surfaces only" />
                 </RadioGroup>
               </FormControl>
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="address"
-                variant="outlined"
-                required
-                fullWidth
-                id="address"
-                label="address"
-                name="address"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="city"
-                variant="outlined"
-                required
-                fullWidth
-                id="city"
-                label="city"
-                name="city"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="state"
-                variant="outlined"
-                required
-                fullWidth
-                id="state"
-                label="state"
-                name="state"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="zip"
-                variant="outlined"
-                required
-                fullWidth
-                id="zip"
-                label="zip"
-                name="zip"
-              />
-            </Grid>
-            <Typography component="h1" variant="h5">
-          Caregiver
-            </Typography>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="rparty"
-                variant="outlined"
-                required
-                fullWidth
-                id="responsibleParty"
-                label="Responsible Party"
-                name="responsible party"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Autocomplete
-                id="relationship-box"
-                options={relationship}
-                style={{width: 268}}
-                renderInput={params => (
-                  <TextField {...params} label="Relationship" variant="outlined" fullWidth />
-                )}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="phone"
-                label="Phone Number"
-                type="phone"
-                id="phone"
-                autoComplete="current-phone"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="caregiver-name"
-                label="Caregiver Name"
-                type="caregiver-name"
-                id="caregiver-name"
-                autoComplete="current-caregiver-name"
-              />
-            </Grid>
-            <Typography component="h1" variant="h5">
-          Insurance
-            </Typography>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="rparty"
-                variant="outlined"
-                required
-                fullWidth
-                id="responsibleParty"
-                label="Responsible Party"
-                name="responsible party"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Autocomplete
-                id="relationship-box"
-                options={relationship}
-                style={{width: 268}}
-                renderInput={params => (
-                  <TextField {...params} label="Relationship" variant="outlined" fullWidth />
-                )}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="phone"
-                label="Phone Number"
-                type="phone"
-                id="phone"
-                autoComplete="current-phone"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="caregiver-name"
-                label="Caregiver Name"
-                type="caregiver-name"
-                id="caregiver-name"
-                autoComplete="current-caregiver-name"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <FormControlLabel
-                width='50%'
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I have verified the information above is accurate and up-to-date."
-              />
             </Grid>
           </Grid>
             <Button
@@ -391,13 +236,6 @@ export default function NewClient( props ) {
             >
               Next
             </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link to="#" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
         </form>
       </div>
       <Box mt={5}>
@@ -407,3 +245,6 @@ export default function NewClient( props ) {
     </>
   );
 }
+}
+
+export default withStyles(styles)(FunctionalAssesment)
