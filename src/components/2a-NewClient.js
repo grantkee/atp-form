@@ -17,6 +17,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import { withStyles } from '@material-ui/core/styles';
   
 function Copyright() {
   return (
@@ -31,17 +32,18 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   avatar: {
     margin: theme.spacing(3),
     backgroundColor: theme.palette.secondary.main,
-    justifyContent: 'center'
+    alignItems: 'center',
+    marginTop: 10000
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -50,7 +52,7 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   }
-}));
+})
 
 const genders = [
   "Male",
@@ -70,7 +72,7 @@ const relationship = [
   'Other'
 ]
 
-export default class NewClient extends Component{
+class NewClient extends Component{
   state = {
     firstName: '',
     lastName: '',
@@ -86,7 +88,7 @@ export default class NewClient extends Component{
     phone: ''
   }
 
-  classes = () => useStyles();
+  // classes = () => useStyles()
 
   handleChange = ( e ) => {
     const newState = {...this.state}
@@ -104,19 +106,20 @@ export default class NewClient extends Component{
   }
   
   render(){
+    const { classes } = this.props;
   return (
     <>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div className={this.classes.paper}>
-        <Avatar className={this.classes.avatar}>
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           New Client
         </Typography>
         {/* I need to learn more about validate vs noValidate on the form. It has something to do with what the server checks, and I think I want to validate form submissions */}
-        <form className={this.classes.form} noValidate>
+        <form className={classes.form} noValidate>
           <Grid container spacing={2}>
               {/* client's first name */}
             <Grid item xs={12} sm={6}>
@@ -343,7 +346,7 @@ export default class NewClient extends Component{
               fullWidth
               variant="contained"
               color="primary"
-              className={this.classes.submit}
+              className={classes.submit}
               href='/equipment'
             >
               Next
@@ -364,3 +367,5 @@ export default class NewClient extends Component{
     </>
   )};
 }
+
+export default withStyles(styles)(NewClient)
