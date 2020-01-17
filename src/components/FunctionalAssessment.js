@@ -92,14 +92,21 @@ class FunctionalAssesment extends Component {
     headControl: '',
     trunkControl: '',
     upperExtremities: '',
-    lowerExtremities: ''
+    lowerExtremities: '',
+    transferCapability: ''
   }
 
-  handleSelection = ( e ) => {
+  handleChange = ( e ) => {
     let newState = { ...this.state }
     newState[e.target.name] = e.target.value
+    this.setState( newState )
+  }
+
+  handleSelectionChange = ( e ) => {
+    const newState = {...this.state}
+    let targetState = e.target.offsetParent.id.split('-')
+    newState[targetState[0]] = e.target.innerText
     this.setState(newState)
-    debugger
   }
 
   render(){
@@ -127,37 +134,41 @@ class FunctionalAssesment extends Component {
                 fullWidth
                 label="Diagnosis"
                 autoFocus
+                onChange={this.handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
                 id="diagnosis1"
                 autoComplete="dx"
-                name="diagnosis"
+                name="diagnosis1"
                 variant="standard"
                 // required
                 fullWidth
                 label="Diagnosis"
+                onChange={this.handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                id="diagnosis2"
                 name="diagnosis2"
                 autoComplete="dx"
                 variant="outlined"
                 fullWidth
-                id="diagnosis"
                 label="Diagnosis"
+                onChange={this.handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
                 id="diagnosis3"
+                name="diagnosis3"
                 autoComplete="dx"
-                name="diagnosis"
                 variant="outlined"
                 fullWidth
                 label="Diagnosis"
+                onChange={this.handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -168,16 +179,17 @@ class FunctionalAssesment extends Component {
                 renderInput={params => (
                   <TextField {...params} label="Mobility Status" variant="outlined" fullWidth />
                 )}
+                onChange={this.handleSelectionChange}
               />
             </Grid>
             <Grid item xs={12}>
               <FormControl>
               <Typography component="h3" variant="h5">Ambulatory Potential:</Typography>
                 {/* <FormLabel component="legend">Ambulatory Potential</FormLabel> */}
-                <RadioGroup id="ambulatoryPotential" className={classes.radioGroup} aria-label="ambulatory-potential" name="ambulatoryPotential" value={this.state.ambulatoryPotential} onChange={this.handleSelection}>
-                  <FormControlLabel value="not-expected" control={<Radio />} label="Not Expected" />
-                  <FormControlLabel value="within-one" control={<Radio />} label="Expected within 1 year" />
-                  <FormControlLabel value="not expected" control={<Radio />} label="Expected in future, >1 year" />
+                <RadioGroup id="ambulatoryPotential" className={classes.radioGroup} aria-label="ambulatory-potential" name="ambulatoryPotential" value={this.state.ambulatoryPotential} onChange={this.handleChange}>
+                  <FormControlLabel value="notExpected" control={<Radio />} label="Not Expected" />
+                  <FormControlLabel value="expectedSoon" control={<Radio />} label="Expected within 1 year" />
+                  <FormControlLabel value="expectedFar" control={<Radio />} label="Expected in future, >1 year" />
                 </RadioGroup>
               </FormControl>
             </Grid>
@@ -185,28 +197,28 @@ class FunctionalAssesment extends Component {
               <FormControl>
               <Typography component="h3" variant="h5">Functional Level:</Typography>
                 <FormLabel component="legend" className={classes.label}>Head Control</FormLabel>
-                <RadioGroup id="headControl" className={classes.radioGroup} aria-label="ambulatory-potential" name="headControl" value={this.state.headControl} onChange={this.handleSelection} row>
+                <RadioGroup id="headControl" className={classes.radioGroup} aria-label="ambulatory-potential" name="headControl" value={this.state.headControl} onChange={this.handleChange} row>
                   <FormControlLabel value="headGood" control={<Radio />} label="Good" />
                   <FormControlLabel value="headFair" control={<Radio />} label="Fair" />
                   <FormControlLabel value="headPoor" control={<Radio />} label="Poor" />
                   <FormControlLabel value="headNone" control={<Radio />} label="None" />
                 </RadioGroup>
                 <FormLabel component="legend" className={classes.label}>Trunk Control</FormLabel>
-                <RadioGroup id="trunkControl" className={classes.radioGroup} aria-label="ambulatory-potential" name="trunkControl" value={this.state.trunkControl} onChange={this.handleSelection} row>
+                <RadioGroup id="trunkControl" className={classes.radioGroup} aria-label="ambulatory-potential" name="trunkControl" value={this.state.trunkControl} onChange={this.handleChange} row>
                   <FormControlLabel value="trunkGood" control={<Radio />} label="Good" />
                   <FormControlLabel value="trunkFair" control={<Radio />} label="Fair" />
                   <FormControlLabel value="trunkPoor" control={<Radio />} label="Poor" />
                   <FormControlLabel value="trunkNone" control={<Radio />} label="None" />
                 </RadioGroup>
                 <FormLabel component="legend" className={classes.label}>Upper Extremities</FormLabel>
-                <RadioGroup id="upperExtremity" className={classes.radioGroup} aria-label="ambulatory-potential" name="upperExtremity" value={this.state.upperExtremities} onChange={this.handleSelection} row>
+                <RadioGroup id="upperExtremity" className={classes.radioGroup} aria-label="ambulatory-potential" name="upperExtremities" value={this.state.upperExtremities} onChange={this.handleChange} row>
                   <FormControlLabel value="upperGood" control={<Radio />} label="Good" />
                   <FormControlLabel value="upperFair" control={<Radio />} label="Fair" />
                   <FormControlLabel value="upperPoor" control={<Radio />} label="Poor" />
                   <FormControlLabel value="upperNone" control={<Radio />} label="None" />
                 </RadioGroup>
                 <FormLabel component="legend" className={classes.label}>Lower Extremities</FormLabel>
-                <RadioGroup id="lowerExtremity" className={classes.radioGroup} aria-label="ambulatory-potential" name="lowerExtremity" value={this.state.lowerExtremities} onChange={this.handleSelection} row>
+                <RadioGroup id="lowerExtremity" className={classes.radioGroup} aria-label="ambulatory-potential" name="lowerExtremities" value={this.state.lowerExtremities} onChange={this.handleChange} row>
                   <FormControlLabel value="lowerGood" control={<Radio />} label="Good" />
                   <FormControlLabel value="lowerFair" control={<Radio />} label="Fair" />
                   <FormControlLabel value="lowerPoor" control={<Radio />} label="Poor" />
@@ -216,7 +228,7 @@ class FunctionalAssesment extends Component {
               <FormControl>
                 <Typography component="h5" variant="h5">Transfer Capability:</Typography>
                 {/* <FormLabel component="legend" className={classes.label}>Transfer Capability</FormLabel> */}
-                <RadioGroup id="transferCapability" className={classes.radioGroup} aria-label="ambulatory-potential" name="transferCapability" value={this.state.transferAbility} onChange={this.handleSelection} >
+                <RadioGroup id="transferCapability" className={classes.radioGroup} aria-label="ambulatory-potential" name="transferCapability" value={this.state.transferAbility} onChange={this.handleChange} >
                   <FormControlLabel value="transferMaximum" control={<Radio />} label="Maximum Assistance" />
                   <FormControlLabel value="transferModerate" control={<Radio />} label="Moderate Assistance" />
                   <FormControlLabel value="transferMinimum" control={<Radio />} label="Minimum Assistance" />
@@ -244,7 +256,7 @@ class FunctionalAssesment extends Component {
     </Container>
     </>
   );
-}
+ }
 }
 
 export default withStyles(styles)(FunctionalAssesment)
