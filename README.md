@@ -12,6 +12,8 @@ Create an efficient system for Assistive Technology Professionals (ATP) to gathe
 
 * I've tied the fetchClients() action 1-ClientType component. The problem is when the server restarts in development mode, the state.clients = [] again and there's no way to call the function again without going back to '/' and clicking the "Existing Client" paper. I need to figure out a better way to request the existing clients array and populate the array in state. 
 
+* Where should I store my photos? I use one in the Measurement component, but I'm not sure if I should use 'require' or 'import'
+
 #### Future Additions
 
 * Search function for client list: DOB, first_name, last_name, etc. 
