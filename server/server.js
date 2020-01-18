@@ -24,8 +24,6 @@ app.use(express.static(path.join(__dirname, 'atp-form/build')))
 
 app.get('/', (req, res) => {
     console.log('server is connected :D')
-    console.log(test)
-    res.send(test)
 });
 
 app.get('/clients', (req, res) => {
