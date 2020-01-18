@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import diagram from '../data/measurement-guide.svg'
+import diagram from '../data/measurement-guide.svg';
 //table imports
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -51,7 +51,7 @@ const styles = theme => ({
   },
   form: {
     width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(3)
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -66,17 +66,20 @@ const styles = theme => ({
 
 class Measurements extends Component {
   state = {
-    diagnosis: '',
-    diagnosis1: '',
-    diagnosis2: '',
-    diagnosis3: '',
-    mobilityStatus: '',
-    ambulatoryPotential: '',
-    headControl: '',
-    trunkControl: '',
-    upperExtremities: '',
-    lowerExtremities: '',
-    transferCapability: ''
+    measurement1: '',
+    measurement2: '',
+    measurement3: '',
+    measurement4: '',
+    measurement5: '',
+    measurement6: '',
+    measurement7: '',
+    measurement8: '',
+    measurement9: '',
+    measurement10: '',
+    measurement11: '',
+    measurement12: '',
+    measurement13: '',
+    measurement14: ''
   }
 
   handleChange = ( e ) => {
@@ -103,60 +106,185 @@ class Measurements extends Component {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Functional Assessment
+          Measurements
         </Typography>
         <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
-              <Grid item xs={12} >
+              <Grid container xs={12} >
                 <img src={diagram} className={classes.svg}/>
               </Grid>
-            <Grid item xs={12} sm={6}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
               <TextField
-                id="diagnosis"
+                id="measurement1"
+                name="measurement1"
+                label="Top of head to bottom of buttocks"
                 autoComplete="dx"
-                name="diagnosis"
-                variant="filled"
-                required
+                variant="outlined"
                 fullWidth
-                label="Diagnosis"
                 autoFocus
                 onChange={this.handleChange}
+                required
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
-                id="diagnosis1"
+                id="measurement2"
+                name="measurement2"
+                label="Arm pit to bottom of buttocks"
                 autoComplete="dx"
-                name="diagnosis1"
-                variant="standard"
+                variant="outlined"
                 // required
                 fullWidth
-                label="Diagnosis"
+                onChange={this.handleChange}
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="measurement3"
+                name="measurement3"
+                label="Top of shoulder to bottom of buttocks"
+                autoComplete="dx"
+                variant="outlined"
+                fullWidth
+                onChange={this.handleChange}
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="measurement4"
+                name="measurement4"
+                label="Elbow to bottom of buttocks"
+                autoComplete="dx"
+                variant="outlined"
+                fullWidth
+                onChange={this.handleChange}
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="measurement5"
+                name="measurement5"
+                label="Back of buttocks to back of knee"
+                autoComplete="dx"
+                variant="outlined"
+                fullWidth
+                autoFocus
+                onChange={this.handleChange}
+                required
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                id="measurement6"
+                name="measurement6"
+                label="Foot length"
+                autoComplete="dx"
+                variant="outlined"
+                // required
+                fullWidth
+                onChange={this.handleChange}
+                required
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                id="measurement7"
+                name="measurement7"
+                label="Head width"
+                autoComplete="dx"
+                variant="outlined"
+                fullWidth
+                onChange={this.handleChange}
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="measurement8"
+                name="measurement8"
+                label="Shoulder width"
+                autoComplete="dx"
+                variant="outlined"
+                fullWidth
+                onChange={this.handleChange}
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="measurement9"
+                name="measurement9"
+                label="Arm pit to arm pit"
+                autoComplete="dx"
+                variant="outlined"
+                fullWidth
+                autoFocus
+                onChange={this.handleChange}
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="measurement10"
+                name="measurement10"
+                label="Hip width"
+                autoComplete="dx"
+                variant="outlined"
+                // required
+                fullWidth
+                onChange={this.handleChange}
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="measurement11"
+                name="measurement11"
+                label="Distance to bottom of left leg"
+                autoComplete="dx"
+                variant="outlined"
+                fullWidth
+                onChange={this.handleChange}
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="measurement12"
+                name="measurement12"
+                label="Distance to bottom of right leg"
+                autoComplete="dx"
+                variant="outlined"
+                fullWidth
+                onChange={this.handleChange}
+                required
+              />
+            </Grid>     
+            <Grid item xs={12} sm={6}>
+              <TextField
+                id="measurement13"
+                name="measurement13"
+                label="Chest depth"
+                autoComplete="dx"
+                variant="outlined"
+                fullWidth
                 onChange={this.handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
-                id="diagnosis2"
-                name="diagnosis2"
+                id="measurement14"
+                name="measurement14"
+                label="Forearm length"
                 autoComplete="dx"
                 variant="outlined"
                 fullWidth
-                label="Diagnosis"
                 onChange={this.handleChange}
               />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                id="diagnosis3"
-                name="diagnosis3"
-                autoComplete="dx"
-                variant="outlined"
-                fullWidth
-                label="Diagnosis"
-                onChange={this.handleChange}
-              />
-            </Grid>
+            </Grid>            
           </Grid>
             <Button
               type="submit"
@@ -178,4 +306,4 @@ class Measurements extends Component {
  }
 }
 
-export default withStyles(styles)(Measurements)
+export default withStyles(styles)(Measurements);

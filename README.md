@@ -16,6 +16,8 @@ Create an efficient system for Assistive Technology Professionals (ATP) to gathe
 
 #### Future Additions
 
+* Collect date and setState of date on FunctionalAssessment to add logic component: If the last assessment was less than 30 days ago, we don't need to do it again. Mostly helpful if doing multiple pieces of equipment at the same time.
+
 * Search function for client list: DOB, first_name, last_name, etc. 
 
 * Ability to search DME equipment and obtain manufacturer information
