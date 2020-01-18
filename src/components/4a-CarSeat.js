@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const CarSeat = ( props ) => {
     return (
         <>
-        <FunctionalAssessment />
+            <FunctionalAssessment />
         </>
     )
 }
