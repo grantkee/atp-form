@@ -14,6 +14,8 @@ Create an efficient system for Assistive Technology Professionals (ATP) to gathe
 
 * Where should I store my photos? I use one in the Measurement component, but I'm not sure if I should use 'require' or 'import'
 
+* Routing ('/new-client'): when should I start posting information to the database? 
+
 #### Future Additions
 
 * Collect date and setState of date on FunctionalAssessment to add logic component: If the last assessment was less than 30 days ago, we don't need to do it again. Mostly helpful if doing multiple pieces of equipment at the same time.
