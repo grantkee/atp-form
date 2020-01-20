@@ -12,7 +12,7 @@ class Connection {
         host: '35.232.47.229',
         user: 'root',
         password: process.env.REACT_APP_SQL_INSTANCE,
-        database: '????' //I need to create the database still. Not sure how to do this, need to review previous lessons from JS311
+        database: 'admin' 
       }
 
       if (process.env.NODE_ENV === 'production' && process.env.CLOUD_INSTANCE) {
