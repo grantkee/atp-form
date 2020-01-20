@@ -1,7 +1,9 @@
 const express = require('express')
-const postsController = require('../controllers/Clients')
+const clientsController = require('../controllers/clientsController')
 const router = express.Router()
 
-router.get('/clients', postsController.getAllClients)
+router.get('/clients', clientsController.getAllClients)
+
+// router.get('/clients/:id', )
 
 module.exports = router;
