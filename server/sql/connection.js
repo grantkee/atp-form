@@ -11,16 +11,17 @@ class Connection {
         connectionLimit: 100,
         host: '35.232.47.229',
         user: 'root',
-        password: process.env.REACT_APP_SQL_INSTANCE,
+        password: "3vYu7lo0py33g1k3",
         database: 'admin' 
       }
 
-      if (process.env.NODE_ENV === 'production' && process.env.CLOUD_INSTANCE) {
-        console.log(`connect socket: ${process.env.CLOUD_INSTANCE}`)
-        config.socketPath = `/cloudsql/${process.env.CLOUD_INSTANCE}`
-      }
+      // if (process.env.NODE_ENV === 'production' && process.env.REACT_APP_CLOUD_INSTANCE) {
+      //   console.log(`connect socket: ${process.env.REACT_APP_CLOUD_INSTANCE}`)
+      //   config.socketPath = `/cloudsql/${process.env.REACT_APP_CLOUD_INSTANCE}`
+      // }
 
       this.pool = mysql.createPool(config)
+      // console.log(this.pool)
 
       return this.pool
     }

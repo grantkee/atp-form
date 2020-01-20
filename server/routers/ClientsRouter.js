@@ -1,9 +1,7 @@
-const express = require('express')
-const clientsController = require('../controllers/clientsController')
-const router = express.Router()
+const express = require('express');
+const clientsController = require('../controllers/clientsController');
+const router = express.Router();
 
-router.get('/clients', clientsController.getAllClients)
-
-// router.get('/clients/:id', )
+router.get('/', clientsController.getAllClients)
 
 module.exports = router;

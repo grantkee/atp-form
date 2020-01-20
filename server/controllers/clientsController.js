@@ -4,7 +4,7 @@ const { handleSQLError } = require('../sql/error')
 
 const getAllClients = (req, res) => {
   console.log("ooo buddy :D")
-  pool.query("SELECT * FROM clients", (err, rows) => {
+  pool.query("SELECT * FROM test", (err, rows) => {
     if (err) return handleSQLError(res, err)
     return res.json(rows);
   })
@@ -53,9 +53,5 @@ const deleteClientByFirstName = (req, res) => {
 }
 
 module.exports = {
-  getAllClients,
-  getClientById,
-  createClient,
-  updateClientById,
-  deleteClientByFirstName
+  getAllClients
 }

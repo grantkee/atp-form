@@ -1,9 +1,8 @@
 const express = require('express');
-const path = require('path');
 const bodyParser = require('body-parser');
 
 //require routes here
-const clientsRouter = require('./routers/clientsRouter')
+const clientsRouter = require('./routers/clientsRouter');
 
 //calling middleware to log network activity
 // const { logger } = require('./middleware');
@@ -15,7 +14,7 @@ const port = process.env.PORT || 5000;
 //use json format and logger middleware
 app.use(bodyParser.json());
 // app.use(express.static(path.join(__dirname, 'atp-form/build')))
-app.use('/clients', clientsRouter)
+app.use('/clients', clientsRouter);
 // app.use(logger);
 
 //app.use(routes) here
