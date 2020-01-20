@@ -16,7 +16,6 @@ const ExistingClient = (props) => {
                             <li>DOB: {client["date_of_birth"]}</li>
                             <li>Email: {client["email"]}</li>
                             <li>Gender: {client["gender"]}</li>
-                            {console.log(client.medicaid_id)}
                             <li>{client["medicaid_payor"]}: {client["medicaid_id"].split('-').join('')}</li>
                         </ul>
                     </CardContent>

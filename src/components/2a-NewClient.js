@@ -331,7 +331,7 @@ class NewClient extends Component {
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
-                maxwidth
+                fullWidth
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
                 label="I have verified the information above is accurate and up-to-date."
               />
