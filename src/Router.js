@@ -11,6 +11,7 @@ import NewClient from './containers/2a-NewClient';
 import Equipment from './containers/3-Equipment';
 import CarSeat from './components/4a-CarSeat';
 import Measurements from './components/Measurements';
+import ATPDashboard from './components/01-ATPDashboard';
 
 const Router = () => {
     return (
@@ -25,6 +26,8 @@ const Router = () => {
             <Route path="/equipment" component={Equipment} />
             <Route path="/car-seat" component={CarSeat} />
             <Route path="/measurements" component={Measurements} />
+            {/* Experimental dashboard routes to preview */}
+            <Route path="/atp-dashboard" component={ATPDashboard} />
         </Switch>
     );
 };
