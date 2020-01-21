@@ -7,10 +7,12 @@ import FunctionalAssessment from './FunctionalAssessment';
 import { Link } from 'react-router-dom';
 
 const ClientDetails = ( props ) => {
+    debugger
     return (
         <>
-            {props.fetchClient()}
-            {console.log(props.clients)}
+        Oh god you gotta help
+            {props.clients.length !== 1 ? props.fetchClient() : <div>Hiii</div>}
+            {console.log("props " + props.clients)}
         </>
     )
 }

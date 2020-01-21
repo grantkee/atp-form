@@ -22,13 +22,11 @@ const clients = (state = [], action) => {
         case 'FETCH_CLIENTS':
             return [...state, action.value]
         case 'FETCH_CLIENT':
-            return Object.assign({}, state, {
-                clients: action.value
-            })
+            const clients = [...state]
+            return clients.filter(x => x.id === action.value.id)
         case 'ADD_CLIENT':
             return [ ...state, action.value ]
         case 'REMOVE_CLIENT':
-            const clients = [ ...state ]
             clients.splice(action.value, 1)
             return clients
         default:
