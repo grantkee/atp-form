@@ -12,6 +12,7 @@ import Equipment from './containers/3-Equipment';
 import CarSeat from './components/4a-CarSeat';
 import Measurements from './components/Measurements';
 import ATPDashboard from './components/01-ATPDashboard';
+import ClientDetails from './containers/2b1-ClientDetails';
 
 const Router = () => {
     return (
@@ -22,6 +23,7 @@ const Router = () => {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/import" component={Import} />
             <Route path="/clients" component={ClientList} />
+            <Route path="/clients/:id" component={ClientDetails} />
             <Route path="/new-client" component={NewClient} />
             <Route path="/equipment" component={Equipment} />
             <Route path="/car-seat" component={CarSeat} />

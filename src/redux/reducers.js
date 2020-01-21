@@ -22,7 +22,9 @@ const clients = (state = [], action) => {
         case 'FETCH_CLIENTS':
             return [...state, action.value]
         case 'FETCH_CLIENT':
-            return [action.value]
+            return Object.assign({}, state, {
+                clients: action.value
+            })
         case 'ADD_CLIENT':
             return [ ...state, action.value ]
         case 'REMOVE_CLIENT':
