@@ -29,6 +29,21 @@ export const fetchClients = () => {
     }
 }
 
+export const fetchClient = () => {
+    return ( dispatch ) => {
+        fetch('/clients/:id')
+        .then(res => res.json())
+        .then(response => {
+            const action = {
+                type: 'FETCH_CLIENT',
+                value: response
+            }
+            dispatch(action)
+        })
+        .catch(error => console.log(error))
+    }
+}
+
 export const removeClient = (index) => {
     return {
         type: 'REMOVE_CLIENT',

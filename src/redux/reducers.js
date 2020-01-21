@@ -21,6 +21,8 @@ const clients = (state = [], action) => {
     switch(action.type) {
         case 'FETCH_CLIENTS':
             return [...state, action.value]
+        case 'FETCH_CLIENT':
+            return [action.value]
         case 'ADD_CLIENT':
             return [ ...state, action.value ]
         case 'REMOVE_CLIENT':

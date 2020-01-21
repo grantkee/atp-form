@@ -8,6 +8,8 @@ Create an efficient system for Assistive Technology Professionals (ATP) to gathe
 
 #### Current Issues
 
+* I want the Navigation component located in App.js to unmount when the user visits /atp-dashboard
+
 * props.fetchClients() is returning an object that goes into my clients=[] in the state.js folder. In order to map over the information, I have to use props.clients[0].map(). //try reviewing 311_wk2_day1 to see how they export the array in the exercise
 
 * Where should I store my photos? I use one in the Measurement component, but I'm not sure if I should use 'require' or 'import'

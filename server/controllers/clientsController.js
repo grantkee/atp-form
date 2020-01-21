@@ -11,7 +11,7 @@ const getAllClients = (req, res) => {
 }
 
 const getClientById = (req, res) => {
-  let sql = "SELECT * FROM clients WHERE id = ?"
+  let sql = "SELECT * FROM test WHERE id = ?"
   sql = mysql.format(sql, [ req.params.id ])
 
   pool.query(sql, (err, rows) => {
@@ -53,5 +53,6 @@ const deleteClientByFirstName = (req, res) => {
 }
 
 module.exports = {
-  getAllClients
+  getAllClients,
+  getClientById
 }

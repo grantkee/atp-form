@@ -22,7 +22,7 @@ const Navigation = () => {
                         <Link to="/about">About</Link>
                     </li>
                     <li className="nav-list-item">
-                        <Link to="/dashboard">Dashboard</Link>
+                        <Link to="/atp-dashboard">Dashboard</Link>
                     </li>
                 </ul>
             </Toolbar>
