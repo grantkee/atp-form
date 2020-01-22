@@ -8,7 +8,7 @@ Create an efficient system for Assistive Technology Professionals (ATP) to gathe
 
 #### Current Issues
 
-* The order of '/clients' and '/clients/:id' in the React Router matters, and I'm not sure if there's a better way to include this. I'm concerned about user experience when hitting backspace
+* The order of '/clients' and '/clients/:id' in the React Router matters, and I'm not sure if there's a better way to include this. I'm concerned about user experience when hitting backspace. Backspace is definitely not working.
 
 * I want the Navigation component located in App.js to unmount when the user visits /atp-dashboard
 

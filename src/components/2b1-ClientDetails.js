@@ -1,18 +1,20 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-
-import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-//import { green } from '@material-ui/core/colors';
-import { Link } from 'react-router-dom';
+
+// import Card from '@material-ui/core/Card';
+// import CardContent from '@material-ui/core/CardContent';
+// import { makeStyles } from '@material-ui/core/styles';
+// import Grid from '@material-ui/core/Grid';
+// import { Link } from 'react-router-dom';
 
 const ClientDetails = ( props ) => {
+    const client = props.clients[0]
     return (
         <>
         Oh god you gotta help
-        {props.clients.map((client, idx) => (
+        {/* {props.clients.map((client, idx) => (
                 <Card key={idx} className="card">
                     <CardContent className="text-gray">
                         <span>{client["first_name"] + ' ' + client["last_name"]}</span>
@@ -24,7 +26,18 @@ const ClientDetails = ( props ) => {
                         </ul>
                     </CardContent>
                 </Card>
-                 ))}
+                 ))} */}
+
+<Container maxWidth="sm" className="car-container">
+            <Paper className="car-paper">
+                <h2>{client.first_name}</h2>
+                {
+                    Object.keys(client).map((key, idx) => {
+                        return <Chip key={idx} label={`${key}: ${client[key]}`}></Chip>
+                    })
+                }
+            </Paper>
+        </Container>
         </>
     )
 }

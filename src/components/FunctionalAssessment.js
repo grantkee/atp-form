@@ -4,7 +4,6 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -16,7 +15,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 //for radio buttons within form
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormHelperText from '@material-ui/core/FormHelperText';
+// import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
@@ -67,18 +66,6 @@ const mobilityStatus = [
   "With Assistance",
   "Short Distances Only (less than 10 feet)",
   "Ambulatory"
-]
-
-const relationship = [
-  'Self',
-  'Mom',
-  'Dad',
-  'Grandparent',
-  'Aunt',
-  'Uncle',
-  'Sibling',
-  'Foster Parent',
-  'Other'
 ]
 
 class FunctionalAssesment extends Component {

@@ -14,29 +14,13 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
     height: 140,
-    width: 100,
-    // background: green
+    width: 100
   },
 }));
-
-const equipmentList = [
-  "Car Seat",
-  "Gait Trainer",
-  "Power Wheelchair",
-  "Bath Chair",
-  "Manual Wheelchair",
-  "Stander",
-  "Entry Ramp",
-  "Threshhold Ramp",
-  "Hospital Bed",
-  "Pediatric Bed"
-]
 
 const Equipment = ( props ) => {
   const classes = useStyles();
   const [spacing, setSpacing] = React.useState(2);
-
-  let url;
 
   return (
       <>

@@ -3,8 +3,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -12,17 +10,18 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 import diagram from '../data/measurement-guide.svg';
+// import Autocomplete from '@material-ui/lab/Autocomplete';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
 //table imports
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-//TableContainer not found at /core/TableContainer???
-import TableContainer from '@material-ui/core';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+// import Table from '@material-ui/core/Table';
+// import TableBody from '@material-ui/core/TableBody';
+// import TableCell from '@material-ui/core/TableCell';
+// //TableContainer not found at /core/TableContainer???
+// import TableContainer from '@material-ui/core';
+// import TableHead from '@material-ui/core/TableHead';
+// import TableRow from '@material-ui/core/TableRow';
+// import Paper from '@material-ui/core/Paper';
 
 
 function Copyright() {
@@ -109,8 +108,8 @@ class Measurements extends Component {
           Measurements
         </Typography>
         <form className={classes.form} noValidate>
-              <Grid container xs={12} >
-                <img src={diagram} className={classes.svg}/>
+              <Grid container spacing={2} >
+                <img src={diagram} className={classes.svg} alt="measurement-guide"/>
               </Grid>
           <Grid container spacing={2}>
             <Grid item xs={12}>
