@@ -161,7 +161,7 @@ const styles = {
   },
 };
 
-function Paperbase(props) {
+function ATPDashboard(props) {
   const { classes } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -200,8 +200,8 @@ function Paperbase(props) {
   );
 }
 
-Paperbase.propTypes = {
+ATPDashboard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Paperbase);
+export default withStyles(styles)(ATPDashboard);
