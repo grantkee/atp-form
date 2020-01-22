@@ -88,9 +88,8 @@ class NewClient extends Component {
 
   handleChange = ( e ) => {
     const newState = {...this.state}
-    newState[e.target.id] = e.target.innerText
+    newState[e.target.id] = e.target.value
     this.setState(newState)
-    debugger
   }
 
   handleSelectionChange = ( e ) => {
@@ -98,7 +97,6 @@ class NewClient extends Component {
     let targetState = e.target.offsetParent.id.split('-')
     newState[targetState[0]] = e.target.innerText
     this.setState(newState)
-    debugger
   }
   
   render(){
@@ -121,7 +119,7 @@ class NewClient extends Component {
             <Grid item xs={12} sm={6}>
               <TextField
                 id="firstName"
-                autoComplete="fname"
+                autoComplete=""
                 name="firstName"
                 variant="outlined"
                 required
@@ -129,6 +127,7 @@ class NewClient extends Component {
                 label="First Name"
                 color='secondary'
                 autoFocus
+                onChange={this.handleChange}
               />
             </Grid>
               {/* client's last name */}          
@@ -141,6 +140,7 @@ class NewClient extends Component {
                 fullWidth
                 label="Last Name"
                 name="lastName"
+                onChange={this.handleChange}
               />
             </Grid>
               {/* client's date of birth */}
@@ -153,6 +153,7 @@ class NewClient extends Component {
                 required
                 fullWidth
                 label="Date of Birth"
+                onChange={this.handleChange}
               />
             </Grid>
               {/* client's gender */}
@@ -164,6 +165,7 @@ class NewClient extends Component {
                 renderInput={params => (
                   <TextField {...params} label="Gender" variant="outlined" fullWidth />
                 )}
+                onChange={this.handleSelectionChange}
               />
             </Grid>
               {/* client's main address */}
@@ -176,6 +178,7 @@ class NewClient extends Component {
                 fullWidth
                 label="Address"
                 name="address"
+                onChange={this.handleChange}
               />
             </Grid>
               {/* client's city */}
@@ -188,6 +191,7 @@ class NewClient extends Component {
                 id="city"
                 label="City"
                 name="city"
+                onChange={this.handleChange}
               />
             </Grid>
               {/* client's state */}
@@ -200,6 +204,7 @@ class NewClient extends Component {
                 fullWidth
                 label="State"
                 name="state"
+                onChange={this.handleChange}
               />
             </Grid>
               {/* client's zip code */}
@@ -212,6 +217,7 @@ class NewClient extends Component {
                 fullWidth
                 label="Zip"
                 name="zip"
+                onChange={this.handleChange}
               />
             </Grid>
               {/* next section - focused on caregiver */}
@@ -242,6 +248,7 @@ class NewClient extends Component {
                   label="Caregiver Name"
                   type="caregiver-name"
                   autoComplete="current-caregiver-name"
+                  onChange={this.handleChange}
                 />
               </Grid>
             }
@@ -255,6 +262,7 @@ class NewClient extends Component {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={this.handleChange}
               />
             </Grid>
               {/* preferred phone */}
@@ -268,6 +276,7 @@ class NewClient extends Component {
                 label="Phone Number"
                 type="phone"
                 autoComplete="current-phone"
+                onChange={this.handleChange}
               />
             </Grid>
             <Typography component="h1" variant="h5">
@@ -282,6 +291,7 @@ class NewClient extends Component {
                 fullWidth
                 label="Responsible Party"
                 name="responsible party"
+                onChange={this.handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -303,6 +313,7 @@ class NewClient extends Component {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={this.handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -315,6 +326,7 @@ class NewClient extends Component {
                 label="Phone Number"
                 type="phone"
                 autoComplete="current-phone"
+                onChange={this.handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -327,6 +339,7 @@ class NewClient extends Component {
                 label="Caregiver Name"
                 type="caregiver-name"
                 autoComplete="current-caregiver-name"
+                onChange={this.handleChange}
               />
             </Grid>
             <Grid item xs={12}>

@@ -1,4 +1,4 @@
-import withRoot from './modules/withRoot';
+// import withRoot from './modules/withRoot';
 // --- Post bootstrap -----
 import React from 'react';
 import Container from '@material-ui/core/Container';
@@ -25,4 +25,4 @@ function Privacy() {
   );
 }
 
-export default withRoot(Privacy);
+export default Privacy;

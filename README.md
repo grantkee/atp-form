@@ -6,6 +6,10 @@ DME project for Cap Stone Final ACA
 
 Create an efficient system for Assistive Technology Professionals (ATP) to gather the necessary information insurance requires for specific pieces of Durable Medical Equipment (DME). 
 
+#### Notes to continue
+
+* I need to control the day/month/year inputs on the NewClient component so that I can enter the data in correctly using mySql. I should drop downs and use the autocomplete feature. That way I can control the formatting when I send it to the server.
+
 #### Current Issues
 
 * The order of '/clients' and '/clients/:id' in the React Router matters, and I'm not sure if there's a better way to include this. I'm concerned about user experience when hitting backspace. Backspace is definitely not working.
@@ -26,11 +30,13 @@ Create an efficient system for Assistive Technology Professionals (ATP) to gathe
 
 #### Future Additions
 
+* I want to handle my fetching more properly by adding a begin/succes/failure response in my redux actions. https://daveceddia.com/where-fetch-data-redux/
+
 * Use API http://icd10api.com/ to save diagnosis ICD 10 codes. Will help fill out other additional details about the code.
 
 * Collect date and setState of date on FunctionalAssessment to add logic component: If the last assessment was less than 30 days ago, we don't need to do it again. Mostly helpful if doing multiple pieces of equipment at the same time.
 
-* Search function for client list: DOB, first_name, last_name, etc. 
+* Search function for client list: DOB, first_name, last_name, etc. Review this article https://hub.packtpub.com/implementing-autocompletion-in-a-react-material-ui-application-tutorial/
 
 * Ability to search DME equipment and obtain manufacturer information
 
