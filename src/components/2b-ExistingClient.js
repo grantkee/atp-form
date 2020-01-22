@@ -21,7 +21,7 @@ const ExistingClient = (props) => {
                     </CardContent>
                     <Divider />
                     <CardActions style={{ color: 'mediumblue' }}>
-                        <Link to={`/clients/${client.id}`}>See More Details</Link>
+                        <Link to={`/clients/${client.id}`} onClick={() => props.fetchClient( client.id )} >See More Details</Link>
                     </CardActions>
                 </Card>
             ))}

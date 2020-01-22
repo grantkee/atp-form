@@ -13,10 +13,12 @@ const getAllClients = (req, res) => {
 const getClientById = (req, res) => {
   console.log("got the deets")
   let sql = "SELECT * FROM test WHERE id = ?"
-  sql = mysql.format(sql, [ req.params.id ])
+  let id = parseInt( req.params.id )
+  sql = mysql.format(sql, [ id ])
 
   pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err)
+    console.log(rows)
     return res.json(rows);
   })
 }

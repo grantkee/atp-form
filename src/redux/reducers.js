@@ -22,8 +22,11 @@ const clients = (state = [], action) => {
         case 'FETCH_CLIENTS':
             return [...state, action.value]
         case 'FETCH_CLIENT':
-            const clients = [...state]
-            return clients.filter(x => x.id === action.value.id)
+            // const clients = [...state]
+            // let client = clients.filter(x => x.id === action.value.id)
+            // return [client]
+            // return Object.assign([], state, action.value)
+            return action.value
         case 'ADD_CLIENT':
             return [ ...state, action.value ]
         case 'REMOVE_CLIENT':

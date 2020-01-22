@@ -22,8 +22,8 @@ const Router = () => {
             <Route path="/car/:id" component={Car} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/import" component={Import} />
-            <Route path="/clients" component={ClientList} />
             <Route path="/clients/:id" component={ClientDetails} />
+            <Route path="/clients" component={ClientList} />
             <Route path="/new-client" component={NewClient} />
             <Route path="/equipment" component={Equipment} />
             <Route path="/car-seat" component={CarSeat} />

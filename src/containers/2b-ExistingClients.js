@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ExistingClient from '../components/2b-ExistingClient';
-import { fetchClients } from '../redux/actions';
+import { fetchClients, fetchClient } from '../redux/actions';
 
 const mapStateToProps = ( state ) => {
     return {
@@ -11,6 +11,7 @@ const mapStateToProps = ( state ) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchClients: () => dispatch(fetchClients()),
+        fetchClient: ( id ) => dispatch( fetchClient( id ) )
     }
 }
 

@@ -1,4 +1,4 @@
-const url = "https://my.api.mockaroo.com/clientdemographics.json?key=a2f2a7f0"
+//const url = "http://icd10api.com/"
 
 export const addCar = (car) => {
     return {
@@ -29,9 +29,9 @@ export const fetchClients = () => {
     }
 }
 
-export const fetchClient = () => {
+export const fetchClient = ( id ) => {
     return ( dispatch ) => {
-        fetch('/clients/:id')
+        fetch(`/clients/${id}`)
         .then(res => res.json())
         .then(response => {
             const action = {
@@ -44,7 +44,7 @@ export const fetchClient = () => {
     }
 }
 
-export const removeClient = (index) => {
+export const removeClient = ( index ) => {
     return {
         type: 'REMOVE_CLIENT',
         value: index
