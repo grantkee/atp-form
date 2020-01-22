@@ -8,7 +8,7 @@ const ExistingClient = (props) => {
         <div className="card-container">
             {/* <button onClick={() => props.fetchClients()}>Get Clients</button> */}
             {console.log(props.clients)}
-    {props.clients.length === 0 ? <h1>{props.fetchClients()}Loading client database...</h1> : props.clients[0].map((client, idx) => (
+    {props.clients.length === 0 ? <h1>{props.fetchClients()}Loading client database...</h1> : props.clients.map((client, idx) => (
                 <Card key={client.id} className="card">
                     <CardContent className="text-gray">
                         <span>{client["first_name"] + ' ' + client["last_name"]}</span>

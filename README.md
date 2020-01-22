@@ -8,6 +8,8 @@ Create an efficient system for Assistive Technology Professionals (ATP) to gathe
 
 #### Current Issues
 
+* The order of '/clients' and '/clients/:id' in the React Router matters, and I'm not sure if there's a better way to include this. I'm concerned about user experience when hitting backspace
+
 * I want the Navigation component located in App.js to unmount when the user visits /atp-dashboard
 
 * props.fetchClients() is returning an object that goes into my clients=[] in the state.js folder. In order to map over the information, I have to use props.clients[0].map(). //try reviewing 311_wk2_day1 to see how they export the array in the exercise

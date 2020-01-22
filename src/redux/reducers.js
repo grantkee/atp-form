@@ -20,7 +20,7 @@ const user = (state = [], action) => {
 const clients = (state = [], action) => {
     switch(action.type) {
         case 'FETCH_CLIENTS':
-            return [...state, action.value]
+            return action.value
         case 'FETCH_CLIENT':
             // const clients = [...state]
             // let client = clients.filter(x => x.id === action.value.id)
