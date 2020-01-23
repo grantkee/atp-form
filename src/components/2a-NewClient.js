@@ -83,7 +83,17 @@ class NewClient extends Component {
     caregiverRelationship: '',
     caregiverName: '',
     email: '',
-    phone: ''
+    phone: '',
+    medicare: false,
+    medicaid: false,
+    privateInsurance1: false,
+    privateInsurance2: false,
+    medicarePolicy: '',
+    medicaidPolicy: '',
+    private1Policy: '',
+    private1Group: '',
+    private2Policy: '',
+    private2Group: ''
   }
 
   handleChange = ( e ) => {
@@ -282,73 +292,139 @@ class NewClient extends Component {
             <Typography component="h1" variant="h5">
           Insurance
             </Typography>
+            {/* A text field for medicare policy will open if the checkbox is clicked */}
+            <Grid item xs={12}>
+              <FormControlLabel
+                fullWidth
+                control={<Checkbox id="medicare" value={!this.state.medicare}  color="primary" />}
+                label="Medicare"
+                onClick={this.handleChange}
+              />
+            </Grid>
+          {this.state.medicare && 
             <Grid item xs={12}>
               <TextField
-                id="responsibleParty"
-                autoComplete="rparty"
+                id="medicarePolicy"
+                autoComplete=""
+                name="medicarePolicy"
                 variant="outlined"
                 required
                 fullWidth
-                label="Responsible Party"
-                name="responsible party"
+                label="Medicare Policy Number"
+                color='secondary'
+                autoFocus
+                onChange={this.handleChange}
+              />
+          </Grid>}
+          {/* If the client has medicaid, it will ask for their policy number */}
+            <Grid item xs={12}>
+              <FormControlLabel
+                fullWidth
+                control={<Checkbox id="medicaid" value={!this.state.medicaid} color="primary" />}
+                label="Medicaid"
+                onClick={this.handleChange}
+              />
+            </Grid>
+          {this.state.medicaid && 
+            <Grid item xs={12}>
+              <TextField
+                id="medicaidPolicy"
+                autoComplete=""
+                name="medicaidPolicy"
+                variant="outlined"
+                required
+                fullWidth
+                label="Medicaid Policy Number"
+                color='secondary'
+                autoFocus
+                onChange={this.handleChange}
+              />
+          </Grid>}
+            <Grid item xs={12}>
+              <FormControlLabel
+                fullWidth
+                control={<Checkbox id="privateInsurance1" value={!this.state.privateInsurance1} color="primary" />}
+                label="Private Insurance"
+                onClick={this.handleChange}
+              />
+            </Grid>
+            {/* Clients with a private insurance policy will need to provide their policy and group numbers */}
+          {this.state.privateInsurance1 && 
+          <>
+            <Grid item xs={12}>
+              <TextField
+                id="private1Policy"
+                autoComplete=""
+                name="private1Policy"
+                variant="outlined"
+                required
+                fullWidth
+                label="Private Insurance Policy Number"
+                color='secondary'
+                autoFocus
                 onChange={this.handleChange}
               />
             </Grid>
             <Grid item xs={12}>
-              <Autocomplete
-                id="relationship-box"
-                options={relationship}
-                style={{width: 268}}
-                renderInput={params => (
-                  <TextField {...params} label="Relationship" variant="outlined" fullWidth />
-                )}
-              />
-            </Grid>
-            <Grid item xs={12}>
               <TextField
-                id="email"
+                id="private1Group"
+                autoComplete=""
+                name="private1Group"
                 variant="outlined"
                 required
                 fullWidth
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                label="Private Insurance Group Number"
+                color='secondary'
+                onChange={this.handleChange}
+              />
+            </Grid>
+          </>}
+            <Grid item xs={12}>
+              <FormControlLabel
+                fullWidth
+                control={<Checkbox id="privateInsurance2" value={!this.state.privateInsurance2} color="primary" />}
+                label="Other private insurance"
+                onClick={this.handleChange}
+              />
+            </Grid>
+            {/* optional secondary private insurance policy...I've never seen three private insurances? */}
+          {this.state.privateInsurance2 &&
+          <>
+            <Grid item xs={12}>
+              <TextField
+                id="private2Policy"
+                autoComplete=""
+                name="private2Policy"
+                variant="outlined"
+                required
+                fullWidth
+                label="Second Private Policy Number"
+                color='secondary'
+                autoFocus
                 onChange={this.handleChange}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
-                id="phone"
+                id="private2Group"
+                autoComplete=""
+                name="private2Group"
                 variant="outlined"
                 required
                 fullWidth
-                name="phone"
-                label="Phone Number"
-                type="phone"
-                autoComplete="current-phone"
+                label="Second Private Group Number"
+                color='secondary'
                 onChange={this.handleChange}
               />
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                id="caregiver-name"
-                variant="outlined"
-                required
-                fullWidth
-                name="caregiver-name"
-                label="Caregiver Name"
-                type="caregiver-name"
-                autoComplete="current-caregiver-name"
-                onChange={this.handleChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
+          </>}
+            {/* <Grid item xs={12}>
               <FormControlLabel
                 fullWidth
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
                 label="I have verified the information above is accurate and up-to-date."
               />
-            </Grid>
+            </Grid> */}
           </Grid>
             <Button
               type="submit"
