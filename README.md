@@ -49,3 +49,7 @@ Create an efficient system for Assistive Technology Professionals (ATP) to gathe
 * DME & ME
 * QUICKFiL
 * Cache Client
+
+##### Further Readings
+
+* https://blog.logrocket.com/react-redux-connect-when-and-how-to-use-it-f2a1edab2013/

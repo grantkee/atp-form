@@ -32,11 +32,11 @@ const categories = [
     ],
   },
   {
-    id: 'Quality',
+    id: 'Account',
     children: [
-      { id: 'Analytics', icon: <SettingsIcon /> },
-      { id: 'Performance', icon: <TimerIcon /> },
-      { id: 'Test Lab', icon: <PhonelinkSetupIcon /> },
+      { id: 'Settings', icon: <SettingsIcon /> },
+      { id: 'Sales Data', icon: <TimerIcon /> },
+      { id: 'Logout', icon: <PhonelinkSetupIcon /> },
     ],
   },
 ];
@@ -89,7 +89,7 @@ function Navigator(props) {
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
         <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
-          Paperbase
+          Travis Medical
         </ListItem>
         <ListItem className={clsx(classes.item, classes.itemCategory)}>
           <ListItemIcon className={classes.itemIcon}>

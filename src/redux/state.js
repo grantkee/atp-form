@@ -16,7 +16,9 @@ export default {
         "Hospital Bed",
         "Pediatric Bed"
       ],
-    clients : []
+    clients : [],
+    currentClient: {},
+    
     
     // clients: [
     //       {

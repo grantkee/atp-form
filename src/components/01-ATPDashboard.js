@@ -189,7 +189,7 @@ function ATPDashboard(props) {
         <div className={classes.app}>
           <Header onDrawerToggle={handleDrawerToggle} />
           <main className={classes.main}>
-            <Content />
+            <Content fetchClients={() => props.fetchClients()} clients={props.clients}/>
           </main>
           <footer className={classes.footer}>
             {/* <Copyright /> */}

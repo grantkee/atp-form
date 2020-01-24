@@ -8,7 +8,7 @@ import NewClient from './containers/2a-NewClient';
 import Equipment from './containers/3-Equipment';
 import CarSeat from './components/4a-CarSeat';
 import Measurements from './components/Measurements';
-import ATPDashboard from './components/01-ATPDashboard';
+import ATPDashboard from './containers/01-ATPDashboard';
 import ClientDetails from './containers/2b1-ClientDetails';
 import Landing from './components/Landing/Landing'
 
