@@ -10,12 +10,13 @@ import CarSeat from './components/4a-CarSeat';
 import Measurements from './components/Measurements';
 import ATPDashboard from './components/01-ATPDashboard';
 import ClientDetails from './containers/2b1-ClientDetails';
+import Landing from './components/Landing/Landing'
 
 const Router = () => {
     return (
         <Switch>
             <Route exact path="/" component={ClientType} />
-            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/dashboard-old" component={Dashboard} />
             <Route path="/import" component={Import} />
             <Route path="/clients/:id" component={ClientDetails} />
             <Route path="/clients" component={ClientList} />
@@ -23,8 +24,9 @@ const Router = () => {
             <Route path="/equipment" component={Equipment} />
             <Route path="/car-seat" component={CarSeat} />
             <Route path="/measurements" component={Measurements} />
-            {/* Experimental dashboard routes to preview */}
-            <Route path="/atp-dashboard" component={ATPDashboard} />
+            {/* Experimental dashboard and landing routes to preview */}
+            <Route path="/dashboard" component={ATPDashboard} />
+            <Route path="/landing" component={Landing} />
         </Switch>
     );
 };

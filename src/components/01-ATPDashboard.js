@@ -192,7 +192,7 @@ function ATPDashboard(props) {
             <Content />
           </main>
           <footer className={classes.footer}>
-            <Copyright />
+            {/* <Copyright /> */}
           </footer>
         </div>
       </div>
