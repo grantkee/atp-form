@@ -2,48 +2,59 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { green } from '@material-ui/core/colors';
-import Navigation from './00-Navigation';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
+  '@global': {
+    'html, body, #root': {
+      height: '100%'
+    }
+  },
   paper: {
-    padding: theme.spacing(2),
+    //padding referencing the value of spacing declared in the index.js file 
+    padding: theme.spacing.unit * 4,
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height: 140,
-    width: 100,
-    background: green
+    height: '100%',
+    width: 250,
+    marginTop: '25%'
   },
+  container: {
+    height: 'calc(60% - 130px)',
+    width: '100%'
+  },
+  gridItem: {
+    direction: 'row',
+    alignItems: 'baseline'
+  }
 }));
 
-export default function FullWidthGrid() {
+export default function ClientType( props ) {
   const classes = useStyles();
+  //useful if the user clicks something, component pops up, and you need to adjust spacing
   const [spacing, setSpacing] = React.useState(2);
 
   return (
       <>
-      <Navigation />
 
-        <Grid container justify="center" spacing={spacing}>
+        <Grid container justify="space-around" spacing={spacing} className={classes.container}>
 
-            <Grid  item>
-              <Link to={`/client`}>
-              <Paper className={classes.paper} >New Client</Paper>
+            <Grid item className={classes.gridItem}>
+              <Link to={`/new-client`}>
+              <Paper className={classes.paper}>New Client</Paper>
               </Link>
             </Grid>
 
-            <Grid  item>
-              <Link to={`/search`}>
-              <Paper className={classes.paper}>Existing Client</Paper>
+            <Grid item className={classes.gridItem}>
+              <Link to={`/clients`}>
+              <Paper className={classes.paper} onClick={() => props.fetchClients()}>Existing Client</Paper>
               </Link>
             </Grid>
-
+            
         </Grid>
-
     </>
   )
 }

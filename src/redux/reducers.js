@@ -1,19 +1,54 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 
-//removed action in the parameter and only returning state for now
-const clients = (state = [], action ) => {
+// const user = (state = null) => state
+
+const user = (state = [], action) => {
     switch(action.type) {
-        case 'ADD_USER':
-            return [...state, action.value]
+        case 'LOGIN':
+            return Object.assign({}, state, {
+                login: action.value
+            })
+        case 'LOGOUT':
+            return Object.assign({}, state, {
+                login: action.value
+            })
         default:
             return state
     }
 }
-// {
-//     switch(action.type) {
-//         case 'ADD_CLIENT' :
-//             return [...state, action.value]
-//     }
-// }
 
-export default combineReducers({clients})
+const clients = (state = [], action) => {
+    switch(action.type) {
+        case 'FETCH_CLIENTS':
+            return action.value
+        case 'FETCH_CLIENT':
+            // const clients = [...state]
+            // let client = clients.filter(x => x.id === action.value.id)
+            // return [client]
+            // return Object.assign([], state, action.value)
+            return action.value
+        case 'ADD_CLIENT':
+            return [ ...state, action.value ]
+        case 'REMOVE_CLIENT':
+            clients.splice(action.value, 1)
+            return clients
+        default:
+            return state
+    }
+}
+
+const equipment = (state = [], action) => {
+    switch(action.type) {
+        default:
+            return state
+    }
+}
+
+const makes = (state = [], action) => {
+    switch(action.type) {
+        default:
+            return state
+    }
+}
+
+export default combineReducers({ user, clients, makes, equipment })

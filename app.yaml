@@ -1,0 +1,8 @@
+runtime: nodejs10
+
+env_variables:
+  CLOUD_INSTANCE: atp-form:us-central1:atp-form
+
+instance_class: F2
+resources:
+  memory_gb: 0.25

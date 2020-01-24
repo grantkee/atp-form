@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 import { AppBar, Toolbar, IconButton, 
-    Typography } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu'
-import { Link } from 'react-router-dom'
+    Typography } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+import { Link } from 'react-router-dom';
 
-const Navigation = () => { 
+const Navigation = ( props ) => { 
     return (
-        <AppBar position="relative">
+        <AppBar position="relative" color="primary">
             <Toolbar>
                 <IconButton color="inherit">
                     <MenuIcon />
@@ -19,16 +19,19 @@ const Navigation = () => {
                         <Link to="/">Home</Link>
                     </li>
                     <li className="nav-list-item">
-                        <Link to="/client">New Client</Link>
+                        <Link to="/new-client">New Client</Link>
                     </li>
                     <li className="nav-list-item">
                         <Link to="/equipment">Equipment</Link>
                     </li>
                     <li className="nav-list-item">
-                        <Link to="/search">Search Clients</Link>
+                        <Link to="/clients">Search Clients</Link>
                     </li>
                 </ul>
             </Toolbar>
+            <h4>{props.user.login ? `Welcome, ${props.user.username}` : 'You are logged out '}
+            <button onClick={props.user.login ? () => props.logout() : () => props.login()}>{props.user.login ? 'Logout ' : 'Login '}</button>
+            </h4>
         </AppBar>
     )
 }

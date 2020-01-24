@@ -1,8 +1,11 @@
-//note to grant: read documentation on crypto and learn why this was included in the redux_thunk class example but never used
-import { generateKeyPairSync } from 'crypto';
-// import url from '../data/clientDemographics';
+//const url = "http://icd10api.com/"
 
-const url ='https://my.api.mockaroo.com/clientdemographics.json?key=a2f2a7f0'
+export const addCar = (car) => {
+    return {
+        type: 'ADD_CAR',
+        value: car
+    }
+}
 
 export const addClient = ( client ) => {
     return {
@@ -13,16 +16,51 @@ export const addClient = ( client ) => {
 
 export const fetchClients = () => {
     return ( dispatch ) => {
-        fetch(url)
+        fetch('/clients')
         .then(res => res.json())
         .then(response => {
             const action = {
                 type: 'FETCH_CLIENTS',
-                //not sure if Results is the name of the array or something we're creating here
                 value: response
             }
             dispatch(action)
         })
         .catch(error => console.log(error))
+    }
+}
+
+export const fetchClient = ( id ) => {
+    return ( dispatch ) => {
+        fetch(`/clients/${id}`)
+        .then(res => res.json())
+        .then(response => {
+            const action = {
+                type: 'FETCH_CLIENT',
+                value: response
+            }
+            dispatch(action)
+        })
+        .catch(error => console.log(error))
+    }
+}
+
+export const removeClient = ( index ) => {
+    return {
+        type: 'REMOVE_CLIENT',
+        value: index
+    }
+}
+
+export const login = () => {
+    return {
+        type: 'LOGIN',
+        value: true
+    }
+}
+
+export const logout = () => {
+    return {
+        type: 'LOGOUT',
+        value: false
     }
 }

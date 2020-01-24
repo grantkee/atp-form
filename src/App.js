@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import Navigation from './components/Navigation';
 import './App.css';
 import Router from './Router';
 import { BrowserRouter } from 'react-router-dom';
@@ -8,9 +8,9 @@ import store from './redux/store';
 
 function App() {
   return (
-    <Provider store={ store }>
+    <Provider store={store}>
       <BrowserRouter>
-        {/* <Navigation /> */}
+        <Navigation />
         <Router />
       </BrowserRouter>
     </Provider>
