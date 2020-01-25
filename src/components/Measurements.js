@@ -170,7 +170,6 @@ class Measurements extends Component {
                 autoComplete="dx"
                 variant="outlined"
                 fullWidth
-                autoFocus
                 onChange={this.handleChange}
                 required
               />
@@ -220,7 +219,6 @@ class Measurements extends Component {
                 autoComplete="dx"
                 variant="outlined"
                 fullWidth
-                autoFocus
                 onChange={this.handleChange}
                 required
               />
