@@ -10,7 +10,8 @@ import Paper from '@material-ui/core/Paper';
 // import { Link } from 'react-router-dom';
 
 const ClientDetails = ( props ) => {
-    const client = props.clients[0]
+    const client = props.client[0]
+    console.log(props.client)
     return (
         <>
         Oh god you gotta help

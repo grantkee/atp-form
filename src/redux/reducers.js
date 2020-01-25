@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
 // const user = (state = null) => state
 
@@ -21,12 +21,8 @@ const clients = (state = [], action) => {
     switch(action.type) {
         case 'FETCH_CLIENTS':
             return action.value
-        case 'FETCH_CLIENT':
-            // const clients = [...state]
-            // let client = clients.filter(x => x.id === action.value.id)
-            // return [client]
-            // return Object.assign([], state, action.value)
-            return action.value
+        // case 'FETCH_CLIENT':
+        //     return action.value
         case 'ADD_CLIENT':
             return [ ...state, action.value ]
         case 'REMOVE_CLIENT':
@@ -44,11 +40,14 @@ const equipment = (state = [], action) => {
     }
 }
 
-const makes = (state = [], action) => {
-    switch(action.type) {
+const client = (state = [], action) => {
+    switch( action.type ) {
+        case 'FETCH_CLIENT':
+            debugger
+            return action.value
         default:
             return state
     }
 }
 
-export default combineReducers({ user, clients, makes, equipment })
+export default combineReducers({ user, clients, equipment, client })
