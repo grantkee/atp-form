@@ -20,6 +20,7 @@ const user = (state = [], action) => {
 const clients = (state = [], action) => {
     switch(action.type) {
         case 'FETCH_CLIENTS':
+            console.log('action here: ' + action)
             return action.value
         case 'FETCH_CLIENT':
             // const clients = [...state]

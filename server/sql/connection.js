@@ -8,10 +8,10 @@ class Connection {
       console.log('creating mysql connection...')
 
       const config = {
-        connectionLimit: 100,
-        host: '35.232.47.229',
+        connectionLimit: 1000,
+        host: '35.223.127.192',
         user: 'root',
-        password: "3vYu7lo0py33g1k3",
+        password: "dxL7cAAFO9L8Lac8",
         database: 'admin' 
       }
 
