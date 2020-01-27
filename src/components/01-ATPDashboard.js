@@ -165,6 +165,10 @@ function ATPDashboard(props) {
   const { classes } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
+  const atpClients = () => {
+    props.clients.filter(x => x.atp_id === props.atp.id)
+  }
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -189,10 +193,11 @@ function ATPDashboard(props) {
         <div className={classes.app}>
           <Header onDrawerToggle={handleDrawerToggle} />
           <main className={classes.main}>
-            <Content />
+            <Content atpClients={atpClients}/>
           </main>
           <footer className={classes.footer}>
             {/* <Copyright /> */}
+            <h1>{props.atp.name}</h1>
           </footer>
         </div>
       </div>

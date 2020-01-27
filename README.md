@@ -36,6 +36,8 @@ Create an efficient system for Assistive Technology Professionals (ATP) to gathe
 
 * Use API http://icd10api.com/ to save diagnosis ICD 10 codes. Will help fill out other additional details about the code.
 
+* Autoformat the date input on new clients
+
 * Collect date and setState of date on FunctionalAssessment to add logic component: If the last assessment was less than 30 days ago, we don't need to do it again. Mostly helpful if doing multiple pieces of equipment at the same time.
 
 * Search function for client list: DOB, first_name, last_name, etc. Review this article https://hub.packtpub.com/implementing-autocompletion-in-a-react-material-ui-application-tutorial/
@@ -49,3 +51,7 @@ Create an efficient system for Assistive Technology Professionals (ATP) to gathe
 * DME & ME
 * QUICKFiL
 * Cache Client
+
+##### Further Readings
+
+* https://blog.logrocket.com/react-redux-connect-when-and-how-to-use-it-f2a1edab2013/

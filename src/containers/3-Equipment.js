@@ -3,7 +3,7 @@ import Equipment from '../components/3-Equipment'
 
 const mapStateToProps = (state) => {
     return {
-        user: state.user,
+        client: state.client,
         clients: state.clients,
         equipment: state.equipment
     }

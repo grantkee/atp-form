@@ -9,7 +9,7 @@ import FunctionalAssessment from './FunctionalAssessment';
 const CarSeat = ( props ) => {
     return (
         <>
-            <FunctionalAssessment />
+            <FunctionalAssessment client={props.client}/>
         </>
     )
 }

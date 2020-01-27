@@ -1,17 +1,20 @@
 import { connect } from 'react-redux';
-import ClientType from '../components/1-ClientType';
-import { fetchClients } from '../redux/actions';
+import ATPDashboard from '../components/01-ATPDashboard';
+import { fetchClients, fetchClient } from '../redux/actions';
 
 const mapStateToProps = ( state ) => {
     return {
-        clients: state.clients
+        clients: state.clients,
+        client: state.client,
+        atp: state.atp
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchClients: () => dispatch(fetchClients()),
+        fetchClient: ( id ) => dispatch(fetchClient( id))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClientType);
+export default connect(mapStateToProps, mapDispatchToProps)(ATPDashboard);

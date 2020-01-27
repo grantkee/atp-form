@@ -1,4 +1,5 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
+import initialState from './state';
 
 // const user = (state = null) => state
 
@@ -29,10 +30,21 @@ const clients = (state = [], action) => {
             // return Object.assign([], state, action.value)
             return action.value
         case 'ADD_CLIENT':
+            debugger
             return [ ...state, action.value ]
         case 'REMOVE_CLIENT':
             clients.splice(action.value, 1)
             return clients
+        default:
+            return state
+    }
+}
+
+const client = (state = [], action) => {
+    switch(action.type){
+        case 'ADD_CLIENT':
+            debugger
+            return [ action.value ]
         default:
             return state
     }
@@ -45,11 +57,11 @@ const equipment = (state = [], action) => {
     }
 }
 
-const makes = (state = [], action) => {
-    switch(action.type) {
+const atp = ( state = initialState, action) => {
+    switch(action.type){
         default:
             return state
     }
 }
 
-export default combineReducers({ user, clients, makes, equipment })
+export default combineReducers({ user, clients, client, equipment, atp })

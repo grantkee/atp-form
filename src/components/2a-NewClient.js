@@ -1,4 +1,3 @@
-
 //signup example from https://github.com/mui-org/material-ui/blob/master/docs/src/pages/getting-started/templates/sign-up/SignUp.js
 //also checkout https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/checkout for ideas on how to integrate forms with @material-ui
 
@@ -74,6 +73,8 @@ class NewClient extends Component {
   state = {
     firstName: '',
     lastName: '',
+    middleName: '',
+    generation: '',
     dob: '',
     gender: '',
     address: '',
@@ -108,6 +109,14 @@ class NewClient extends Component {
     newState[targetState[0]] = e.target.innerText
     this.setState(newState)
   }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const payload = { ...this.state }
+    payload.id = this.props.clients.length + 1
+    payload.atp_id = this.props.atp.id
+    this.props.addClient(payload)
+}
   
   render(){
     const { classes } = this.props;
@@ -153,6 +162,28 @@ class NewClient extends Component {
                 onChange={this.handleChange}
               />
             </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                id="middleName"
+                autoComplete="mname"
+                variant="outlined"
+                fullWidth
+                label="Middle Name"
+                name="middleName"
+                onChange={this.handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                id="generation"
+                autoComplete="generation"
+                variant="outlined"
+                fullWidth
+                label="Suffix"
+                name="generation"
+                onChange={this.handleChange}
+              />
+            </Grid>
               {/* client's date of birth */}
             <Grid item xs={12}>
               <TextField
@@ -164,6 +195,7 @@ class NewClient extends Component {
                 fullWidth
                 label="Date of Birth"
                 onChange={this.handleChange}
+                placeholder="yyyy-mm-dd"
               />
             </Grid>
               {/* client's gender */}

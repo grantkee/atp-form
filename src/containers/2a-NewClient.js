@@ -4,7 +4,9 @@ import { addClient } from '../redux/actions';
 
 const mapStateToProps = ( state ) => {
     return {
-        user: state.user
+        clients: state.clients,
+        client: state.client,
+        atp: state.atp
     }
 }
 
