@@ -8,6 +8,7 @@ import Link from '@material-ui/core/Link';
 import NavBar from './ATP_Dashboard/NavBar';
 import Content from './ATP_Dashboard/Content';
 import Header from './ATP_Dashboard/Header';
+import Header2 from './ATP_Dashboard/Header2';
 
 function Copyright() {
   return (
@@ -191,10 +192,11 @@ function ATPDashboard(props) {
           </Hidden>
         </nav>
         <div className={classes.app}>
-          <Header onDrawerToggle={handleDrawerToggle} />
-          <main className={classes.main}>
+          <Header />
+          <Header2 onDrawerToggle={handleDrawerToggle} clients={props.clients} fetchClients={() => props.fetchClients()}/>
+          {/* <main className={classes.main}>
             <Content atpClients={atpClients}/>
-          </main>
+          </main> */}
           <footer className={classes.footer}>
             {/* <Copyright /> */}
             <h1>{props.atp.name}</h1>

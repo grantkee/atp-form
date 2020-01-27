@@ -19,7 +19,6 @@ export const fetchClients = () => {
     fetch("/api/clients")
       .then(res => res.json())
       .then(response => {
-        console.log("res: ", response);
         const action = {
           type: "FETCH_CLIENTS",
           value: response

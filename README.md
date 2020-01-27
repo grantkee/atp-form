@@ -12,6 +12,8 @@ Create an efficient system for Assistive Technology Professionals (ATP) to gathe
 
 #### Current Issues
 
+* 
+
 * NewClient component will only setState of the Medicare/Medicaid/Private checkboxes once to true and once to false. After that, they stay false. Also, if marked true then false again, the TextField stays open. I even tried turnary operator, still nothing. I think it's because it's not re-rendering onClick.
 
 * The order of '/clients' and '/clients/:id' in the React Router matters, and I'm not sure if there's a better way to include this. I'm concerned about user experience when hitting backspace. Backspace is definitely not working.

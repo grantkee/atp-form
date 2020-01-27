@@ -21,14 +21,9 @@ const user = (state = [], action) => {
 const clients = (state = [], action) => {
     switch(action.type) {
         case 'FETCH_CLIENTS':
-            console.log('action here: ' + action)
             return action.value
-        case 'FETCH_CLIENT':
-            // const clients = [...state]
-            // let client = clients.filter(x => x.id === action.value.id)
-            // return [client]
-            // return Object.assign([], state, action.value)
-            return action.value
+        // case 'FETCH_CLIENT':
+        //     return action.value
         case 'ADD_CLIENT':
             debugger
             return [ ...state, action.value ]
@@ -40,8 +35,10 @@ const clients = (state = [], action) => {
     }
 }
 
-const client = (state = [], action) => {
+const client = (state = initialState, action) => {
     switch(action.type){
+        case 'FETCH_CLIENT':
+            return [ action.value[0] ]
         case 'ADD_CLIENT':
             debugger
             return [ action.value ]

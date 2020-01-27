@@ -43,51 +43,20 @@ const styles = theme => ({
 
 function Header(props) {
   const { classes, onDrawerToggle } = props;
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
-    <React.Fragment>
-      <AppBar color="primary" position="sticky" elevation={0}>
-        <Toolbar>
-          <Grid container spacing={1} alignItems="center">
-            <Hidden smUp>
-              <Grid item>
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  onClick={onDrawerToggle}
-                  className={classes.menuButton}
-                >
-                  <MenuIcon />
-                </IconButton>
-              </Grid>
-            </Hidden>
-            <Grid item xs />
-            <Grid item>
-              <Link className={classes.link} href="#" variant="body2">
-                Go to docs
-              </Link>
-            </Grid>
-            <Grid item>
-              <Tooltip title="Alerts • No alerts">
-                <IconButton color="inherit">
-                  <NotificationsIcon />
-                </IconButton>
-              </Tooltip>
-            </Grid>
-            <Grid item>
-              <IconButton color="inherit" className={classes.iconButtonAvatar}>
-                <Avatar src="../../../data/measurement-guide.svg" alt="My Avatar" />
-              </IconButton>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
+    <>
       <AppBar
         component="div"
         className={classes.secondaryBar}
         color="primary"
         position="static"
-        elevation={0}
+        elevation={1000}
       >
         <Toolbar>
           <Grid container alignItems="center" spacing={1}>
@@ -118,14 +87,14 @@ function Header(props) {
         position="static"
         elevation={0}
       >
-        <Tabs value={0} textColor="inherit">
+        <Tabs value={value} textColor="inherit">
           <Tab textColor="inherit" label="Users" />
           <Tab textColor="inherit" label="Sign-in method" />
           <Tab textColor="inherit" label="Templates" />
           <Tab textColor="inherit" label="Usage" />
         </Tabs>
       </AppBar>
-    </React.Fragment>
+    </>
   );
 }
 

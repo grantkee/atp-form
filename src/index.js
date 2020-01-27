@@ -33,9 +33,6 @@ const theme = createMuiTheme({
     }
 });
 
-//shows the object that you can manipulate to create a custom theme in material-ui
-console.log(theme)
-
 ReactDOM.render(
     <BrowserRouter>
         <Provider store={ store }>
