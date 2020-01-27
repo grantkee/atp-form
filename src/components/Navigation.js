@@ -1,22 +1,22 @@
 import React from 'react'
 import { AppBar, Toolbar, IconButton, 
     Typography } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu'
+// import MenuIcon from '@material-ui/icons/Menu'
 import { Link } from 'react-router-dom'
 
 const Navigation = () => {
     return (
         <AppBar position="relative">
             <Toolbar>
-                <IconButton color="inherit">
+                {/* <IconButton color="inherit">
                     <MenuIcon />
-                </IconButton>
+                </IconButton> */}
                 <Typography variant="h6" style={{ flexGrow: "1" }}>
-                    ATP Form
+                    DME 4 Me - Work in Progress
                 </Typography>
                 <ul className="nav-list">
                     <li className="nav-list-item">
-                        <Link to="/clients">Client List</Link>
+                        <Link to="/">Home</Link>
                     </li>
                     <li className="nav-list-item">
                         <Link to="/about">About</Link>

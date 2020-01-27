@@ -8,6 +8,7 @@ import Measurements from './components/Measurements';
 import ATPDashboard from './containers/01-ATPDashboard';
 import ClientDetails from './containers/2b1-ClientDetails';
 import Landing from './components/Landing/Landing';
+import About from './components/About';
 //Equipment Components/Containers
 import CarSeat from './components/4a-CarSeat';
 import GaitTrainer from './components/4b-GaitTraner';
@@ -30,6 +31,7 @@ const Router = () => {
             <Route path="/clients" component={ClientList} />
             <Route path="/new-client" component={NewClient} />
             <Route path="/equipment" component={Equipment} />
+            <Route path="/about" component={About} />
             {/* Equipment Routes Here */}
             <Route path="/car-seat" component={CarSeat} />
             <Route path="/gait-trainer" component={GaitTrainer} />
