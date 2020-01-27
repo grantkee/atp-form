@@ -13,20 +13,6 @@ const ClientDetails = ( props ) => {
     const client = props.clients[0]
     return (
         <>
-        Oh god you gotta help
-        {/* {props.clients.map((client, idx) => (
-                <Card key={idx} className="card">
-                    <CardContent className="text-gray">
-                        <span>{client["first_name"] + ' ' + client["last_name"]}</span>
-                        <ul>
-                            <li>DOB: {client["date_of_birth"]}</li>
-                            <li>Email: {client["email"]}</li>
-                            <li>Gender: {client["gender"]}</li>
-                            <li>{client["medicaid_payor"]}: {client["medicaid_id"]}</li>
-                        </ul>
-                    </CardContent>
-                </Card>
-                 ))} */}
 
 <Container maxWidth="sm" className="car-container">
             <Paper className="car-paper">

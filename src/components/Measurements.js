@@ -289,7 +289,7 @@ class Measurements extends Component {
               variant="contained"
               color="primary"
               className={classes.submit}
-              href='/measurements'
+              href='/dashboard'
             >
               Next
             </Button>
