@@ -24,15 +24,15 @@ const Equipment = ( props ) => {
   console.log(props.client)
 
   return (
-      <>
-      <h2>ClientLast, ClientFirst</h2>
+    <>
+      <h2>{props.client.firstName} {props.client.lastName}</h2>
       <Grid container className={classes.root} spacing={2}>
       <Grid item xs={12}>
         <Grid container justify="center" spacing={spacing}>
           {props.equipment.map((value, index) => (
             <Grid key={index} item>
-              <Link to={`/${value.toLowerCase().split(' ').join('-')}`}>
-              <Paper className={classes.paper}>{value}</Paper>
+              <Link to={`/clients/${props.client.id}/equipment/${value.toLowerCase().split(' ').join('-')}`}>
+                <Paper className={classes.paper}>{value}</Paper>
               </Link>
             </Grid>
           ))}

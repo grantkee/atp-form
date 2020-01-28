@@ -22,10 +22,7 @@ const clients = (state = [], action) => {
     switch(action.type) {
         case 'FETCH_CLIENTS':
             return action.value
-        // case 'FETCH_CLIENT':
-        //     return action.value
         case 'ADD_CLIENT':
-            debugger
             return [ ...state, action.value ]
         case 'REMOVE_CLIENT':
             clients.splice(action.value, 1)
@@ -35,13 +32,12 @@ const clients = (state = [], action) => {
     }
 }
 
-const client = (state = initialState, action) => {
+const client = (state = [], action) => {
     switch(action.type){
         case 'FETCH_CLIENT':
             return action.value[0]
         case 'ADD_CLIENT':
-            debugger
-            return [ action.value ]
+            return action.value
         default:
             return state
     }
