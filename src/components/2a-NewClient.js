@@ -328,7 +328,7 @@ class NewClient extends Component {
             {/* A text field for medicare policy will open if the checkbox is clicked */}
             <Grid item xs={12}>
               <FormControlLabel
-                fullWidth
+                // fullWidth
                 control={<Checkbox id="medicare" value={!this.state.medicare}  color="primary" />}
                 label="Medicare"
                 onClick={this.handleChange}
@@ -352,7 +352,6 @@ class NewClient extends Component {
           {/* If the client has medicaid, it will ask for their policy number */}
             <Grid item xs={12}>
               <FormControlLabel
-                fullWidth
                 control={<Checkbox id="medicaid" value={!this.state.medicaid} color="primary" />}
                 label="Medicaid"
                 onClick={this.handleChange}
@@ -375,7 +374,6 @@ class NewClient extends Component {
           </Grid>}
             <Grid item xs={12}>
               <FormControlLabel
-                fullWidth
                 control={<Checkbox id="privateInsurance1" value={!this.state.privateInsurance1} color="primary" />}
                 label="Private Insurance"
                 onClick={this.handleChange}
@@ -414,7 +412,6 @@ class NewClient extends Component {
           </>}
             <Grid item xs={12}>
               <FormControlLabel
-                fullWidth
                 control={<Checkbox id="privateInsurance2" value={!this.state.privateInsurance2} color="primary" />}
                 label="Other private insurance"
                 onClick={this.handleChange}
