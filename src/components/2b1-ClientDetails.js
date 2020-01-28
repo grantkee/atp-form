@@ -12,23 +12,18 @@ import Paper from '@material-ui/core/Paper';
 const ClientDetails = ( props ) => {
 
     return (
-        <>
+    <>
         <Container maxWidth="sm" className="car-container">
             <Paper className="car-paper">
-                {props.client.length === 0 ? <h2>Loading....</h2> 
-                : 
-                <div>
-                 <h2>{props.client[0].first_name}</h2>
+                 <h2>{props.client.first_name}</h2>
                 {
-                    Object.keys(props.client[0]).map((key, idx) => {
-                        return <Chip key={idx} label={`${key}: ${props.client[0][key]}`}></Chip>
+                    Object.keys(props.client).map((key, idx) => {
+                        return <Chip key={idx} label={`${key}: ${props.client[key]}`}></Chip>
                     })
-                }
-                </div>
                 }
             </Paper>
         </Container>
-        </>
+    </>
     )
 }
 

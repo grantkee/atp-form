@@ -38,7 +38,7 @@ const clients = (state = [], action) => {
 const client = (state = initialState, action) => {
     switch(action.type){
         case 'FETCH_CLIENT':
-            return [ action.value[0] ]
+            return action.value[0]
         case 'ADD_CLIENT':
             debugger
             return [ action.value ]

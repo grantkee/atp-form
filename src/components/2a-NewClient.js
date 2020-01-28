@@ -116,7 +116,8 @@ class NewClient extends Component {
     payload.id = this.props.clients.length + 1
     payload.atp_id = this.props.atp.id
     this.props.addClient(payload)
-}
+    debugger
+  }
   
   render(){
     const { classes } = this.props;
@@ -132,7 +133,7 @@ class NewClient extends Component {
           New Client
         </Typography>
         {/* I need to learn more about validate vs noValidate on the form. It has something to do with what the server checks, and I think I want to validate form submissions */}
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={this.handleSubmit}>
           <Grid container spacing={2}>
               {/* client's first name */}
             <Grid item xs={12} sm={6}>
@@ -458,23 +459,17 @@ class NewClient extends Component {
               />
             </Grid> */}
           </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              href='/equipment'
-            >
-              Next
-            </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link to="#" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            href='/equipment'
+            onClick={this.handleSubmit}
+          >
+            Next
+          </Button>
         </form>
       </div>
       <Box mt={5}>
