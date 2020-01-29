@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom'
 const ExistingClient = (props) => {
     return (
         <div className="card-container">
-            {/* <button onClick={() => props.fetchClients()}>Get Clients</button> */}
-            {console.log(props.clients)}
     {props.clients.length <= 1 ? <h1>{props.fetchClients()}Loading client database...</h1> : props.clients.map((client, idx) => (
                 <Card key={client.id} className="card">
                     <CardContent className="text-gray">

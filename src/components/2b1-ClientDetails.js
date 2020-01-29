@@ -10,21 +10,20 @@ import Paper from '@material-ui/core/Paper';
 // import { Link } from 'react-router-dom';
 
 const ClientDetails = ( props ) => {
-    const client = props.clients[0]
-    return (
-        <>
 
-<Container maxWidth="sm" className="car-container">
+    return (
+    <>
+        <Container maxWidth="sm" className="car-container">
             <Paper className="car-paper">
-                <h2>{client.first_name}</h2>
+                 <h2>{props.client.first_name}</h2>
                 {
-                    Object.keys(client).map((key, idx) => {
-                        return <Chip key={idx} label={`${key}: ${client[key]}`}></Chip>
+                    Object.keys(props.client).map((key, idx) => {
+                        return <Chip key={idx} label={`${key}: ${props.client[key]}`}></Chip>
                     })
                 }
             </Paper>
         </Container>
-        </>
+    </>
     )
 }
 

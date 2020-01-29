@@ -2,13 +2,14 @@
 //also checkout https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/checkout for ideas on how to integrate forms with @material-ui
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Copyright from './Copyright';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -17,18 +18,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Autocomplete from '@material-ui/lab/Autocomplete';
   
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://grantkee.com">
-        Grant Kee
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+
 
 const styles = theme => ({
   paper: {
@@ -70,7 +60,11 @@ const relationship = [
 ]
 
 class NewClient extends Component {
-  state = {
+  constructor(props){
+    super(props)
+  this.state = {
+    id: this.props.clients.length + 1,
+    atp_id: this.props.atp_id,
     firstName: '',
     lastName: '',
     middleName: '',
@@ -96,6 +90,12 @@ class NewClient extends Component {
     private2Policy: '',
     private2Group: ''
   }
+  this.handleSubmit.bind(this)
+}
+
+  componentDidMount = () => {
+    this.props.fetchClients()
+  }
 
   handleChange = ( e ) => {
     const newState = {...this.state}
@@ -111,15 +111,14 @@ class NewClient extends Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     const payload = { ...this.state }
-    payload.id = this.props.clients.length + 1
-    payload.atp_id = this.props.atp.id
-    this.props.addClient(payload)
-}
+    this.props.addClient(payload)    
+  }
   
   render(){
     const { classes } = this.props;
+    console.log(this.props.clients)
   return (
     <>
     <Container component="main" maxWidth="xs">
@@ -132,7 +131,7 @@ class NewClient extends Component {
           New Client
         </Typography>
         {/* I need to learn more about validate vs noValidate on the form. It has something to do with what the server checks, and I think I want to validate form submissions */}
-        <form className={classes.form} noValidate>
+        <form onSubmit={this.handleSubmit} className={classes.form} noValidate >
           <Grid container spacing={2}>
               {/* client's first name */}
             <Grid item xs={12} sm={6}>
@@ -327,7 +326,7 @@ class NewClient extends Component {
             {/* A text field for medicare policy will open if the checkbox is clicked */}
             <Grid item xs={12}>
               <FormControlLabel
-                fullWidth
+                // fullWidth
                 control={<Checkbox id="medicare" value={!this.state.medicare}  color="primary" />}
                 label="Medicare"
                 onClick={this.handleChange}
@@ -351,7 +350,6 @@ class NewClient extends Component {
           {/* If the client has medicaid, it will ask for their policy number */}
             <Grid item xs={12}>
               <FormControlLabel
-                fullWidth
                 control={<Checkbox id="medicaid" value={!this.state.medicaid} color="primary" />}
                 label="Medicaid"
                 onClick={this.handleChange}
@@ -374,7 +372,6 @@ class NewClient extends Component {
           </Grid>}
             <Grid item xs={12}>
               <FormControlLabel
-                fullWidth
                 control={<Checkbox id="privateInsurance1" value={!this.state.privateInsurance1} color="primary" />}
                 label="Private Insurance"
                 onClick={this.handleChange}
@@ -413,7 +410,6 @@ class NewClient extends Component {
           </>}
             <Grid item xs={12}>
               <FormControlLabel
-                fullWidth
                 control={<Checkbox id="privateInsurance2" value={!this.state.privateInsurance2} color="primary" />}
                 label="Other private insurance"
                 onClick={this.handleChange}
@@ -458,23 +454,18 @@ class NewClient extends Component {
               />
             </Grid> */}
           </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              href='/equipment'
-            >
-              Next
-            </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link to="#" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
+        <Link to={`/clients/${this.props.clients.length + 1}/equipment`}>
+          <Button
+            type="submit"
+            fullWidth
+            onClick={this.handleSubmit}
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Next
+          </Button>
+          </Link>
         </form>
       </div>
       <Box mt={5}>

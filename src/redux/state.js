@@ -24,4 +24,3 @@ export default {
       email: 'v.aikman@mycompany.com'
     }
   };
-  

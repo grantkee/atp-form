@@ -14,12 +14,18 @@ export const addClient = client => {
   };
 };
 
+export const addEquipment = equipment => {
+  return {
+    type: "ADD_EQUIP",
+    value: equipment
+  };
+};
+
 export const fetchClients = () => {
   return dispatch => {
     fetch("/api/clients")
       .then(res => res.json())
       .then(response => {
-        console.log("res: ", response);
         const action = {
           type: "FETCH_CLIENTS",
           value: response

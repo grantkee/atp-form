@@ -10,7 +10,9 @@ Create an efficient system for Assistive Technology Professionals (ATP) to gathe
 
 * I need to control the day/month/year inputs on the NewClient component so that I can enter the data in correctly using mySql. I should drop downs and use the autocomplete feature. That way I can control the formatting when I send it to the server.
 
-#### Current Issues
+#### Current Issues and Questions
+
+* Using handleSubmit when the form is submitted is not working for NewClient. I tried filling out the entire constructor in the class component and binding this to handleSubmit, but it still doesn't work.
 
 * NewClient component will only setState of the Medicare/Medicaid/Private checkboxes once to true and once to false. After that, they stay false. Also, if marked true then false again, the TextField stays open. I even tried turnary operator, still nothing. I think it's because it's not re-rendering onClick.
 

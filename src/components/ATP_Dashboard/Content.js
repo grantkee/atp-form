@@ -12,6 +12,11 @@ import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import RefreshIcon from '@material-ui/icons/Refresh';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 const styles = theme => ({
   paper: {
@@ -33,6 +38,13 @@ const styles = theme => ({
   },
   contentWrapper: {
     margin: '40px 16px',
+  },  
+  root: {
+    width: '100%',
+    overflowX: 'auto',
+  },
+  table: {
+    minWidth: 650,
   },
 });
 
@@ -71,9 +83,30 @@ function Content(props) {
         </Toolbar>
       </AppBar>
       <div className={classes.contentWrapper}>
-        <Typography color="textSecondary" align="center">
-          No users for this project yet
-        </Typography>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Dessert (100g serving)</TableCell>
+              <TableCell align="right">Calories</TableCell>
+              <TableCell align="right">Fat&nbsp;(g)</TableCell>
+              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+              <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {props.clients.length === 0 ? props.fetchClients() : props.clients.map(client => (
+              <TableRow key={client.id}>
+                <TableCell component="th" scope="row">
+                  {client.id}
+                </TableCell>
+            <TableCell align="right">{client.first_name} {client.last_name}</TableCell>
+                <TableCell align="right">{client.dob}</TableCell>
+                {/* <TableCell align="right">{client.carbs}</TableCell>
+                <TableCell align="right">{client.protein}</TableCell> */}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
       </div>
     </Paper>
   );

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Copyright from './Copyright';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -19,19 +20,6 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://grantkee.com">
-        Test Company
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const styles = theme => ({
   paper: {
@@ -225,16 +213,17 @@ class FunctionalAssesment extends Component {
               </FormControl>
             </Grid>
           </Grid>
+          <Link to={`/clients/${this.props.client.id}/equipment/${this.props.client.equipment}/measurements`}>
             <Button
               type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
-              href='/measurements'
             >
               Next
             </Button>
+            </Link>
         </form>
       </div>
       <Box mt={5}>
