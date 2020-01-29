@@ -278,8 +278,9 @@ class Measurements extends Component {
               variant="contained"
               color="primary"
               className={classes.submit}
+              href="/dashboard"
             >
-              Next
+              Finish
             </Button>
           </Link>
         </form>

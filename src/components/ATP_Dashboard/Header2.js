@@ -77,7 +77,7 @@ export default function ScrollableTabsButtonAuto( props ) {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        Item 522263
+        <Content clients={props.clients} fetchClients={() => props.fetchClients()}/>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
