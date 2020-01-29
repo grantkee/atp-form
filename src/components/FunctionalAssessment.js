@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Link from '@material-ui/core/Link';
+import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -86,8 +86,9 @@ class FunctionalAssesment extends Component {
 
   render(){
     const { classes } = this.props;
-    console.log(this.props.client.equipment)
-    // debugger
+    let clientId = this.props.client.id;
+    let equipType = this.props.client.equipment;
+    
   return (
     <>
     <Container component="main" maxWidth="xs">
@@ -215,7 +216,7 @@ class FunctionalAssesment extends Component {
               </FormControl>
             </Grid>
           </Grid>
-          <Link to={`/clients/${this.props.client.id}/equipment/${this.props.client.equipment}/measurements`}>
+          <Link to={`/clients/${clientId}/equipment/${equipType}/measurements`}>
             <Button
               type="submit"
               fullWidth
@@ -237,4 +238,4 @@ class FunctionalAssesment extends Component {
  }
 }
 
-export default withStyles(styles)(FunctionalAssesment)
+export default withStyles(styles)(FunctionalAssesment);

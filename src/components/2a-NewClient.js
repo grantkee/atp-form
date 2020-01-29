@@ -63,8 +63,8 @@ class NewClient extends Component {
   constructor(props){
     super(props)
   this.state = {
-    id: this.props.clients.length + 1,
-    atp_id: this.props.atp_id,
+    id: '',
+    atp_id: '',
     firstName: '',
     lastName: '',
     middleName: '',
@@ -111,14 +111,14 @@ class NewClient extends Component {
   }
 
   handleSubmit = (e) => {
-    // e.preventDefault()
     const payload = { ...this.state }
-    this.props.addClient(payload)    
+    payload.id = this.props.clients.length + 1
+    payload.atp = this.props.atp.id
+    this.props.addClient(payload)
   }
   
   render(){
     const { classes } = this.props;
-    console.log(this.props.clients)
   return (
     <>
     <Container component="main" maxWidth="xs">
@@ -465,7 +465,7 @@ class NewClient extends Component {
           >
             Next
           </Button>
-          </Link>
+        </Link>
         </form>
       </div>
       <Box mt={5}>
@@ -476,4 +476,4 @@ class NewClient extends Component {
   )};
 }
 
-export default withStyles(styles)(NewClient)
+export default withStyles(styles)(NewClient);

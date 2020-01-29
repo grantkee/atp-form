@@ -21,8 +21,7 @@ const useStyles = makeStyles(theme => ({
 const Equipment = ( props ) => {
   const classes = useStyles();
   const [spacing, setSpacing] = React.useState(2);
-  console.log(props.client)
-
+  
   return (
     <>
       <h2>{props.client.firstName} {props.client.lastName}</h2>
