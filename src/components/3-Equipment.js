@@ -24,7 +24,7 @@ const Equipment = ( props ) => {
   
   return (
     <>
-      <h2>{props.client.firstName} {props.client.lastName}</h2>
+      <h2>{props.client.first_name} {props.client.last_name}</h2>
       <Grid container className={classes.root} spacing={2}>
       <Grid item xs={12}>
         <Grid container justify="center" spacing={spacing}>

@@ -65,11 +65,11 @@ class NewClient extends Component {
   this.state = {
     id: '',
     atp_id: '',
-    firstName: '',
-    lastName: '',
+    first_name: '',
+    last_name: '',
     middleName: '',
     generation: '',
-    dob: '',
+    date_of_birth: '',
     gender: '',
     address: '',
     cit: '',
@@ -136,9 +136,9 @@ class NewClient extends Component {
               {/* client's first name */}
             <Grid item xs={12} sm={6}>
               <TextField
-                id="firstName"
+                id="first_name"
                 autoComplete=""
-                name="firstName"
+                name="first_name"
                 variant="outlined"
                 required
                 fullWidth
@@ -151,13 +151,13 @@ class NewClient extends Component {
               {/* client's last name */}          
             <Grid item xs={12} sm={6}>
               <TextField
-                id="lastName"
+                id="last_name"
                 autoComplete="lname"
                 variant="outlined"
                 required
                 fullWidth
                 label="Last Name"
-                name="lastName"
+                name="last_name"
                 onChange={this.handleChange}
               />
             </Grid>

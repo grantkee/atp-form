@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -51,6 +52,19 @@ const styles = theme => ({
 function Content(props) {
   const { classes } = props;
 
+  const convertDate = ( dob ) => {
+    if (dob.split('').indexOf('T') !== -1){
+      let value = dob.split('T')
+      let date = value[0].split('-')
+      let day = date[2]
+      let month = date[1]
+      let year = date[0]
+      return `${month}/${day}/${year}`
+    } else {
+      return dob
+    }
+  }
+
   return (
     <Paper className={classes.paper}>
       <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
@@ -70,9 +84,11 @@ function Content(props) {
               />
             </Grid>
             <Grid item>
+              <Link to="/new-client">
               <Button variant="contained" color="primary" className={classes.addUser}>
-                Add user
+                Add Client
               </Button>
+              </Link>
               <Tooltip title="Reload">
                 <IconButton>
                   <RefreshIcon className={classes.block} color="inherit" />
@@ -86,23 +102,23 @@ function Content(props) {
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell align="right">Calories</TableCell>
-              <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-              <TableCell align="right">Protein&nbsp;(g)</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell align="center">Date of Birth</TableCell>
+              <TableCell align="left">Email</TableCell>
+              <TableCell align="left">Address</TableCell>
+              <TableCell align="center">City</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {props.clients.length === 0 ? props.fetchClients() : props.clients.map(client => (
               <TableRow key={client.id}>
                 <TableCell component="th" scope="row">
-                  {client.id}
+                  {`${client.first_name} ${client.last_name}`}
                 </TableCell>
-            <TableCell align="right">{client.first_name} {client.last_name}</TableCell>
-                <TableCell align="right">{client.dob}</TableCell>
-                {/* <TableCell align="right">{client.carbs}</TableCell>
-                <TableCell align="right">{client.protein}</TableCell> */}
+                <TableCell align="left">{convertDate(client.date_of_birth)}</TableCell>
+                <TableCell align="center">{client.email}</TableCell>
+                <TableCell align="left">{client.address}</TableCell>
+                <TableCell align="center">{client.city}</TableCell>
               </TableRow>
             ))}
           </TableBody>

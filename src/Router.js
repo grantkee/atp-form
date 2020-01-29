@@ -26,7 +26,7 @@ import Modifications from './components/4l-Modifications';
 const Router = () => {
     return (
         <Switch>
-            <Route exact path="/" component={ClientType} />
+            <Route exact path="/" component={ATPDashboard} />
             <Route path="/new-client" component={NewClient} />
             <Route path="/about" component={About} />
             {/* Equipment Routes Here */}

@@ -56,7 +56,7 @@ function Header(props) {
         className={classes.secondaryBar}
         color="primary"
         position="static"
-        elevation={1000}
+        elevation={10}
       >
         <Toolbar>
           <Grid container alignItems="center" spacing={1}>
