@@ -4,7 +4,7 @@ import ClientList from './containers/2b-ExistingClients';
 import ClientType from './containers/1-ClientType';
 import NewClient from './containers/2a-NewClient';
 import Equipment from './containers/3-Equipment';
-import Measurements from './components/Measurements';
+import Measurements from './containers/Measurements';
 import ATPDashboard from './containers/01-ATPDashboard';
 import ClientDetails from './containers/2b1-ClientDetails';
 import Landing from './components/Landing/Landing';
@@ -43,7 +43,7 @@ const Router = () => {
             <Route path="/clients/:id/equipment/repairs" component={Repairs} />
             <Route path="/clients/:id/equipment/modifications" component={Modifications} />
             {/* Forms and justifications for New Clients */}
-            <Route path="/clients/:id/equipment/measurements" component={Measurements} />
+            <Route path="/clients/:id/equipment/:equipType/measurements" component={Measurements} />
             {/* Experimental dashboard and landing routes to preview */}
             <Route path="/clients/:id/equipment" component={Equipment} />
             <Route path="/clients/:id" component={ClientDetails} />

@@ -38,6 +38,10 @@ const client = (state = [], action) => {
             return action.value[0]
         case 'ADD_CLIENT':
             return action.value
+        case 'ADD_EQUIP':
+            return Object.assign({}, state, {
+                equipment: action.value
+            })
         default:
             return state
     }

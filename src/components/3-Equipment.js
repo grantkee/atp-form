@@ -32,7 +32,7 @@ const Equipment = ( props ) => {
           {props.equipment.map((value, index) => (
             <Grid key={index} item>
               <Link to={`/clients/${props.client.id}/equipment/${value.toLowerCase().split(' ').join('-')}`}>
-                <Paper className={classes.paper}>{value}</Paper>
+                <Paper className={classes.paper} onClick={() => props.addEquipment( value.toLowerCase().split(' ').join('-') )}>{value}</Paper>
               </Link>
             </Grid>
           ))}

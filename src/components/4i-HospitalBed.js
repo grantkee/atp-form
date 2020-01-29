@@ -1,10 +1,10 @@
 import React from 'react';
-import FunctionalAssessment from './FunctionalAssessment';
+import FunctionalAssessment from '../containers/FunctionalAssessment';
 
 const HospitalBed = ( props ) => {
     return (
         <>
-            <FunctionalAssessment client={props.client}/>
+            <FunctionalAssessment />
         </>
     )
 }
