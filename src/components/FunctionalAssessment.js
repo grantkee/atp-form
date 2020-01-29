@@ -86,6 +86,8 @@ class FunctionalAssesment extends Component {
 
   render(){
     const { classes } = this.props;
+    console.log(this.props.client.equipment)
+    // debugger
   return (
     <>
     <Container component="main" maxWidth="xs">
@@ -223,7 +225,7 @@ class FunctionalAssesment extends Component {
             >
               Next
             </Button>
-            </Link>
+          </Link>
         </form>
       </div>
       <Box mt={5}>

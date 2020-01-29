@@ -39,6 +39,7 @@ const client = (state = [], action) => {
         case 'ADD_CLIENT':
             return action.value
         case 'ADD_EQUIP':
+            debugger
             return Object.assign({}, state, {
                 equipment: action.value
             })
