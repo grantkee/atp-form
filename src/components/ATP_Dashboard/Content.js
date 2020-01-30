@@ -103,10 +103,10 @@ function Content(props) {
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
-              <TableCell align="center">Date of Birth</TableCell>
+              <TableCell align="left">Date of Birth</TableCell>
               <TableCell align="left">Email</TableCell>
               <TableCell align="left">Address</TableCell>
-              <TableCell align="center">City</TableCell>
+              <TableCell align="left">City</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -116,9 +116,9 @@ function Content(props) {
                   {`${client.first_name} ${client.last_name}`}
                 </TableCell>
                 <TableCell align="left">{convertDate(client.date_of_birth)}</TableCell>
-                <TableCell align="center">{client.email}</TableCell>
+                <TableCell align="left">{client.email}</TableCell>
                 <TableCell align="left">{client.address}</TableCell>
-                <TableCell align="center">{client.city}</TableCell>
+                <TableCell align="left">{client.city}</TableCell>
               </TableRow>
             ))}
           </TableBody>
