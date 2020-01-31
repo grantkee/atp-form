@@ -16,7 +16,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import Content from '../../containers/Content';
+import Content2 from '../../containers/Content2';
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
@@ -103,7 +103,7 @@ function Header(props) {
           <Tab textColor="inherit" label="Pending" />
         </Tabs>
       </AppBar>
-      {!props.client.id && <Content clients={props.clients} fetchClients={() => props.fetchClients()} fetchClient={() => props.fetchClient()}/>}
+      {!props.client.id && <Content2 clients={props.clients} fetchClients={() => props.fetchClients()} fetchClient={() => props.fetchClient()}/>}
     </>
   );
 }
