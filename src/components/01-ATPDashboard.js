@@ -192,7 +192,7 @@ function ATPDashboard(props) {
           </Hidden>
         </nav>
         <div className={classes.app}>
-          <Header clients={props.clients} client={props.client} fetchClients={() => props.fetchClients()} />
+          <Header clients={props.clients} client={props.client} fetchClients={() => props.fetchClients()} removeClient={() => props.removeClient()}/>
           {props.client.id && <Header2 onDrawerToggle={handleDrawerToggle} clients={props.clients} client={props.client} fetchClients={() => props.fetchClients()}/>}
           {/* <main className={classes.main}>
             <Content atpClients={atpClients}/>

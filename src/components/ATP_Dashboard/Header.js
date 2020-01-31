@@ -16,7 +16,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import Content from './Content';
+import Content from '../../containers/Content';
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
@@ -52,9 +52,10 @@ function Header(props) {
     // debugger
   };
 
-  if(props.client.id){
-    return handleChange(1)
-  }
+  // const handleSearch = (event, newValue) => {
+  //   props.removeClient()
+  //   setValue(newValue)
+  // }
 
   return (
     <>
@@ -95,14 +96,14 @@ function Header(props) {
         elevation={0}
 
       >
-        <Tabs value={value} onChange={handleChange} textColor="inherit">
-          <Tab textColor="inherit" label="Search" />
-          <Tab textColor="inherit" label={props.client.id ? "Client" : "Client data"}  />
+        <Tabs value={props.client.id ? 1 : value} onChange={handleChange} textColor="inherit">
+          <Tab textColor="inherit" label="Search" onClick={() => props.removeClient()}/>
+          <Tab textColor="inherit" label={props.client.id ? `${props.client.first_name} ${props.client.last_name}` : "Client data"}  />
           <Tab textColor="inherit" label="Messages" />
           <Tab textColor="inherit" label="Pending" />
         </Tabs>
       </AppBar>
-      {!props.client.id && <Content clients={props.clients} fetchClients={() => props.fetchClients()}/>}
+      {!props.client.id && <Content clients={props.clients} fetchClients={() => props.fetchClients()} fetchClient={() => props.fetchClient()}/>}
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ATPDashboard from '../components/01-ATPDashboard';
-import { fetchClients, fetchClient } from '../redux/actions';
+import { fetchClients, fetchClient, removeClient } from '../redux/actions';
 
 const mapStateToProps = ( state ) => {
     return {
@@ -12,8 +12,9 @@ const mapStateToProps = ( state ) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchClients: () => dispatch(fetchClients()),
-        fetchClient: ( id ) => dispatch(fetchClient( id))
+        fetchClients: () => dispatch( fetchClients() ),
+        fetchClient: ( id ) => dispatch( fetchClient( id) ),
+        removeClient: () => dispatch( removeClient() )
     }
 }
 
