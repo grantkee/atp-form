@@ -188,12 +188,12 @@ function ATPDashboard(props) {
             />
           </Hidden>
           <Hidden xsDown implementation="css">
-            <NavBar PaperProps={{ style: { width: drawerWidth } }} />
+            <NavBar PaperProps={{ style: { width: drawerWidth } }} atp={props.atp} />
           </Hidden>
         </nav>
         <div className={classes.app}>
-          <Header />
-          <Header2 onDrawerToggle={handleDrawerToggle} clients={props.clients} fetchClients={() => props.fetchClients()}/>
+          <Header clients={props.clients} client={props.client} fetchClients={() => props.fetchClients()} />
+          {props.client.id && <Header2 onDrawerToggle={handleDrawerToggle} clients={props.clients} client={props.client} fetchClients={() => props.fetchClients()}/>}
           {/* <main className={classes.main}>
             <Content atpClients={atpClients}/>
           </main> */}

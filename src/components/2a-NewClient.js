@@ -17,15 +17,17 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import Navigation from './00-Navigation';
   
 
 
 const styles = theme => ({
   paper: {
-    marginTop: theme.spacing(1),
+    marginTop: 140,
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingTop: "5%"
   },
   avatar: {
     margin: theme.spacing(3),
@@ -115,6 +117,7 @@ class NewClient extends Component {
     payload.id = this.props.clients.length + 1
     payload.atp = this.props.atp.id
     this.props.addClient(payload)
+    console.log(payload)
   }
   
   render(){
@@ -186,7 +189,7 @@ class NewClient extends Component {
               {/* client's date of birth */}
             <Grid item xs={12}>
               <TextField
-                id="dob"
+                id="date_of_birth"
                 autoComplete="fname"
                 name="Date of Birth"
                 variant="outlined"

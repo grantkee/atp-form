@@ -53,6 +53,7 @@ function Content(props) {
   const { classes } = props;
 
   const convertDate = ( dob ) => {
+    // debugger
     if (dob.split('').indexOf('T') !== -1){
       let value = dob.split('T')
       let date = value[0].split('-')
@@ -61,7 +62,11 @@ function Content(props) {
       let year = date[0]
       return `${month}/${day}/${year}`
     } else {
-      return dob
+      let date = dob.split('-')
+      let day = date[2]
+      let month = date[1]
+      let year = date[0]
+      return `${month}/${day}/${year}`
     }
   }
 

@@ -16,6 +16,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import Content from './Content';
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
@@ -45,9 +46,15 @@ function Header(props) {
   const { classes, onDrawerToggle } = props;
   const [value, setValue] = React.useState(0);
 
+  
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    // debugger
   };
+
+  if(props.client.id){
+    return handleChange(1)
+  }
 
   return (
     <>
@@ -61,7 +68,7 @@ function Header(props) {
         <Toolbar>
           <Grid container alignItems="center" spacing={1}>
             <Grid item xs>
-              <Typography color="inherit" variant="h5" component="h1">
+              <Typography color="inherit" variant="h3" component="h1">
                 Authentication
               </Typography>
             </Grid>
@@ -86,14 +93,16 @@ function Header(props) {
         color="primary"
         position="static"
         elevation={0}
+
       >
-        <Tabs value={value} textColor="inherit">
-          <Tab textColor="inherit" label="Users" />
-          <Tab textColor="inherit" label="Sign-in method" />
-          <Tab textColor="inherit" label="Templates" />
-          <Tab textColor="inherit" label="Usage" />
+        <Tabs value={value} onChange={handleChange} textColor="inherit">
+          <Tab textColor="inherit" label="Search" />
+          <Tab textColor="inherit" label={props.client.id ? "Client" : "Client data"}  />
+          <Tab textColor="inherit" label="Messages" />
+          <Tab textColor="inherit" label="Pending" />
         </Tabs>
       </AppBar>
+      {!props.client.id && <Content clients={props.clients} fetchClients={() => props.fetchClients()}/>}
     </>
   );
 }

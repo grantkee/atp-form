@@ -58,6 +58,9 @@ export default function ScrollableTabsButtonAuto( props ) {
   return (
     <div className={classes.root}>
       <AppBar position="static" color="default">
+      <Typography color="inherit" variant="h5" component="h1">
+                {props.client.id && `${props.client.first_name} ${props.client.last_name}`}
+        </Typography>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -77,7 +80,8 @@ export default function ScrollableTabsButtonAuto( props ) {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <Content clients={props.clients} fetchClients={() => props.fetchClients()}/>
+        {/* <Content clients={props.clients} fetchClients={() => props.fetchClients()}/> */}
+        It WORKS
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
