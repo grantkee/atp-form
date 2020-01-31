@@ -70,7 +70,7 @@ function Header(props) {
           <Grid container alignItems="center" spacing={1}>
             <Grid item xs>
               <Typography color="inherit" variant="h3" component="h1">
-                Authentication
+                {props.atp.name}
               </Typography>
             </Grid>
             <Grid item>
@@ -98,7 +98,7 @@ function Header(props) {
       >
         <Tabs value={props.client.id ? 1 : value} onChange={handleChange} textColor="inherit">
           <Tab textColor="inherit" label="Search" onClick={() => props.removeClient()}/>
-          <Tab textColor="inherit" label={props.client.id ? `${props.client.first_name} ${props.client.last_name}` : "Client data"}  />
+          <Tab textColor="inherit" label={props.client.id ? `${props.client.first_name} ${props.client.last_name}` : "Client data"} disabled={props.client.id ? false : true}/>
           <Tab textColor="inherit" label="Messages" />
           <Tab textColor="inherit" label="Pending" />
         </Tabs>
