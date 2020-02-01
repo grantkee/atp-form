@@ -32,12 +32,12 @@ export const fetchClients = () => {
         };
         dispatch(action);
       })
-      .catch(error => console.log(error));
+    .catch(error => console.log(error));
   };
 };
 
 export const fetchClient = id => {
-  debugger
+  debugger;
   return dispatch => {
     fetch(`/api/clients/${id}`)
       .then(res => res.json())
@@ -51,6 +51,26 @@ export const fetchClient = id => {
       .catch(error => console.log(error));
   };
 };
+
+// export const createClient = client => {
+//   return dispatch => {
+//     fetch(`/api/clients/${id}`, {
+//       method: 'POST',
+//       body: JSON.stringify({
+//         first_name: 
+//       })
+//     })
+//       .then(res => res.json())
+//       .then(response => {
+//         const action = {
+//           type: "CREATE_CLIENT",
+//           value: client
+//         };
+//         dispatch(action);
+//       })
+//       .catch(error => console.log(error));
+//   };
+// };
 
 export const removeClient = () => {
   return {

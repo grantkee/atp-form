@@ -24,12 +24,14 @@ const getClientById = (req, res) => {
 }
 
 const createClient = (req, res) => {
-  const { firstName, lastName } = req.body
-  let sql = "INSERT INTO clients (first_name, last_name) VALUES (?, ?)"
-  sql = mysql.format(sql, [ firstName, lastName ])
+  console.log('we got a new one :O')
+  const { first_name, last_name, date_of_birth, email, address, city } = req.body
+  let sql = "INSERT INTO test ( first_name, last_name, date_of_birth, email, address, city ) VALUES (?, ?, ?, ?, ?, ?)"
+  sql = mysql.format(sql, [ first_name, last_name, date_of_birth, email, address, city ])
 
   pool.query(sql, (err, results) => {
     if (err) return handleSQLError(res, err)
+    console.log('post: ' + results)
     return res.json({ newId: results.insertId });
   })
 }
@@ -57,5 +59,6 @@ const deleteClientByFirstName = (req, res) => {
 
 module.exports = {
   getAllClients,
-  getClientById
+  getClientById,
+  createClient
 }

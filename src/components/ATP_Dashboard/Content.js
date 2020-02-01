@@ -53,6 +53,8 @@ function Content(props) {
   const { classes } = props;
 
   const convertDate = ( dob ) => {
+    // let x
+    // console.log(x = dob.split('').indexOf('T'))
     // debugger
     if (dob.split('').indexOf('T') !== -1){
       let value = dob.split('T')

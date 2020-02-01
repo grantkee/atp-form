@@ -23,7 +23,6 @@ import Navigation from './00-Navigation';
 
 const styles = theme => ({
   paper: {
-    marginTop: 140,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -114,10 +113,29 @@ class NewClient extends Component {
 
   handleSubmit = (e) => {
     const payload = { ...this.state }
-    payload.id = this.props.clients.length + 1
+    let userId = this.props.clients.length + 1
+    payload.id = userId
     payload.atp = this.props.atp.id
-    this.props.addClient(payload)
-    console.log(payload)
+    this.props.addClient(payload);
+
+    fetch(`/api/clients/${userId}`, {
+      method: 'POST',
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        id: userId,
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        date_of_birth: this.state.date_of_birth,
+        email: this.state.email,
+        address: this.state.address,
+        city: this.state.city
+      })})
+      .then(response => {
+         response.json()
+      }).then(function(body) {
+        console.log('clientside post: ' + body);
+      })
+    .catch(error => console.log(error))
   }
   
   render(){
@@ -459,7 +477,7 @@ class NewClient extends Component {
           </Grid>
         <Link to={`/clients/${this.props.clients.length + 1}/equipment`}>
           <Button
-            type="submit"
+            // type="submit"
             fullWidth
             onClick={this.handleSubmit}
             variant="contained"

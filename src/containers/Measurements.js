@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Measurements from '../components/Measurements';
+import { fetchClients } from '../redux/actions';
 
 const mapStateToProps = (state) => {
     return {
@@ -7,4 +8,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Measurements);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchClients: () => dispatch(fetchClients())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Measurements);

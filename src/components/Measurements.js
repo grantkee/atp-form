@@ -261,11 +261,12 @@ class Measurements extends Component {
           </Grid>
           <Link to="/dashboard">
             <Button
-              type="submit"
+              // type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={()=>this.props.fetchClients()}
             >
               Finish
             </Button>
