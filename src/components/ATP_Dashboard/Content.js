@@ -116,7 +116,7 @@ function Content(props) {
           </TableHead>
           <TableBody>
             {props.clients.length === 0 ? props.fetchClients() : props.clients.map(client => (
-              <TableRow key={client.id} value={client.id} onClick={()=>props.fetchClient(client.id)}>
+              <TableRow key={client.id} value={client.id} onClick={()=>props.fetchClient(client.id)}  >
                 {console.log(`client passing into fetch: ${client.id}`)}
                 <TableCell component="th" scope="row">
                   {`${client.first_name} ${client.last_name}`}
