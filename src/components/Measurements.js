@@ -10,7 +10,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import diagram from '../data/measurement-guide.svg';
+// import Diagram from '../data/measurement-guide.svg';
 import Copyright from './Copyright';
 
 const styles = theme => ({
@@ -84,9 +84,10 @@ class Measurements extends Component {
           Measurements
         </Typography>
         <form className={classes.form} noValidate>
-              <Grid container spacing={2} >
+              {/* <Grid container spacing={2} >
                 <img src={diagram} className={classes.svg} alt="measurement-guide"/>
-              </Grid>
+                <Diagram />
+              </Grid> */}
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
