@@ -10,6 +10,7 @@ import Header from './Header';
 import Content from './Content';
 import ClientDetails from '../../containers/2b1-ClientDetails';
 import Equipment from './Equipment';
+import Progress from './Progress';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -85,7 +86,7 @@ export default function ScrollableTabsButtonAuto( props ) {
         {props.client.id && <ClientDetails />}
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <Progress client={props.client}/>
       </TabPanel>
       <TabPanel value={value} index={2}>
         <Equipment client={props.client} />

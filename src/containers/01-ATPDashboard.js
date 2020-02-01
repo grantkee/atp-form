@@ -6,7 +6,7 @@ const mapStateToProps = ( state ) => {
     return {
         clients: state.clients,
         client: state.client,
-        atp: state.atp
+        atp: state.atp,
     }
 }
 
