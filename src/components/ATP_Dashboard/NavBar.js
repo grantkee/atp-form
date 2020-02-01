@@ -18,28 +18,8 @@ import SettingsInputComponentIcon from '@material-ui/icons/SettingsInputComponen
 import TimerIcon from '@material-ui/icons/Timer';
 import SettingsIcon from '@material-ui/icons/Settings';
 import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup';
-
-const categories = [
-  {
-    id: 'Develop',
-    children: [
-      { id: 'Authentication', icon: <PeopleIcon />, active: true },
-      { id: 'Database', icon: <DnsRoundedIcon /> },
-      { id: 'Storage', icon: <PermMediaOutlinedIcon /> },
-      { id: 'Hosting', icon: <PublicIcon /> },
-      { id: 'Functions', icon: <SettingsEthernetIcon /> },
-      { id: 'ML Kit', icon: <SettingsInputComponentIcon /> },
-    ],
-  },
-  {
-    id: 'Quality',
-    children: [
-      { id: 'Analytics', icon: <SettingsIcon /> },
-      { id: 'Performance', icon: <TimerIcon /> },
-      { id: 'Test Lab', icon: <PhonelinkSetupIcon /> },
-    ],
-  },
-];
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu';
 
 const styles = theme => ({
   categoryHeader: {
@@ -85,12 +65,34 @@ const styles = theme => ({
 function Navigator(props) {
   const { classes, ...other } = props;
 
+  const categories = [
+    {
+      id: props.atp.name,
+      children: [
+        { id: 'Clients', icon: <PeopleIcon />, active: true },
+        { id: 'All Equipment', icon: <DnsRoundedIcon /> },
+        { id: 'Messages', icon: <PermMediaOutlinedIcon /> },
+        { id: 'Appointments', icon: <PublicIcon /> },
+        { id: 'Sales Goales', icon: <SettingsEthernetIcon /> },
+        { id: 'Company News', icon: <SettingsInputComponentIcon /> },
+      ],
+    },
+    {
+      id: 'Settings',
+      children: [
+        { id: 'Customize', icon: <SettingsIcon /> },
+        { id: 'Notifications', icon: <TimerIcon /> },
+        { id: 'Mobile View', icon: <PhonelinkSetupIcon /> },
+      ],
+    },
+  ];
+
   return (
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
         <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
-          Paperbase
-        </ListItem>
+          DME 4 ME
+        </ListItem>                
         <ListItem className={clsx(classes.item, classes.itemCategory)}>
           <ListItemIcon className={classes.itemIcon}>
             <HomeIcon />
@@ -100,7 +102,7 @@ function Navigator(props) {
               primary: classes.itemPrimary,
             }}
           >
-            Project Overview
+            Search All Clients
           </ListItemText>
         </ListItem>
         {categories.map(({ id, children }) => (

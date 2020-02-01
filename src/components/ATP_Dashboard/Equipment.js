@@ -18,17 +18,23 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Equipment = ( props ) => {
+const equipment = [
+    "Gait Trainer",
+    "Power Wheelchair",
+    "Pediatric Bed"
+  ]
+
+function Equipment( props ) {
   const classes = useStyles();
   const [spacing, setSpacing] = React.useState(2);
   
   return (
     <>
-      <h2>{props.client.first_name} {props.client.last_name}</h2>
+      <h2>Current Equipment</h2>
       <Grid container className={classes.root} spacing={2}>
       <Grid item xs={12}>
         <Grid container justify="center" spacing={spacing}>
-          {props.equipment.map((value, index) => (
+          {equipment.map((value, index) => (
             <Grid key={index} item>
               <Link to={`/clients/${props.client.id}/equipment/${value.toLowerCase().split(' ').join('-')}`}>
                 <Paper className={classes.paper} onClick={() => props.addEquipment( value.toLowerCase().split(' ').join('-') )}>{value}</Paper>

@@ -24,9 +24,6 @@ const clients = (state = [], action) => {
             return action.value
         case 'ADD_CLIENT':
             return [ ...state, action.value ]
-        case 'REMOVE_CLIENT':
-            clients.splice(action.value, 1)
-            return clients
         default:
             return state
     }
@@ -39,9 +36,12 @@ const client = (state = [], action) => {
         case 'ADD_CLIENT':
             return action.value
         case 'ADD_EQUIP':
+            debugger
             return Object.assign({}, state, {
                 equipment: action.value
             })
+        case 'REMOVE_CLIENT':
+            return initialState
         default:
             return state
     }

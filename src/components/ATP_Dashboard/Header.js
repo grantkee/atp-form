@@ -16,6 +16,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import Content from '../../containers/Content';
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
@@ -45,9 +46,16 @@ function Header(props) {
   const { classes, onDrawerToggle } = props;
   const [value, setValue] = React.useState(0);
 
+  
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    // debugger
   };
+
+  // const handleSearch = (event, newValue) => {
+  //   props.removeClient()
+  //   setValue(newValue)
+  // }
 
   return (
     <>
@@ -56,13 +64,13 @@ function Header(props) {
         className={classes.secondaryBar}
         color="primary"
         position="static"
-        elevation={1000}
+        elevation={10}
       >
         <Toolbar>
           <Grid container alignItems="center" spacing={1}>
             <Grid item xs>
-              <Typography color="inherit" variant="h5" component="h1">
-                Authentication
+              <Typography color="inherit" variant="h3" component="h1">
+                ATP: {props.atp.name}
               </Typography>
             </Grid>
             <Grid item>
@@ -86,14 +94,16 @@ function Header(props) {
         color="primary"
         position="static"
         elevation={0}
+
       >
-        <Tabs value={value} textColor="inherit">
-          <Tab textColor="inherit" label="Users" />
-          <Tab textColor="inherit" label="Sign-in method" />
-          <Tab textColor="inherit" label="Templates" />
-          <Tab textColor="inherit" label="Usage" />
+        <Tabs value={props.client.id ? 1 : value} onChange={handleChange} textColor="inherit">
+          <Tab textColor="inherit" label="Search" onClick={() => props.removeClient()}/>
+          <Tab textColor="inherit" label={props.client.id ? `${props.client.first_name} ${props.client.last_name}` : "Client data"} disabled={props.client.id ? false : true}/>
+          <Tab textColor="inherit" label="Messages" />
+          <Tab textColor="inherit" label="Pending" />
         </Tabs>
       </AppBar>
+      {!props.client.id && <Content clients={props.clients} fetchClients={() => props.fetchClients()} fetchClient={() => props.fetchClient()}/>}
     </>
   );
 }

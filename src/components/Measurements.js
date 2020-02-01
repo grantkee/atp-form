@@ -12,18 +12,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import diagram from '../data/measurement-guide.svg';
 import Copyright from './Copyright';
-// import Autocomplete from '@material-ui/lab/Autocomplete';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-//table imports
-// import Table from '@material-ui/core/Table';
-// import TableBody from '@material-ui/core/TableBody';
-// import TableCell from '@material-ui/core/TableCell';
-// //TableContainer not found at /core/TableContainer???
-// import TableContainer from '@material-ui/core';
-// import TableHead from '@material-ui/core/TableHead';
-// import TableRow from '@material-ui/core/TableRow';
-// import Paper from '@material-ui/core/Paper';
-
 
 const styles = theme => ({
   paper: {
@@ -278,7 +266,6 @@ class Measurements extends Component {
               variant="contained"
               color="primary"
               className={classes.submit}
-              href="/dashboard"
             >
               Finish
             </Button>

@@ -11,27 +11,38 @@ import * as serviceWorker from './serviceWorker';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core'
 import { amber, lime } from '@material-ui/core/colors';
 
-const theme = createMuiTheme({
+let theme = createMuiTheme({
     palette: {
-        primary: {
-            //main primary has to be declared to use #
-            main: '#4144B7'
-        },
-        secondary: {
-            //main color off secondary has to be declared
-            main: '#981A1D',
-            //accents can be used with the .<letter>
-            light: amber.A100,
-            //type dark
-            dark: lime[500]
-        },
-        spacing: {
-            unit: 10
-        },
-        //declaring type 'dark' turns the entire app into dark mode. not sure how to control it, but the paper imports turn charcoal
-        // type: 'dark'
-    }
-});
+      primary: {
+        light: '#63ccff',
+        main: '#009be5',
+        dark: '#006db3',
+      },
+    },
+    typography: {
+      h5: {
+        fontWeight: 500,
+        fontSize: 26,
+        letterSpacing: 0.5,
+      },
+    },
+    shape: {
+      borderRadius: 8,
+    },
+    props: {
+      MuiTab: {
+        disableRipple: true,
+      },
+    },
+    mixins: {
+      toolbar: {
+        minHeight: 48,
+      },
+    },
+  });
+
+console.log(theme)
+console.log(lime)
 
 ReactDOM.render(
     <BrowserRouter>

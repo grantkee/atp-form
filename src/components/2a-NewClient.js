@@ -17,15 +17,17 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import Navigation from './00-Navigation';
   
 
 
 const styles = theme => ({
   paper: {
-    marginTop: theme.spacing(1),
+    marginTop: 140,
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingTop: "5%"
   },
   avatar: {
     margin: theme.spacing(3),
@@ -63,13 +65,13 @@ class NewClient extends Component {
   constructor(props){
     super(props)
   this.state = {
-    id: this.props.clients.length + 1,
-    atp_id: this.props.atp_id,
-    firstName: '',
-    lastName: '',
+    id: '',
+    atp_id: '',
+    first_name: '',
+    last_name: '',
     middleName: '',
     generation: '',
-    dob: '',
+    date_of_birth: '',
     gender: '',
     address: '',
     cit: '',
@@ -111,14 +113,15 @@ class NewClient extends Component {
   }
 
   handleSubmit = (e) => {
-    // e.preventDefault()
     const payload = { ...this.state }
-    this.props.addClient(payload)    
+    payload.id = this.props.clients.length + 1
+    payload.atp = this.props.atp.id
+    this.props.addClient(payload)
+    console.log(payload)
   }
   
   render(){
     const { classes } = this.props;
-    console.log(this.props.clients)
   return (
     <>
     <Container component="main" maxWidth="xs">
@@ -136,9 +139,9 @@ class NewClient extends Component {
               {/* client's first name */}
             <Grid item xs={12} sm={6}>
               <TextField
-                id="firstName"
+                id="first_name"
                 autoComplete=""
-                name="firstName"
+                name="first_name"
                 variant="outlined"
                 required
                 fullWidth
@@ -151,13 +154,13 @@ class NewClient extends Component {
               {/* client's last name */}          
             <Grid item xs={12} sm={6}>
               <TextField
-                id="lastName"
+                id="last_name"
                 autoComplete="lname"
                 variant="outlined"
                 required
                 fullWidth
                 label="Last Name"
-                name="lastName"
+                name="last_name"
                 onChange={this.handleChange}
               />
             </Grid>
@@ -186,7 +189,7 @@ class NewClient extends Component {
               {/* client's date of birth */}
             <Grid item xs={12}>
               <TextField
-                id="dob"
+                id="date_of_birth"
                 autoComplete="fname"
                 name="Date of Birth"
                 variant="outlined"
@@ -465,7 +468,7 @@ class NewClient extends Component {
           >
             Next
           </Button>
-          </Link>
+        </Link>
         </form>
       </div>
       <Box mt={5}>
@@ -476,4 +479,4 @@ class NewClient extends Component {
   )};
 }
 
-export default withStyles(styles)(NewClient)
+export default withStyles(styles)(NewClient);
