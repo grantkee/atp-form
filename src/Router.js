@@ -30,7 +30,7 @@ const Router = () => {
             <Route path="/new-client" component={NewClient} />
             <Route path="/about" component={About} />
             {/* Equipment Routes Here */}
-            {/* Forms and justifications for New Clients */}
+            {/* Forms and justifications for Clients */}
             <Route path="/clients/:id/equipment/:equipType/measurements" component={Measurements} />
             <Route path="/clients/:id/equipment/car-seat" component={CarSeat} />
             <Route path="/clients/:id/equipment/gait-trainer" component={GaitTrainer} />
@@ -44,7 +44,6 @@ const Router = () => {
             <Route path="/clients/:id/equipment/pediatric-bed" component={PediatricBed} />
             <Route path="/clients/:id/equipment/repairs" component={Repairs} />
             <Route path="/clients/:id/equipment/modifications" component={Modifications} />
-            {/* Experimental dashboard and landing routes to preview */}
             <Route path="/clients/:id/equipment" component={Equipment} />
             <Route path="/clients/:id" component={ClientDetails} />
             <Route path="/clients" component={ClientList} />

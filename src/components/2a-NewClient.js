@@ -475,7 +475,7 @@ class NewClient extends Component {
               />
             </Grid> */}
           </Grid>
-        <Link to={`/clients/${this.props.clients.length + 1}/equipment`}>
+        <Link to={'/'}>
           <Button
             // type="submit"
             fullWidth
