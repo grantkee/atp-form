@@ -53,7 +53,8 @@ const futureAdditionsList = [
     {text: "Autoformat the date input on new clients", status: false},
     {text: "Collect date and setState of date on FunctionalAssessment to add logic component: If the last assessment was less than 30 days ago, we don't need to do it again. Mostly helpful if doing multiple pieces of equipment at the same time.", status: false},
     {text: "Search function for client list: DOB, first_name, last_name, etc. Review this article https://hub.packtpub.com/implementing-autocompletion-in-a-react-material-ui-application-tutorial/", status: false},
-    {text: "Ability to search DME equipment and obtain manufacturer information", status: false}
+    {text: "Ability to search DME equipment and obtain manufacturer information", status: false},
+    {text: "I need to create a way for administrative users to add ATPs and Funding Coordinators. Because these users have special access, I am not going to create a way for new employees to create their own profile. This will be accomplished from within the application by an admin user", status: false}
 ];
 
 const challengeList = [
@@ -66,6 +67,7 @@ const challengeList = [
     {text: "How can I use .env files to protect my database instance? Trying process.env.REACT_APP_CLOUD_INSTANCE returned undefined everytime.", status: false},
     {text: "I've tied the fetchClients() action 1-ClientType component. The problem is when the server restarts in development mode, the state.clients = [] again and there's no way to call the function again without going back to '/' and clicking the 'Existing Client' paper. I need to figure out a better way to request the existing clients array and populate the array in state.", status: true, solution: "I'm checking if the array.length is 0, and calling the fetch again if it is"},
     {text: "Routing ('/new-client'): when should I start posting information to the database?", status: true, solution: "I'm going to post all the information needed for my clients table and post at once. FunctionalAssessment and Equipment selections are going to come later."},
+    {text: "Login route for users to access their dashboard. I'm hesitant to move forward until I understand security measures better. For now, I'm only going to focus on ATP logins and their dashboard. I'm using server-side authentication, but I don't really understand how it works. I'm prioritizing this because I need time to digest and ensure proper security measures are in place early on. This is the greatest challenge I face right now.", status: false}
 ]
 
 const About = () => {
@@ -114,9 +116,6 @@ const About = () => {
                 <List component="div" disablePadding>
                 {visionDescription.map((item, index) =>
                 <ListItem key={index} className={classes.nested}>
-                    <ListItemIcon>
-                        <StarBorder />
-                    </ListItemIcon>
                     <ListItemText primary={item} />
                 </ListItem>
                 )}
@@ -136,9 +135,6 @@ const About = () => {
                 <List component="div" disablePadding>
                 {goalsDescription.map((item, index) =>
                 <ListItem key={index} className={classes.nested}>
-                    <ListItemIcon>
-                        <StarBorder />
-                    </ListItemIcon>
                     <ListItemText primary={item.text} />
                 </ListItem>
                 )}

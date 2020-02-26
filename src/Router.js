@@ -1,5 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
+import Signup from './components/Signup';
+import Login from './components/Login';
 import ClientList from './containers/2b-ExistingClients';
 import ClientType from './containers/1-ClientType';
 import NewClient from './containers/2a-NewClient';
@@ -22,6 +24,7 @@ import HospitalBed from './components/4i-HospitalBed';
 import PediatricBed from './components/4j-PediatricBed';
 import Repairs from './components/4k-Repairs';
 import Modifications from './components/4l-Modifications';
+
 
 const Router = () => {
     return (
@@ -49,6 +52,8 @@ const Router = () => {
             <Route path="/clients" component={ClientList} />
             <Route path="/dashboard" component={ATPDashboard} />
             <Route path="/landing" component={Landing} />
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
         </Switch>
     );
 };
