@@ -7,7 +7,7 @@ const authRouter = require("./routers/authRouter");
 const clientsRouter = require("./routers/clientsRouter");
 
 //calling middleware to log network activity
-const { logger } = require('./middleware');
+// const { logger, authenticate } = require('./middleware');
 
 //using express()
 const app = express();
@@ -16,18 +16,19 @@ const port = process.env.PORT || 5000;
 //use json format and logger middleware
 app.use(bodyParser.json());
 
-//logging network activity with req.path and timestamp
-app.use(logger);
 
-//using authorization router here. should generate a token upon signing up and then verify correct login information
-app.use('/auth', authRouter)
+// logger here to keep track of network activity
+// app.use(logger);
+// app.use(authenticate);
+
 
 //app.use( all api routes) here
 app.use("/api", clientsRouter);
 
-
+//general
 app.use(express.static(path.join(__dirname, "../build")));
 
+//general
 app.get("*", function(req, res) {
   console.log("you got it bro XD");
   res.sendFile(path.join(__dirname, "../build", "index.html"));

@@ -37,7 +37,6 @@ export const fetchClients = () => {
 };
 
 export const fetchClient = id => {
-  debugger;
   return dispatch => {
     fetch(`/api/clients/${id}`)
       .then(res => res.json())
